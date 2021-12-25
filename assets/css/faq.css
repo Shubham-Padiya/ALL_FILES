@@ -1,0 +1,98 @@
+/*------------------------------------------ common css------------------------------------ */
+
+*{
+    font-family: 'Roboto', sans-serif;;
+}
+nav a{
+    font-weight: normal;
+    font-style: normal;
+    color: #f1f1f1!important;
+}
+@media (max-width:513px){
+    footer .container{
+        text-align: center!important;
+    }
+}
+@media (max-width:600px){
+    main{
+        padding-left: 15px!important;
+        padding-right: 15px!important;
+    }
+}
+@media (max-width:1200px){
+    footer .container{
+        justify-content: center!important;
+    }
+}
+@media (max-width:990px){
+    footer.container{
+        justify-content: center!important;
+    }
+    footer nav ul{
+        display: inline-block!important;
+    }
+}
+
+
+
+
+/*------------------------------------------- price --------------------------------------- */
+@media (max-width:996px){
+    #helper .col-lg-4 h3 {
+        text-align: center!important;
+    }
+    #helper .col-lg-4 p {
+        text-align: center!important;
+    }
+}
+
+#btn-back-to-top{
+    color: #525252;
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 10px;
+    font-size: 250%;
+}
+
+#layer{
+   float: right;
+   margin-right: 30px;
+}
+/*------------------------------------ price end------------------------------------------ */
+
+
+/*------------------------------------------ contact------------------------------------ */
+
+#map{
+    height: 400px;
+}
+@media (max-width : 766px){
+    section input{
+        width: 59%!important;
+    }
+    section select{
+        width: 59%!important;
+    }
+    section .m1{
+        width: 59%!important;
+    }
+    .s1{
+        width: 59%!important;
+    }
+    textarea{
+        width: 59%!important;
+    }
+}
+@media (max-width:507px){
+    #mail{
+        width: 210px!important;
+    }
+}
+@media (max-width:285px){
+    section button{
+        width: 59%!important;
+    }
+}
+
+/*------------------------------------------ contact end -------------------------------------*/
