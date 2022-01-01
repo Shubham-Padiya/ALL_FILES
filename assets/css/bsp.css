@@ -10,6 +10,15 @@ a{
     background-image: url(../images/becomepro.png);
 }
 
+.fixed{
+    
+    position: fixed;
+    top: 0;
+    width: 100%;
+  
+  
+}
+
 nav a{
     font-weight: normal;
     font-style: normal;
@@ -41,6 +50,15 @@ header nav{
     background-color: transparent;
     padding: 8px 24px 8px 24px;
 }
+
+#dropdown {
+    background: url("../images/india.svg");
+    background-repeat: no-repeat;
+    height: 16px;
+    width: 44px;
+    border: 0;
+}
+
 .registration-form{
     max-width: 430px;
     background-color: white;
@@ -170,8 +188,6 @@ h2{
         width: 150px;
     }
 }
-
-
 
 
 

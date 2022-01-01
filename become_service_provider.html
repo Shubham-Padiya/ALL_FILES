@@ -13,12 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="assets/css/bsp.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    
 </head>
 <body>
     <section class="bgimg">
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-dark">
+        <header id="header">
+            <nav class="navbar navbar-expand-xl navbar-dark">
                 <div class="container-fluid d-flex">
                     <a href="#" class="navbar-brand"><img src="assets/images/white-logo-transparent-background.png" class="white-logo-transparent-background"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -27,29 +27,37 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="navbar-nav ms-auto me-2">
                           <li class="nav-item text-center mb-1">
-                            <a class="nav-link border border-1 rounded-pill ms-1 me-1" href="#" id="book">Book a cleaner</a>
+                            <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl" href="#" id="book">Book a cleaner</a>
                           </li>
-                          <li class="nav-item text-center mb-1">
-                            <a class="nav-link" href="#" id="price">Prices</a>
+                          <li class="nav-item text-center mb-1 ms-1">
+                            <a class="nav-link" href="#">Prices</a>
                           </li>
-                          <li class="nav-item text-center mb-1">
+                          <li class="nav-item text-center mb-1 ms-1">
                             <a class="nav-link" href="#">Our Guarantee</a>
                           </li>
-                          <li class="nav-item text-center mb-1">
+                          <li class="nav-item text-center mb-1 ms-1">
                             <a class="nav-link" href="#">Blog</a>
                           </li>
-                          <li class="nav-item text-center mb-1">
+                          <li class="nav-item text-center mb-1 ms-1">
                             <a class="nav-link" href="#">Contact Us</a>
                           </li>
-                          <li class="nav-item text-center mb-1">
-                            <a class="nav-link border border-1 rounded-pill ms-1 me-1" href="#" id="lgn">Login</a>
+                          <li class="nav-item text-center mb-1 ms-1">
+                            <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl" href="#" id="lgn">Login</a>
                           </li>
-                          <li class="nav-item text-center mb-1">
-                            <a class="nav-link border border-1 rounded-pill ms-1 me-1" href="#" id="b-helper">Become a Helper</a>
+                          <li class="nav-item text-center mb-1 ms-1">
+                            <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl" href="#" id="b-helper">Become a Helper</a>
+                          </li>
+                          <li class="nav-item">
+                            <div class="nav-link ">
+                              <select id="dropdown">
+                                <option value="India"></option>
+                                <option value="Australia"></option>
+                                <option value="US"></option>
+                              </select>
+                            </div>
                           </li>
                         </ul>
                     </div>
-                    
                 </div>
             </nav>
         </header>
@@ -210,5 +218,11 @@
 
     </footer>
   <!-- footer end -->
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/jquery-3.6.0.js"></script>
+  <script src="assets/js/bsp.js"></script>
 </body>
 </html>
