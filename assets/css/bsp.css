@@ -172,12 +172,22 @@ h2{
         margin: 50!important;
     }
 }
-@media(max-width:674px){
+@media(max-width:687px){
     .group-29 , .group-18b , .group-30{
-        margin: 0!important;
+        margin: 30px!important;
     }
 }
-
+@media(max-width:650px){
+    .group-29 , .group-18b , .group-30{
+        margin: 30px!important;
+    }
+    #order1{
+        order: 1!important;
+    }
+    #order2{
+        order: 2!important;
+    }
+}
 @media(max-width:262px){
     .group-18b , .group-29 , .group-30{
         height: 200px;
