@@ -8,6 +8,8 @@ a{
 }
 .bgimg{
     background-image: url(../images/becomepro.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .fixed{
@@ -26,7 +28,6 @@ nav a{
 }
 
 header nav{
-    /* background: rgba(82,82,82,0.7);  */
     width: 100%;
 }
 .white-logo-transparent-background{

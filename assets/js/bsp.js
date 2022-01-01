@@ -10,7 +10,7 @@ $(window).scroll(function () {
   ;}
   else {
     sticky.removeClass("fixed");
-    $(".navbar-brand img").height(120).width(156);
+    $(".navbar-brand img").height(102).width(138);
     $(".navbar").css("background", "transparent");
     $(".bl").css("background","transparent");
   }
