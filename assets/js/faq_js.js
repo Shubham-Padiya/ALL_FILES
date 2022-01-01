@@ -72,3 +72,11 @@ function rotateimg9() {
   }
       document.querySelector("#img9").style.transform = `rotate(${rotation}deg)`;
 }
+
+$(window).scroll(function () {
+  var sticky = $("#header"),
+    scroll = $(window).scrollTop();
+
+  if (scroll > 64) sticky.addClass("fixed");
+  else sticky.removeClass("fixed");
+});

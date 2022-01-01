@@ -8,6 +8,11 @@ nav a{
     font-style: normal;
     color: #f1f1f1!important;
 }
+.fixed{
+    position: fixed;
+    top: 0;
+    width: 100%;  
+}
 @media (max-width:513px){
     footer .container{
         text-align: center!important;
