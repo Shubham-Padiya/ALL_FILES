@@ -6,7 +6,7 @@ $(window).scroll(function () {
   sticky.addClass("fixed");
     $(".navbar-brand img").height(54).width(73);
     $(".navbar").css("background", "rgba(82, 82, 82, 0.8)");
-    $(".bl").css("background","#26626e");
+    $(".bl").css("background","#29626d");
   ;}
   else {
     sticky.removeClass("fixed");
