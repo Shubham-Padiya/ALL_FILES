@@ -124,6 +124,28 @@ button{
     border-radius: 50%;
     margin-bottom: 15px;
 }
+.blogleft{
+    position: absolute;
+    top: 700px;
+    left: 0;
+    z-index: -1; 
+}
+  
+.blogright {
+    position: absolute;
+    top: 700px;
+    right: 0;
+    z-index: -1; 
+}
+@media(max-width:320px){
+    .blogleft{
+        display: none;
+    }
+    .blogright{
+        display: none;
+    }
+}
+
 h2{
     color: #4f4f4f;
     font-size: 40px;
@@ -177,6 +199,8 @@ h2{
         margin: 30px!important;
     }
 }
+
+
 @media(max-width:650px){
     .group-29 , .group-18b , .group-30{
         margin: 30px!important;
@@ -192,6 +216,7 @@ h2{
     .group-18b , .group-29 , .group-30{
         height: 200px;
         width: 200px;
+        margin: 0!important;
     }
 }
 @media(max-width:208px){
