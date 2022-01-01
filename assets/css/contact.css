@@ -6,10 +6,11 @@
 a{
     text-decoration: none;
 }
-/* #he{    this is for the fixed nav bar
+.fixed{
     position: fixed;
-    width: 100%;
-} */
+    top: 0;
+    width: 100%;  
+}
 nav a{
     font-weight: normal;
     font-style: normal;

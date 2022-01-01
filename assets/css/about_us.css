@@ -8,6 +8,11 @@ nav a{
     font-style: normal;
     color: #f1f1f1!important;
 }
+.fixed{
+    position: fixed;
+    top: 0;
+    width: 100%;  
+}
 header nav{
     background: rgba(82,82,82,0.8)!important; 
     width: 100%;

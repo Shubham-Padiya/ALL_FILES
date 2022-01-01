@@ -8,27 +8,11 @@ nav a{
     font-style: normal;
     color: #f1f1f1!important;
 }
-
-/* @media (max-width:497px){
-    footer .container{
-        text-align: center!important;
-    }
+.fixed{
+    position: fixed;
+    top: 0;
+    width: 100%;  
 }
-@media (max-width:1200px){
-    footer .container{
-        justify-content: center!important;
-    }
-}
-@media (max-width:990px){
-    footer .container{
-        justify-content: center!important;
-        text-align: center!important;
-    }
-    footer nav ul{
-        display: inline-block!important;
-    }
-} */
-
 
 @media (max-width:1200px){
     footer .container{
