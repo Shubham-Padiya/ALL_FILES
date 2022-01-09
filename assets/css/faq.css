@@ -1,40 +1,58 @@
 /*------------------------------------------ common css------------------------------------ */
 
-*{
-    font-family: 'Roboto', sans-serif;;
+* {
+  font-family: "Roboto", sans-serif;
 }
-nav a{
-    font-weight: normal;
-    font-style: normal;
-    color: #f1f1f1!important;
+nav a {
+  font-weight: normal;
+  font-style: normal;
+  color: #f1f1f1 !important;
 }
-.fixed{
-    position: fixed;
-    top: 0;
-    width: 100%;  
+.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
-@media (max-width:513px){
-    footer .container{
-        text-align: center!important;
-    }
-}
-@media (max-width:600px){
-    main{
-        padding-left: 15px!important;
-        padding-right: 15px!important;
-    }
-}
-@media (max-width:1200px){
-    footer .container{
-        justify-content: center!important;
-    }
-}
-@media (max-width:990px){
-    footer.container{
-        justify-content: center!important;
-    }
-    footer nav ul{
-        display: inline-block!important;
-    }
+.active-btn {
+  background: #1d7a8c;
 }
 
+.active-btn a {
+  color: #ffffff;
+}
+
+.inactive-btn {
+  border-bottom: solid 3px #1d7a8c;
+}
+
+.inactive-btn a {
+  color: #646464;
+}
+
+@media (max-width: 513px) {
+  footer .container {
+    text-align: center !important;
+  }
+}
+@media (max-width: 600px) {
+  main {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+@media (max-width: 1200px) {
+  footer .container {
+    justify-content: center !important;
+  }
+}
+@media (max-width: 990px) {
+  footer.container {
+    justify-content: center !important;
+  }
+  footer nav ul {
+    display: inline-block !important;
+  }
+  /* .inactive-btn {
+    border-top: solid 3px #1d7a8c !important;
+  } */
+}

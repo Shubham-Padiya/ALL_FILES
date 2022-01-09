@@ -1,6 +1,5 @@
-
 $(document).ready(function() {
-    $('#servicehistory').DataTable( {
+    $('#upcomingservice').DataTable( {
       searching:false,
       info:false,
       dom: '<"float-left"B><"float-right"f>rt<"row"<"col-sm-4"l><"col-sm-4"i><"col-sm-4"p>>',

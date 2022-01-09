@@ -5,18 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service_history</title>
-    <link rel="stylesheet" href="assets/bootstrap.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css">
     
     <link rel="stylesheet" href="assets/css/servicehistory.css">
 </head>
 <body>
-    <header id="header">
-        <nav class="navbar navbar-expand-lg navbar-dark">
+    <header class="header1">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
             <div class="container-fluid d-flex">
                 <a href="#" class="navbar-brand"><img src="assets/images/white-logo-transparent-background.png" class="white-logo-transparent-background"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -39,15 +44,11 @@
                         <li class="nav-item text-center ms-1">
                             <a class="nav-link mt-1" href="contact.html">Contact</a>
                         </li>
-                        <li>
-                            <div class="vertical_line"></div>
-                        </li>
+                        
                         <li class="notification text-center">
                             <a href="#"><i class='fa fa-bell fa-5x'></i></a>
                         </li>
-                        <li>
-                            <div class="vertical_line"></div>
-                        </li>
+                        
                         <li class="dropdown text-center">
                             <a href="" title="Account Info" class="nav-link" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="assets/images/user.png">
@@ -69,6 +70,43 @@
     </header>
 
 
+    <header class="header2" id="header">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+            <div class="container-fluid d-flex" id="nn">
+                <a href="#"><img src="assets/images/white-logo-transparent-background.png" class="white-logo-transparent-background"></a>
+                <li class="notification text-center">
+                    <a href="#"><i class='fa fa-bell'></i></a>
+                </li>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <h6 class="text-center" style="font-weight: bold;"><br> Welcome, Gaurang!</h6>
+                    <hr>
+                    <h6><a href="#">Dashboard</a></h6>
+                    <h6><a href="#">New Service Requests</a></h6>
+                    <h6><a href="#">Upcoming Services</a></h6>
+                    <h6><a href="#">Service Schedule</a></h6>
+                    <h6><a href="#">Service History</a></h6>
+                    <h6><a href="#">My Ratings</a></h6>
+                    <h6><a href="#">Block Customer</a></h6>
+                    <h6><a href="#">Invoices</a></h6>
+                    <h6><a href="#">My Settings</a></h6>
+                    <h6><a href="#">Logout</a></h6>
+                    <hr>
+                    <h6><a href="#">Prices & Services</a></h6>
+                    <h6><a href="#">Warranty</a></h6>
+                    <h6><a href="#">Blog</a></h6>
+                    <h6><a href="#">Contact</a></h6>
+                    <hr>
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-instagram"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
     <main>
 
         <!-- welcome section starts -->
@@ -83,7 +121,7 @@
 
         <!-- content starts -->
         <section class="maincontent my-5">
-            <div class="d-flex flex-wrap justify-content-center">
+            <div class="d-flex justify-content-center">
                 <div class="snavbar mx-3">
                     <li>
                         <a class="nav-link" title="Dashboard" href="#">Dashboard</a>
@@ -113,276 +151,283 @@
                 
 
                     <div class="service-history">
-                        <table>
-                            <tr class="heading">
-                                <th class="th1">Service Details <img src="assets/images/sort.png" alt=""></th>
-                                <th class="th2">Service Provider <img src="assets/images/sort.png" alt=""></th>
-                                <th class="th3">Payment <img src="assets/images/sort.png" alt=""></th>
-                                <th class="th4">Status <img src="assets/images/sort.png" alt=""></th>
-                                <th class="th5">Rate SP</th>
-                            </tr>
-                            <tr class="table-data">
-                                <td>
-                                    <img src="assets/images/calendar.png" alt="">
-                                    <span id="date">31/03/2018</span>
-                                    <br>
-                                    12:00 - 18:00
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div><img src="assets/images/cap.png"  class="cap"></div>
-                                        <div class="rating">
-                                            Lyum Watson<br>
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star2.png">
+                        <table class="table table-bordered" id="servicehistory">
+                            <thead>
+                                <tr>
+                                    <th>Service Details</th>
+                                    <th>Service Provider</th>
+                                    <th>Payment</th>
+                                    <th>Status</th>
+                                    <th>Rate SP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="assets/images/calendar.png" alt="">
+                                        <span id="date">31/03/2018</span>
+                                        <br>
+                                        12:00 - 18:00
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div><img src="assets/images/cap.png"  class="cap"></div>
+                                            <div class="rating">
+                                                Lyum Watson<br>
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star2.png">
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="euroo"><i class="fa fa-euro"></i>63</td>
-                                <td><button class="completed">Completed</button></td>
-                                <td><button class="ratesp">Rate Sp</button></td>
-                            </tr>
-                            <tr class="table-data">
-                                <td>
-                                    <img src="assets/images/calendar.png" alt="">
-                                    <span id="date">15/03/2018</span>
-                                    <br>
-                                    12:00 - 18:00
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div><img src="assets/images/cap.png"  class="cap"></div>
-                                        <div class="rating">
-                                            Lyum Watson<br>
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star2.png">
+                                    </td>
+                                    <td class="euroo"><i class="fa fa-euro"></i>63</td>
+                                    <td><button class="completed">Completed</button></td>
+                                    <td><button class="ratesp">Rate Sp</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="assets/images/calendar.png" alt="">
+                                        <span id="date">31/03/2018</span>
+                                        <br>
+                                        12:00 - 18:00
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div><img src="assets/images/cap.png"  class="cap"></div>
+                                            <div class="rating">
+                                                Lyum Watson<br>
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star2.png">
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="euroo"><i class="fa fa-euro"></i>63</td>
-                                <td><button class="completed">Completed</button></td>
-                                <td><button class="ratesp">Rate Sp</button></td>
-                            </tr>
-                            <tr class="table-data">
-                                <td>
-                                    <img src="assets/images/calendar.png" alt="">
-                                    <span id="date">10/03/2018</span>
-                                    <br>
-                                    12:00 - 18:00
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div><img src="assets/images/cap.png"  class="cap"></div>
-                                        <div class="rating">
-                                            Lyum Watson<br>
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star2.png">
+                                    </td>
+                                    <td class="euroo"><i class="fa fa-euro"></i>63</td>
+                                    <td><button class="completed">Completed</button></td>
+                                    <td><button class="ratesp">Rate Sp</button></td>
+                                </tr>
+                                <tr >
+                                    <td>
+                                        <img src="assets/images/calendar.png" alt="">
+                                        <span id="date">15/03/2018</span>
+                                        <br>
+                                        12:00 - 18:00
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div><img src="assets/images/cap.png"  class="cap"></div>
+                                            <div class="rating">
+                                                Lyum Watson<br>
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star2.png">
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="euroo"><i class="fa fa-euro"></i>63</td>
-                                <td><button class="completed">Completed</button></td>
-                                <td><button class="ratesp">Rate Sp</button></td>
-                            </tr>
-                            <tr class="table-data">
-                                <td>
-                                    <img src="assets/images/calendar.png" alt="">
-                                    <span id="date">28/02/2018</span>
-                                    <br>
-                                    12:00 - 18:00
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div><img src="assets/images/cap.png"  class="cap"></div>
-                                        <div class="rating">
-                                            Lyum Watson<br>
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star2.png">
+                                    </td>
+                                    <td class="euroo"><i class="fa fa-euro"></i>63</td>
+                                    <td><button class="completed">Completed</button></td>
+                                    <td><button class="ratesp">Rate Sp</button></td>
+                                </tr>
+                                <tr >
+                                    <td>
+                                        <img src="assets/images/calendar.png" alt="">
+                                        <span id="date">10/03/2018</span>
+                                        <br>
+                                        12:00 - 18:00
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div><img src="assets/images/cap.png"  class="cap"></div>
+                                            <div class="rating">
+                                                Lyum Watson<br>
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star2.png">
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="euroo"><i class="fa fa-euro"></i>63</td>
-                                <td><button class="cancelled">Cancelled</button></td>
-                                <td><button class="ratesp">Rate Sp</button></td>
-                            </tr>
-                            <tr class="table-data">
-                                <td>
-                                    <img src="assets/images/calendar.png" alt="">
-                                    <span id="date">15/02/2018</span>
-                                    <br>
-                                    12:00 - 18:00
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div><img src="assets/images/cap.png"  class="cap"></div>
-                                        <div class="rating">
-                                            Lyum Watson<br>
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star2.png">
+                                    </td>
+                                    <td class="euroo"><i class="fa fa-euro"></i>63</td>
+                                    <td><button class="completed">Completed</button></td>
+                                    <td><button class="ratesp">Rate Sp</button></td>
+                                </tr>
+                                <tr >
+                                    <td>
+                                        <img src="assets/images/calendar.png" alt="">
+                                        <span id="date">28/02/2018</span>
+                                        <br>
+                                        12:00 - 18:00
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div><img src="assets/images/cap.png"  class="cap"></div>
+                                            <div class="rating">
+                                                Lyum Watson<br>
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star2.png">
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="euroo"><i class="fa fa-euro"></i>63</td>
-                                <td><button class="completed">Completed</button></td>
-                                <td><button class="ratesp">Rate Sp</button></td>
-                            </tr>
-                            <tr class="table-data">
-                                <td>
-                                    <img src="assets/images/calendar.png" alt="">
-                                    <span id="date">11/02/2018</span>
-                                    <br>
-                                    12:00 - 18:00
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div><img src="assets/images/cap.png"  class="cap"></div>
-                                        <div class="rating">
-                                            Lyum Watson<br>
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star2.png">
+                                    </td>
+                                    <td class="euroo"><i class="fa fa-euro"></i>63</td>
+                                    <td><button class="cancelled">Cancelled</button></td>
+                                    <td><button class="ratesp">Rate Sp</button></td>
+                                </tr>
+                                <tr >
+                                    <td>
+                                        <img src="assets/images/calendar.png" alt="">
+                                        <span id="date">15/02/2018</span>
+                                        <br>
+                                        12:00 - 18:00
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div><img src="assets/images/cap.png"  class="cap"></div>
+                                            <div class="rating">
+                                                Lyum Watson<br>
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star2.png">
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="euroo"><i class="fa fa-euro"></i>63</td>
-                                <td><button class="cancelled">Cancelled</button></td>
-                                <td><button class="ratesp">Rate Sp</button></td>
-                            </tr>
-                            <tr class="table-data">
-                                <td>
-                                    <img src="assets/images/calendar.png" alt="">
-                                    <span id="date">31/01/2018</span>
-                                    <br>
-                                    12:00 - 18:00
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div><img src="assets/images/cap.png"  class="cap"></div>
-                                        <div class="rating">
-                                            Lyum Watson<br>
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star2.png">
+                                    </td>
+                                    <td class="euroo"><i class="fa fa-euro"></i>63</td>
+                                    <td><button class="completed">Completed</button></td>
+                                    <td><button class="ratesp">Rate Sp</button></td>
+                                </tr>
+                                <tr >
+                                    <td>
+                                        <img src="assets/images/calendar.png" alt="">
+                                        <span id="date">11/02/2018</span>
+                                        <br>
+                                        12:00 - 18:00
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div><img src="assets/images/cap.png"  class="cap"></div>
+                                            <div class="rating">
+                                                Lyum Watson<br>
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star2.png">
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="euroo"><i class="fa fa-euro"></i>63</td>
-                                <td><button class="completed">Completed</button></td>
-                                <td><button class="ratesp">Rate Sp</button></td>
-                            </tr>
-                            <tr class="table-data">
-                                <td>
-                                    <img src="assets/images/calendar.png" alt="">
-                                    <span id="date">19/01/2018</span>
-                                    <br>
-                                    12:00 - 18:00
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div><img src="assets/images/cap.png"  class="cap"></div>
-                                        <div class="rating">
-                                            Lyum Watson<br>
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star2.png">
+                                    </td>
+                                    <td class="euroo"><i class="fa fa-euro"></i>63</td>
+                                    <td><button class="cancelled">Cancelled</button></td>
+                                    <td><button class="ratesp">Rate Sp</button></td>
+                                </tr>
+                                <tr >
+                                    <td>
+                                        <img src="assets/images/calendar.png" alt="">
+                                        <span id="date">31/01/2018</span>
+                                        <br>
+                                        12:00 - 18:00
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div><img src="assets/images/cap.png"  class="cap"></div>
+                                            <div class="rating">
+                                                Lyum Watson<br>
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star2.png">
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="euroo"><i class="fa fa-euro"></i>63</td>
-                                <td><button class="completed">Completed</button></td>
-                                <td><button class="ratesp">Rate Sp</button></td>
-                            </tr>
-                            <tr class="table-data">
-                                <td>
-                                    <img src="assets/images/calendar.png" alt="">
-                                    <span id="date">05/01/2018</span>
-                                    <br>
-                                    12:00 - 18:00
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div><img src="assets/images/cap.png"  class="cap"></div>
-                                        <div class="rating">
-                                            Lyum Watson<br>
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star2.png">
+                                    </td>
+                                    <td class="euroo"><i class="fa fa-euro"></i>63</td>
+                                    <td><button class="completed">Completed</button></td>
+                                    <td><button class="ratesp">Rate Sp</button></td>
+                                </tr>
+                                <tr >
+                                    <td>
+                                        <img src="assets/images/calendar.png" alt="">
+                                        <span id="date">19/01/2018</span>
+                                        <br>
+                                        12:00 - 18:00
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div><img src="assets/images/cap.png"  class="cap"></div>
+                                            <div class="rating">
+                                                Lyum Watson<br>
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star2.png">
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="euroo"><i class="fa fa-euro"></i>63</td>
-                                <td><button class="cancelled">Cancelled</button></td>
-                                <td><button class="ratesp">Rate Sp</button></td>
-                            </tr>
-                            <tr class="table-data">
-                                <td>
-                                    <img src="assets/images/calendar.png" alt="">
-                                    <span id="date">01/01/2018</span>
-                                    <br>
-                                    12:00 - 18:00
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div><img src="assets/images/cap.png"  class="cap"></div>
-                                        <div class="rating">
-                                            Lyum Watson<br>
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star1.png">
-                                            <img src="assets/images/star2.png">
+                                    </td>
+                                    <td class="euroo"><i class="fa fa-euro"></i>63</td>
+                                    <td><button class="completed">Completed</button></td>
+                                    <td><button class="ratesp">Rate Sp</button></td>
+                                </tr>
+                                <tr >
+                                    <td>
+                                        <img src="assets/images/calendar.png" alt="">
+                                        <span id="date">05/01/2018</span>
+                                        <br>
+                                        12:00 - 18:00
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div><img src="assets/images/cap.png"  class="cap"></div>
+                                            <div class="rating">
+                                                Lyum Watson<br>
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star2.png">
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="euroo"><i class="fa fa-euro"></i>63</td>
-                                <td><button class="cancelled">Cancelled</button></td>
-                                <td><button class="ratesp">Rate Sp</button></td>
-                            </tr>
+                                    </td>
+                                    <td class="euroo"><i class="fa fa-euro"></i>63</td>
+                                    <td><button class="cancelled">Cancelled</button></td>
+                                    <td><button class="ratesp">Rate Sp</button></td>
+                                </tr>
+                                <tr >
+                                    <td>
+                                        <img src="assets/images/calendar.png" alt="">
+                                        <span id="date">01/01/2018</span>
+                                        <br>
+                                        12:00 - 18:00
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div><img src="assets/images/cap.png"  class="cap"></div>
+                                            <div class="rating">
+                                                Lyum Watson<br>
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star1.png">
+                                                <img src="assets/images/star2.png">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="euroo"><i class="fa fa-euro"></i>63</td>
+                                    <td><button class="cancelled">Cancelled</button></td>
+                                    <td><button class="ratesp">Rate Sp</button></td>
+                                </tr>
+                            </tbody>
                         </table>
-                    </div>
-                    <div class="d-flex flex-wrap my-2 align-items-center justify-content-between">
-                        <div>
-                            <span>Show</span>
-                            <select id="">
-                                <option value="10">10</option>
-                                <option value="10">15</option>
-                                <option value="10">20</option>
-                            </select>
-                            <span>entries Total Record : 55</span>
-                        </div>
-                        <div class="pagging">
-                            <a class="img"><img src="assets/images/left_play.png"></a>
-                            <a class="img"><img src="assets/images/keyboard-left-arrow-button.png"></a>
-                            <a class="number">1</a>
-                            <a class="number">2</a>
-                            <a class="number">3</a>
-                            <a class="number">4</a>
-                            <a class="img"><img src="assets/images/keyboard-right-arrow-buttonn.png"></a>
-                            <a class="img"><img src="assets/images/right_play.png"></a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -450,13 +495,17 @@
           </div>
         </div>
   
-      </footer>
+    </footer>
     <!-- footer end -->
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
     <script src="assets/js/servicehistory.js"></script>
 </body>
 </html>

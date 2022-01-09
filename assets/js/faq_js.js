@@ -1,4 +1,59 @@
+
+$("#de2").hide();
+$(".cust").addClass("active-btn");
+$(".prov").addClass("inactive-btn");
+
+$(".cust a").click(function () {
+  custClicked();
+});
+$(".prov a").click(function () {
+  provClicked();
+});
+
+function custClicked() {
+  if (!$(".cust").hasClass("active-btn")) {
+    $(".cust").addClass("active-btn");
+    $(".cust").removeClass("inactive-btn");
+    $(".prov").removeClass("active-btn");
+    $(".prov").addClass("inactive-btn");
+    $("#de").show();
+    $("#de2").hide();
+  }
+}
+
+function provClicked() {
+  if (!$(".prov").hasClass("active-btn")) {
+    $(".prov").addClass("active-btn");
+    $(".prov").removeClass("inactive-btn");
+    $(".cust").removeClass("active-btn");
+    $(".cust").addClass("inactive-btn");
+    $("#de2").show();
+    $("#de").hide();
+  }
+}
+
+
+
+
+
 let rotation = 0;
+
+function rotateimg_d2() {
+  rotation += 90;
+  if (rotation === 180) {
+    rotation = 0;
+  }
+      document.querySelector("#im_d2").style.transform = `rotate(${rotation}deg)`;
+      }
+
+  function rotateimg1_d2() {
+  rotation += 90;
+  if (rotation === 180) {
+    rotation = 0;
+  }
+      document.querySelector("#im1_d2").style.transform = `rotate(${rotation}deg)`;
+      }
+
 function rotateimg1() {
   rotation += 90;
   if (rotation === 180) {

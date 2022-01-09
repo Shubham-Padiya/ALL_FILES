@@ -35,6 +35,13 @@ function openNavbar() {
 $(document).ready(function() {
   $('#usermanagementtable').DataTable( {
     searching:false,
+    dom: '<"float-left"B><"float-right"f>rt<"row"<"col-sm-4"l><"col-sm-4"i><"col-sm-4"p>>',
+    language: {
+      paginate: {
+        next: '<img src="assets/images/polygon-1-copy-5.png" style="transform:rotate(180deg);">',
+        previous: '<img src="assets/images/polygon-1-copy-5.png">',
+      },
+    },
       responsive: {
           details: {
               display: $.fn.dataTable.Responsive.display.modal( {
