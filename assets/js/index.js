@@ -19,6 +19,7 @@ $(window).scroll(function () {
       $(".bl").css("background","transparent");
     }
 });
+$("#btn-back-to-top").hide();
 let fbtn=document.getElementById("btn-back-to-top");
 
 window.onscroll=function () {

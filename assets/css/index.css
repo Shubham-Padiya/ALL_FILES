@@ -271,9 +271,11 @@ footer a {
 @media (max-width: 1032px) {
   .para {
     order: 2 !important;
+    width: 90% !important;
   }
   .para img {
     order: 1 !important;
+    width: 90% !important;
   }
 }
 @media (max-width: 513px) {
@@ -292,6 +294,19 @@ footer a {
   }
   footer nav ul {
     display: inline-block !important;
+  }
+}
+@media (max-width: 356px) {
+  /*  */
+  .para {
+    width: 90% !important;
+  }
+  .grp36 {
+    width: 90% !important;
+    object-fit: cover !important;
+  }
+  .cardimg {
+    width: 90% !important;
   }
 }
 
