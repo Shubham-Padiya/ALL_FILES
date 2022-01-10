@@ -296,7 +296,7 @@ footer a {
     display: inline-block !important;
   }
 }
-@media (max-width: 356px) {
+@media (max-width: 366px) {
   /*  */
   .para {
     width: 90% !important;
