@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service_history</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/servicerequest.css" />
+  </head>
+  <body>
+    <header>
+      <div class="d-flex align-items-center">
+        <div>
+          <h1><a href="#">helperland</a></h1>
+        </div>
+        <div class="ms-auto me-4">
+          <a href="#" class="logo1"><i class="fa fa-user-circle-o"></i></a
+          ><span class="js mx-2">Jhon Smith</span
+          ><a href="#" class="logo1"><i class="fa fa-power-off"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="main" class="d-flex">
+        <div id="open"><i class="fa fa-bars"></i></div>
+        <div id="close"><i class="fa fa-times"></i></div>
+
+        <div class="navigation mx-2">
+          <ul>
+            <li class="n">
+              <span> Jhon Smith</span> <i class="fa fa-power-off"></i>
+            </li>
+            <li class="li">Service Management</li>
+            <li class="li">Role Management</li>
+
+            <div class="accordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Coupon Code Management
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingOne"
+                >
+                  <div class="accordion-body">
+                    <p><a href="#">Coupon Codes</a></p>
+                    <p><a href="#">Usage History</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <li class="li">Escalation Management</li>
+            <li class="li">Service Requests</li>
+            <li class="li">Service Providers</li>
+            <li class="li">User Management</li>
+
+            <div class="accordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingtwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsetwo"
+                    aria-expanded="true"
+                    aria-controls="collapsetwo"
+                  >
+                    Finance Module
+                  </button>
+                </h2>
+                <div
+                  id="collapsetwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingOne"
+                >
+                  <div class="accordion-body">
+                    <p><a href="#">All Transactions</a></p>
+                    <p><a href="#">Genarate Payment</a></p>
+                    <p><a href="#">Customer Invoices</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <li class="li">Zip Code Management</li>
+            <li class="li">Rating Management</li>
+            <li class="li">Inquiry Management</li>
+            <li class="li">Newsletter Management</li>
+
+            <div class="accordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingthree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsethree"
+                    aria-expanded="true"
+                    aria-controls="collapsethree"
+                  >
+                    Content Management
+                  </button>
+                </h2>
+                <div
+                  id="collapsethree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingthree"
+                >
+                  <div class="accordion-body">
+                    <p><a href="#">Blog</a></p>
+                    <p><a href="#">FAQs</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+
+        <div class="d-flex flex-column table-container mx-2" id="content">
+          <div class="d-flex align-items-center flex-wrap mt-3">
+            <h6>Service Requests</h6>
+          </div>
+          <div class="form">
+            <div>
+              <input
+                type="number"
+                placeholder="Service ID"
+                class="form-control serviceid"
+              />
+            </div>
+            <select id="customer" class="form-select">
+              <option selected>Customer</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+
+            <select id="sp" class="form-select">
+              <option selected>Service Provider</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+
+            <select id="Status" class="form-select">
+              <option selected>Status</option>
+              <option value="1">Pending</option>
+              <option value="2">Completed</option>
+              <option value="3">pending</option>
+              <option value="3">Cancelled</option>
+            </select>
+
+            <div>
+              <input
+                type="date"
+                class="form-control"
+                placeholder="From Date"
+                id="date1"
+              />
+            </div>
+
+            <div>
+              <input
+                type="date"
+                class="form-control"
+                placeholder="To Date"
+                id="date1"
+              />
+            </div>
+
+            <button id="search">Search</button>
+            <button id="clear">Clear</button>
+          </div>
+          <div class="align-items-center">
+            <table id="servicerequest" class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Service ID</th>
+                  <th>Service Date</th>
+                  <th>Cutomer Details</th>
+                  <th>Service Provider</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td></td>
+                  <td><button class="new">New</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Accept</a></li>
+                        <li><a class="dropdown-item" href="#">Reject</a></li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td></td>
+                  <td><button class="new">New</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Accept</a></li>
+                        <li><a class="dropdown-item" href="#">Reject</a></li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div><img src="assets/images/cap.png" class="cap" /></div>
+                      <div class="rating">
+                        Lyum Watson<br />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star2.png" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><button class="pending">Pending</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="#"
+                            >Edit & Reschedule</a
+                          >
+                        </li>
+                        <li><a class="dropdown-item" href="#">Refund</a></li>
+                        <li><a class="dropdown-item" href="#">Cancel</a></li>
+                        <li><a class="dropdown-item" href="#">Change SP</a></li>
+                        <li><a class="dropdown-item" href="#">Escalate</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">History Log</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">Download Invoice</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div><img src="assets/images/cap.png" class="cap" /></div>
+                      <div class="rating">
+                        Lyum Watson<br />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star2.png" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><button class="pending">Pending</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="#"
+                            >Edit & Reschedule</a
+                          >
+                        </li>
+                        <li><a class="dropdown-item" href="#">Refund</a></li>
+                        <li><a class="dropdown-item" href="#">Cancel</a></li>
+                        <li><a class="dropdown-item" href="#">Change SP</a></li>
+                        <li><a class="dropdown-item" href="#">Escalate</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">History Log</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">Download Invoice</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div><img src="assets/images/cap.png" class="cap" /></div>
+                      <div class="rating">
+                        Lyum Watson<br />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star2.png" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><button class="completed">Completed</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Refund</a></li>
+                        <li><a class="dropdown-item" href="#">Escalate</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">History Log</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">Download Invoice</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div><img src="assets/images/cap.png" class="cap" /></div>
+                      <div class="rating">
+                        Lyum Watson<br />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star2.png" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><button class="completed">Completed</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Refund</a></li>
+                        <li><a class="dropdown-item" href="#">Escalate</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">History Log</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">Download Invoice</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div><img src="assets/images/cap.png" class="cap" /></div>
+                      <div class="rating">
+                        Lyum Watson<br />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star2.png" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><button class="cancelled">Cancelled</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="#">Delete Record</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">Download Invoice</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td></td>
+                  <td><button class="new">New</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Accept</a></li>
+                        <li><a class="dropdown-item" href="#">Reject</a></li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div><img src="assets/images/cap.png" class="cap" /></div>
+                      <div class="rating">
+                        Lyum Watson<br />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star2.png" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><button class="completed">Completed</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Refund</a></li>
+                        <li><a class="dropdown-item" href="#">Escalate</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">History Log</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">Download Invoice</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div><img src="assets/images/cap.png" class="cap" /></div>
+                      <div class="rating">
+                        Lyum Watson<br />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star2.png" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><button class="cancelled">Cancelled</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="#">Delete Record</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">Download Invoice</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div><img src="assets/images/cap.png" class="cap" /></div>
+                      <div class="rating">
+                        Lyum Watson<br />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star2.png" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><button class="cancelled">Cancelled</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="#">Delete Record</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">Download Invoice</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div><img src="assets/images/cap.png" class="cap" /></div>
+                      <div class="rating">
+                        Lyum Watson<br />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star2.png" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><button class="pending">Pending</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="#"
+                            >Edit & Reschedule</a
+                          >
+                        </li>
+                        <li><a class="dropdown-item" href="#">Refund</a></li>
+                        <li><a class="dropdown-item" href="#">Cancel</a></li>
+                        <li><a class="dropdown-item" href="#">Change SP</a></li>
+                        <li><a class="dropdown-item" href="#">Escalate</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">History Log</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">Download Invoice</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div><img src="assets/images/cap.png" class="cap" /></div>
+                      <div class="rating">
+                        Lyum Watson<br />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star1.png" />
+                        <img src="assets/images/star2.png" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><button class="pending">Pending</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="#"
+                            >Edit & Reschedule</a
+                          >
+                        </li>
+                        <li><a class="dropdown-item" href="#">Refund</a></li>
+                        <li><a class="dropdown-item" href="#">Cancel</a></li>
+                        <li><a class="dropdown-item" href="#">Change SP</a></li>
+                        <li><a class="dropdown-item" href="#">Escalate</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#">History Log</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">Download Invoice</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>323436</td>
+                  <td>
+                    <img src="assets/images/calendar2.png" alt="" />
+                    <span id="date">09/04/2018</span>
+                    <br />
+                    <img src="assets/images/layer-14.png" alt="" />12:00 - 18:00
+                  </td>
+                  <td>
+                    David Bough<br /><img src="assets/images/layer-719.png" />
+                    Musterstrabe 5,12345 Bonn
+                  </td>
+                  <td></td>
+                  <td><button class="new">New</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Accept</a></li>
+                        <li><a class="dropdown-item" href="#">Reject</a></li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="last">©2018 Helperland. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+
+    <script src="assets/js/servicerequest.js"></script>
+  </body>
+</html>
