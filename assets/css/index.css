@@ -299,14 +299,14 @@ footer a {
 @media (max-width: 366px) {
   /*  */
   .para {
-    width: 90% !important;
+    width: 80% !important;
   }
   .grp36 {
-    width: 90% !important;
+    width: 70% !important;
     object-fit: cover !important;
   }
   .cardimg {
-    width: 90% !important;
+    width: 70% !important;
   }
 }
 
