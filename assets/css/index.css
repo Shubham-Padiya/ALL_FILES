@@ -296,17 +296,18 @@ footer a {
     display: inline-block !important;
   }
 }
-@media (max-width: 366px) {
+@media (max-width: 390px) {
   /*  */
   .para {
     width: 80% !important;
   }
   .grp36 {
-    width: 70% !important;
+    width: 80% !important;
     object-fit: cover !important;
+    text-align: center !important;
   }
   .card {
-    width: 70% !important;
+    width: 85% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
