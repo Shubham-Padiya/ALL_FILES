@@ -103,13 +103,18 @@ table {
 #active {
   background: #146371;
 }
+/*  */
 
+tr th {
+  padding: 6px 25px !important;
+}
+/*  */
 td {
   padding: 10px 30px 10px 10px;
   border-bottom: solid 1px #e1e1e1;
 }
 tbody tr:hover {
-  background: #e1e1e1;
+  background: #f1f1f1;
 }
 .cap {
   color: #9c9c9c;
@@ -148,28 +153,7 @@ tbody tr:hover {
   border-radius: 20px;
   border: none;
 }
-.pagging .number {
-  border-radius: 50%;
-  border: 1px solid #e1e1e1;
-  background-color: white;
-  padding: 7px 12px;
-  margin-top: 3px;
-  color: #777777;
-  cursor: pointer !important;
-}
-.active {
-  background-color: #1d7a8c !important;
-  color: white !important;
-}
-.pagging .img {
-  border-radius: 50%;
-  border: 1px solid #e1e1e1;
-  background-color: white;
-  padding: 7px 15px 9px 15px !important;
-  margin-top: 3px;
-  color: #777777;
-  cursor: pointer !important;
-}
+
 footer .white-logo-transparent-background {
   width: 106px;
   height: 78px;
@@ -185,13 +169,6 @@ h6,
 h6 a {
   color: #9ba0a3 !important;
   font-size: 14px;
-}
-
-@media (max-width: 1055px) {
-  .snavbar,
-  .service-table {
-    margin: 0px !important;
-  }
 }
 
 @media (max-width: 166px) {
