@@ -1,531 +1,748 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User_management</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
+    />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css"
+    />
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css">
+    <link rel="stylesheet" href="assets/dataTables.bootstrap5.min.css" />
 
-    <link rel="stylesheet" href="assets/css/usermanegement.css">
-</head>
-<body>
-    
-
+    <link rel="stylesheet" href="assets/css/usermanegement.css" />
+  </head>
+  <body>
     <header>
-        <div class="d-flex align-items-center">
-            <div>
-                <h1><a href="#">helperland</a></h1>
-            </div>
-            <div class="ms-auto me-4">
-                <a href="#" class="logo1"><i class="fa fa-user-circle-o"></i></a><span class="js mx-2">Jhon Smith</span><a href="#" class="logo1"><i class="fa fa-power-off"></i></a>
-            </div>
-            </div>
+      <div class="d-flex align-items-center">
+        <div>
+          <h1><a href="#">helperland</a></h1>
+        </div>
+        <div class="ms-auto me-4">
+          <a href="#" class="logo1"><i class="fa fa-user-circle-o"></i></a
+          ><span class="js mx-2">Jhon Smith</span
+          ><a href="#" class="logo1"><i class="fa fa-power-off"></i></a>
+        </div>
+      </div>
     </header>
 
-
-
     <main>
-        <div id="main" class="d-flex ">
+      <div id="main" class="d-flex">
+        <div id="open"><i class="fa fa-bars"></i></div>
+        <div id="close"><i class="fa fa-times"></i></div>
 
-            <div id="open"><i class="fa fa-bars"></i></div>
-            <div id="close"><i class="fa fa-times"></i></div>
+        <div class="navigation mx-2">
+          <ul>
+            <li class="n">
+              <span> Jhon Smith</span> <i class="fa fa-power-off"></i>
+            </li>
+            <li class="li">Service Management</li>
+            <li class="li">Role Management</li>
 
-            <div class="navigation mx-2">
-                <ul>
-                    <li class="n"><span> Jhon Smith</span> <i class="fa fa-power-off"></i></li>
-                    <li class="li">Service Management</li>
-                    <li class="li">Role Management</li>
-                    
-
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Coupon Code Management
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
-                                <div class="accordion-body">
-                                    <p><a href="#">Coupon Codes</a></p>
-                                    <p><a href="#">Usage History</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <li class="li">Escalation Management</li>
-                    <li class="li">Service Requests</li>
-                    <li class="li">Service Providers</li>
-                    <li class="li">User Management</li>
-                    
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingtwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
-                                Finance Module
-                                </button>
-                            </h2>
-                            <div id="collapsetwo" class="accordion-collapse collapse" aria-labelledby="headingOne">
-                                <div class="accordion-body">
-                                    <p><a href="#">All Transactions</a></p>
-                                    <p><a href="#">Genarate Payment</a></p>
-                                    <p><a href="#">Customer Invoices</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <li class="li">Zip Code Management</li>
-                    <li class="li">Rating Management</li>
-                    <li class="li">Inquiry Management</li>
-                    <li class="li">Newsletter Management</li>
-                    
-                    
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingthree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsethree" aria-expanded="true" aria-controls="collapsethree">
-                                    Content Management
-                                </button>
-                            </h2>
-                            <div id="collapsethree" class="accordion-collapse collapse" aria-labelledby="headingthree">
-                                <div class="accordion-body">
-                                    <p><a href="#">Blog</a></p>
-                                    <p><a href="#">FAQs</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </ul>
+            <div class="accordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Coupon Code Management
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingOne"
+                >
+                  <div class="accordion-body">
+                    <p><a href="#">Coupon Codes</a></p>
+                    <p><a href="#">Usage History</a></p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="d-flex flex-column table-container mx-2" id="content">
-                <div class="d-flex align-items-center flex-wrap my-3">
-                    <h6>User Management</h6>
-                    <button id="add-new-user" class="ms-auto">
-                        <span>&ensp;+&ensp;</span> Add New User
-                    </button>
+            <li class="li">Escalation Management</li>
+            <li class="li">Service Requests</li>
+            <li class="li">Service Providers</li>
+            <li class="li">User Management</li>
+
+            <div class="accordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingtwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsetwo"
+                    aria-expanded="true"
+                    aria-controls="collapsetwo"
+                  >
+                    Finance Module
+                  </button>
+                </h2>
+                <div
+                  id="collapsetwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingOne"
+                >
+                  <div class="accordion-body">
+                    <p><a href="#">All Transactions</a></p>
+                    <p><a href="#">Genarate Payment</a></p>
+                    <p><a href="#">Customer Invoices</a></p>
+                  </div>
                 </div>
-                <div class="form">
-                    <select id="user-name" class="form-select">
-                        <option selected>User name</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-        
-                    <select id="user-role" class="form-select">
-                        <option selected>User role</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-        
-                    <div id="phone-number" class="input-group">
-                        <span class="input-group-text" id="basic-addon1">+49</span>
-                        <input type="text" class="form-control" placeholder="Phone number">
-                    </div>
-        
-                    <div>
-                        <input type="number" class="form-control" id="Input1" placeholder="Zipcode">
-                    </div>
-        
-                    <button id="search">Search</button>
-                    <button id="clear">Clear</button>
-                </div>
-                <div>
-                    <table id="usermanagementtable" class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>User Name</th>
-                                <th>User Type</th>
-                                <th>Role</th>
-                                <th>Post Code</th>
-                                <th>City</th>
-                                <th>Radius</th>
-                                <th>User Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Lyum watson</td>
-                                <td>Call Center</td>
-                                <td>Inquiry Manager</td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td></td>
-                                <td><button class="active">Active</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                                            <li><a class="dropdown-item" href="#">Deactive</a></li>
-                                            <li><a href="#" class="dropdown-item">Service History</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jhon Smith</td>
-                                <td>Service Provider</td>
-                                <td></td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td>10 Km</td>
-                                <td><button class="active">Active</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                                            <li><a class="dropdown-item" href="#">Deactive</a></li>
-                                            <li><a href="#" class="dropdown-item">Service History</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jhon watson</td>
-                                <td>Customer</td>
-                                <td>content Management</td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td></td>
-                                <td><button class="inactive">Inactive</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                                            <li><a class="dropdown-item" href="#">Active</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jhon Smith</td>
-                                <td>Call Center</td>
-                                <td>Inquiry Manager</td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td></td>
-                                <td><button class="active">Active</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                                            <li><a class="dropdown-item" href="#">Deactive</a></li>
-                                            <li><a href="#" class="dropdown-item">Service History</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Lyum watson</td>
-                                <td>Customer</td>
-                                <td></td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td></td>
-                                <td><button class="active">Active</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                                            <li><a class="dropdown-item" href="#">Deactive</a></li>
-                                            <li><a href="#" class="dropdown-item">Service History</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Lyum Smith</td>
-                                <td>Call Center</td>
-                                <td>Inquiry Manager</td>
-                                <td>123467</td>
-                                <td>Berlin</td>
-                                <td>10 Km</td>
-                                <td><button class="active">Active</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                                            <li><a class="dropdown-item" href="#">Deactive</a></li>
-                                            <li><a href="#" class="dropdown-item">Service History</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jhon watson</td>
-                                <td>Customer</td>
-                                <td>content Management</td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td></td>
-                                <td><button class="inactive">Inactive</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                                            <li><a class="dropdown-item" href="#">Active</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jhon Smith</td>
-                                <td>Call Center</td>
-                                <td>Inquiry Manager</td>
-                                <td>1236</td>
-                                <td>Berlin</td>
-                                <td>10 Km</td>
-                                <td><button class="active">Active</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                                            <li><a class="dropdown-item" href="#">Deactive</a></li>
-                                            <li><a href="#" class="dropdown-item">Service History</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jhon Smith</td>
-                                <td>Call Center</td>
-                                <td>Inquiry Manager</td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td>10 Km</td>
-                                <td><button class="active">Active</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                                            <li><a class="dropdown-item" href="#">Deactive</a></li>
-                                            <li><a href="#" class="dropdown-item">Service History</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jhon watson</td>
-                                <td>Customer</td>
-                                <td>content Management</td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td></td>
-                                <td><button class="inactive">Inactive</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                                            <li><a class="dropdown-item" href="#">Active</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jhon watson</td>
-                                <td>Customer</td>
-                                <td>content Management</td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td></td>
-                                <td><button class="inactive">Inactive</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                                            <li><a class="dropdown-item" href="#">Active</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jhon Smith</td>
-                                <td>Call Center</td>
-                                <td>Inquiry Manager</td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td></td>
-                                <td><button class="active">Active</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                                            <li><a class="dropdown-item" href="#">Deactive</a></li>
-                                            <li><a href="#" class="dropdown-item">Service History</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jhon Smith</td>
-                                <td>Call Center</td>
-                                <td>Inquiry Manager</td>
-                                <td>1236</td>
-                                <td>Berlin</td>
-                                <td>10 Km</td>
-                                <td><button class="active">Active</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                                            <li><a class="dropdown-item" href="#">Deactive</a></li>
-                                            <li><a href="#" class="dropdown-item">Service History</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jhon watson</td>
-                                <td>Customer</td>
-                                <td>content Management</td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td></td>
-                                <td><button class="inactive">Inactive</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                                            <li><a class="dropdown-item" href="#">Active</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jhon watson</td>
-                                <td>Customer</td>
-                                <td>content Management</td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td></td>
-                                <td><button class="inactive">Inactive</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                                            <li><a class="dropdown-item" href="#">Active</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Lyum watson</td>
-                                <td>Call Center</td>
-                                <td>Inquiry Manager</td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td></td>
-                                <td><button class="active">Active</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                                            <li><a class="dropdown-item" href="#">Deactive</a></li>
-                                            <li><a href="#" class="dropdown-item">Service History</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Lyum watson</td>
-                                <td>Call Center</td>
-                                <td>Inquiry Manager</td>
-                                <td>123456</td>
-                                <td>Berlin</td>
-                                <td></td>
-                                <td><button class="active">Active</button></td>
-                                <td>
-                                    <li class="dropdown mx-3">
-                                        <a href="" id="navbardropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-v"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                                            <li><a class="dropdown-item" href="#">Deactive</a></li>
-                                            <li><a href="#" class="dropdown-item">Service History</a></li>
-                                        </ul>
-                                    </li>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="last">©2018 Helperland. All rights reserved.</p>
-                </div>
+              </div>
             </div>
+            <li class="li">Zip Code Management</li>
+            <li class="li">Rating Management</li>
+            <li class="li">Inquiry Management</li>
+            <li class="li">Newsletter Management</li>
+
+            <div class="accordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingthree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsethree"
+                    aria-expanded="true"
+                    aria-controls="collapsethree"
+                  >
+                    Content Management
+                  </button>
+                </h2>
+                <div
+                  id="collapsethree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingthree"
+                >
+                  <div class="accordion-body">
+                    <p><a href="#">Blog</a></p>
+                    <p><a href="#">FAQs</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ul>
         </div>
+
+        <div class="d-flex flex-column table-container mx-2" id="content">
+          <div class="d-flex align-items-center flex-wrap my-3">
+            <h6>User Management</h6>
+            <button id="add-new-user" class="ms-auto">
+              <span>&ensp;+&ensp;</span> Add New User
+            </button>
+          </div>
+          <div class="form">
+            <select id="user-name" class="form-select">
+              <option selected>User name</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+
+            <select id="user-role" class="form-select">
+              <option selected>User role</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+
+            <div id="phone-number" class="input-group">
+              <span class="input-group-text" id="basic-addon1">+49</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Phone number"
+              />
+            </div>
+
+            <div>
+              <input
+                type="number"
+                class="form-control"
+                id="Input1"
+                placeholder="Zipcode"
+              />
+            </div>
+
+            <button id="search">Search</button>
+            <button id="clear">Clear</button>
+          </div>
+          <div>
+            <table id="usermanagementtable" class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>User Name</th>
+                  <th>User Type</th>
+                  <th>Role</th>
+                  <th>Post Code</th>
+                  <th>City</th>
+                  <th>Radius</th>
+                  <th>User Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Lyum watson</td>
+                  <td>Call Center</td>
+                  <td>Inquiry Manager</td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td></td>
+                  <td><button class="active">Active</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                        <li><a class="dropdown-item" href="#">Deactive</a></li>
+                        <li>
+                          <a href="#" class="dropdown-item">Service History</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jhon Smith</td>
+                  <td>Service Provider</td>
+                  <td></td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td>10 Km</td>
+                  <td><button class="active">Active</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                        <li><a class="dropdown-item" href="#">Deactive</a></li>
+                        <li>
+                          <a href="#" class="dropdown-item">Service History</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jhon watson</td>
+                  <td>Customer</td>
+                  <td>content Management</td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td></td>
+                  <td><button class="inactive">Inactive</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Delete</a></li>
+                        <li><a class="dropdown-item" href="#">Active</a></li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jhon Smith</td>
+                  <td>Call Center</td>
+                  <td>Inquiry Manager</td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td></td>
+                  <td><button class="active">Active</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                        <li><a class="dropdown-item" href="#">Deactive</a></li>
+                        <li>
+                          <a href="#" class="dropdown-item">Service History</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lyum watson</td>
+                  <td>Customer</td>
+                  <td></td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td></td>
+                  <td><button class="active">Active</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                        <li><a class="dropdown-item" href="#">Deactive</a></li>
+                        <li>
+                          <a href="#" class="dropdown-item">Service History</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lyum Smith</td>
+                  <td>Call Center</td>
+                  <td>Inquiry Manager</td>
+                  <td>123467</td>
+                  <td>Berlin</td>
+                  <td>10 Km</td>
+                  <td><button class="active">Active</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                        <li><a class="dropdown-item" href="#">Deactive</a></li>
+                        <li>
+                          <a href="#" class="dropdown-item">Service History</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jhon watson</td>
+                  <td>Customer</td>
+                  <td>content Management</td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td></td>
+                  <td><button class="inactive">Inactive</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Delete</a></li>
+                        <li><a class="dropdown-item" href="#">Active</a></li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jhon Smith</td>
+                  <td>Call Center</td>
+                  <td>Inquiry Manager</td>
+                  <td>1236</td>
+                  <td>Berlin</td>
+                  <td>10 Km</td>
+                  <td><button class="active">Active</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                        <li><a class="dropdown-item" href="#">Deactive</a></li>
+                        <li>
+                          <a href="#" class="dropdown-item">Service History</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jhon Smith</td>
+                  <td>Call Center</td>
+                  <td>Inquiry Manager</td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td>10 Km</td>
+                  <td><button class="active">Active</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                        <li><a class="dropdown-item" href="#">Deactive</a></li>
+                        <li>
+                          <a href="#" class="dropdown-item">Service History</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jhon watson</td>
+                  <td>Customer</td>
+                  <td>content Management</td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td></td>
+                  <td><button class="inactive">Inactive</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Delete</a></li>
+                        <li><a class="dropdown-item" href="#">Active</a></li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jhon watson</td>
+                  <td>Customer</td>
+                  <td>content Management</td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td></td>
+                  <td><button class="inactive">Inactive</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Delete</a></li>
+                        <li><a class="dropdown-item" href="#">Active</a></li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jhon Smith</td>
+                  <td>Call Center</td>
+                  <td>Inquiry Manager</td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td></td>
+                  <td><button class="active">Active</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                        <li><a class="dropdown-item" href="#">Deactive</a></li>
+                        <li>
+                          <a href="#" class="dropdown-item">Service History</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jhon Smith</td>
+                  <td>Call Center</td>
+                  <td>Inquiry Manager</td>
+                  <td>1236</td>
+                  <td>Berlin</td>
+                  <td>10 Km</td>
+                  <td><button class="active">Active</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                        <li><a class="dropdown-item" href="#">Deactive</a></li>
+                        <li>
+                          <a href="#" class="dropdown-item">Service History</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jhon watson</td>
+                  <td>Customer</td>
+                  <td>content Management</td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td></td>
+                  <td><button class="inactive">Inactive</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Delete</a></li>
+                        <li><a class="dropdown-item" href="#">Active</a></li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jhon watson</td>
+                  <td>Customer</td>
+                  <td>content Management</td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td></td>
+                  <td><button class="inactive">Inactive</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Delete</a></li>
+                        <li><a class="dropdown-item" href="#">Active</a></li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lyum watson</td>
+                  <td>Call Center</td>
+                  <td>Inquiry Manager</td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td></td>
+                  <td><button class="active">Active</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                        <li><a class="dropdown-item" href="#">Deactive</a></li>
+                        <li>
+                          <a href="#" class="dropdown-item">Service History</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lyum watson</td>
+                  <td>Call Center</td>
+                  <td>Inquiry Manager</td>
+                  <td>123456</td>
+                  <td>Berlin</td>
+                  <td></td>
+                  <td><button class="active">Active</button></td>
+                  <td>
+                    <li class="dropdown mx-3">
+                      <a
+                        href=""
+                        id="navbardropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="fa fa-ellipsis-v"></i>
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="navbardropdown"
+                      >
+                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                        <li><a class="dropdown-item" href="#">Deactive</a></li>
+                        <li>
+                          <a href="#" class="dropdown-item">Service History</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="last">©2018 Helperland. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
     </main>
-
-
-
-
-
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
@@ -534,10 +751,8 @@
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
 
-
     <!-- <script src="assets/jquery-3.6.0.js"></script> -->
 
-
     <script src="assets/js/usermanagement.js"></script>
-</body>
+  </body>
 </html>

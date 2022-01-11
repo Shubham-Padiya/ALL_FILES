@@ -14,8 +14,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="assets/dataTables.bootstrap5.min.css">
     
     <link rel="stylesheet" href="assets/css/servicehistory.css">
 </head>
@@ -122,7 +124,7 @@
         <!-- content starts -->
         <section class="maincontent my-5">
             <div class="d-flex justify-content-center">
-                <div class="snavbar mx-3">
+                <div class="snavbar">
                     <li>
                         <a class="nav-link" title="Dashboard" href="#">Dashboard</a>
                     </li>
@@ -143,15 +145,15 @@
                     </li>
                 </div>
                 
-                <div>
+                <div class="cont">
                     <div class="d-flex justify-content-between">
                         <h5>Service History</h5>
                         <button id="export" class=" my-2">Export</button>
                     </div>
                 
 
-                    <div class="text-center">
-                        <table class="table table-bordered" id="servicehistory">
+                    <div>
+                        <table class="table" id="servicehistory">
                             <thead>
                                 <tr>
                                     <th>Service Details</th>
@@ -506,6 +508,14 @@
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+
+
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+
+
     <script src="assets/js/servicehistory.js"></script>
 </body>
 </html>

@@ -154,6 +154,7 @@ h6 {
 table {
   background: #ffffff;
   width: 100% !important;
+  border: solid 1px #e1e1e1;
 }
 th {
   background: #f9f9f9 !important;
