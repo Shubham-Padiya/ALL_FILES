@@ -6,6 +6,8 @@ a {
 }
 .banner {
   background-image: url(../images/group-35.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .fixed {
   position: fixed;
@@ -249,6 +251,16 @@ footer a {
   color: white !important;
 }
 /*  */
+@media (max-width: 782px) {
+  .fpic {
+    flex-direction: column !important;
+  }
+  .arow {
+    transform: rotate(90deg);
+    margin-bottom: 40px !important;
+    align-self: center !important;
+  }
+}
 @media (max-width: 731px) {
   .mt-84 p,
   .mt-84 h6 {
@@ -307,9 +319,12 @@ footer a {
     text-align: center !important;
   }
   .card {
-    width: 85% !important;
+    width: 80% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+  }
+  .cardimg {
+    width: 100% !important;
   }
 }
 
