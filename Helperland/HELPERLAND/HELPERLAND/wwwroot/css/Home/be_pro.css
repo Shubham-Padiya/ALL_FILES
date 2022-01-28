@@ -1,0 +1,365 @@
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.bgimg {
+  background-image: url(../../imgs/becomepro.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+nav a {
+  font-weight: normal;
+  font-style: normal;
+  color: #ffffff !important;
+  font-size: 17px;
+}
+
+header nav {
+  width: 100%;
+}
+.white-logo-transparent-background {
+  width: 138px;
+  height: 102px;
+}
+.b:hover {
+  border: solid 1px #ffffff !important;
+  border-radius: 27px !important;
+  transition: 0.2s ease;
+}
+.bl:hover {
+  background: rgba(255, 255, 255, 1) !important;
+  color: rgba(0, 96, 114, 1) !important;
+  transition: 0.2s ease;
+}
+#dropdown {
+  background: url(../../imgs/india.svg);
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 44px;
+  border: 0;
+}
+
+.registration-form {
+  max-width: 430px;
+  background-color: white;
+  box-shadow: 0px 0px 16px #00000026;
+  margin: 39px 20px;
+}
+.registration-form h4 {
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 19px;
+  color: #4f4f4f;
+  margin-bottom: 20px;
+}
+.registration-form .i1 {
+  width: 80%;
+  margin-bottom: 15px;
+  border: solid 0.6px #8c8c8c;
+  border-radius: 3px;
+  padding: 5px 15px;
+  color: #a0a0a0;
+}
+.registration-form #de span {
+  background-color: #f4f4f4;
+  margin-bottom: 15px;
+  width: 9%;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border: solid 0.6px #8c8c8c;
+  padding: 5px 5px;
+  min-width: 33px;
+}
+.registration-form #de input {
+  width: 71%;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border: solid 0.6px #8c8c8c;
+  color: #a0a0a0 !important;
+}
+.check {
+  color: #4f4f4f;
+  text-align: left !important;
+  margin-left: 10%;
+}
+.check span {
+  color: #1fb6ff;
+}
+button {
+  background-color: #1d7a8c;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-radius: 27px;
+  color: white;
+}
+.shape1 {
+  border: solid 1.5px white;
+  padding: 7px 9px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+.blogleft {
+  position: absolute;
+  top: 700px;
+  left: 0;
+  z-index: -1;
+}
+
+.blogright {
+  position: absolute;
+  top: 700px;
+  right: 0;
+  z-index: -1;
+}
+@media (max-width: 320px) {
+  .blogleft {
+    display: none;
+  }
+  .blogright {
+    display: none;
+  }
+}
+
+h2 {
+  color: #4f4f4f;
+  font-size: 40px;
+  line-height: 1;
+  margin-top: 60px;
+}
+.group-18b {
+  max-width: 260px !important;
+  max-height: 260px !important;
+  margin-left: 100px;
+}
+.ry {
+  font-size: 30px;
+  line-height: 1.2 !important;
+  color: #4f4f4f !important;
+}
+.ryp {
+  color: #4f4f4f;
+  max-width: 330px;
+  line-height: 1.33;
+  font-size: 18px;
+}
+.group-29 {
+  border-radius: 50%;
+  object-fit: fill;
+  height: 260px;
+  width: 260px;
+  margin-right: 100px;
+}
+.group-30 {
+  border-radius: 50%;
+  object-fit: fill;
+  height: 260px;
+  width: 260px;
+  margin-left: 100px;
+}
+
+@media (max-width: 694px) {
+  .group-29,
+  .group-18b,
+  .group-30 {
+    margin: 50px !important;
+  }
+}
+@media (max-width: 687px) {
+  .group-29,
+  .group-18b,
+  .group-30 {
+    margin: 30px !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .group-29,
+  .group-18b,
+  .group-30 {
+    margin: 30px !important;
+  }
+  #order1 {
+    order: 1 !important;
+  }
+  #order2 {
+    order: 2 !important;
+  }
+}
+@media (max-width: 262px) {
+  .group-18b,
+  .group-29,
+  .group-30 {
+    height: 200px;
+    width: 200px;
+    margin: 0 !important;
+  }
+}
+@media (max-width: 208px) {
+  .group-18b,
+  .group-29,
+  .group-30 {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+h3 {
+  font-size: 18px;
+  color: #353548;
+  font-weight: bold;
+}
+#mail {
+  color: #565656;
+  width: 233px;
+  font-size: 14px;
+  border: solid 1px #565656;
+}
+#submit {
+  height: 40px;
+  color: #ffffff;
+  background: #ff7b6d;
+  border: none;
+  font-size: 14px;
+  line-height: 2.29;
+}
+footer .white-logo-transparent-background {
+  width: 106px;
+  height: 78px;
+}
+footer a {
+  color: white !important;
+}
+footer hr {
+  width: 80%;
+  color: #8c8c8c;
+}
+h6,
+h6 a {
+  color: #9ba0a3 !important;
+  font-size: 14px;
+}
+
+@media (max-width: 400px) {
+  #de input {
+    width: 70% !important;
+  }
+}
+@media (max-width: 315px) {
+  #de input {
+    width: 67% !important;
+  }
+}
+@media (max-width: 243px) {
+  #de input {
+    width: 61% !important;
+  }
+}
+
+@media (max-width: 513px) {
+  footer .container {
+    text-align: center !important;
+  }
+}
+@media (max-width: 600px) {
+  main {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+@media (max-width: 1200px) {
+  footer .container {
+    justify-content: center !important;
+  }
+}
+@media (max-width: 990px) {
+  footer.container {
+    justify-content: center !important;
+  }
+  footer nav ul {
+    display: inline-block !important;
+  }
+}
+
+
+.dropdown-menu {
+    min-width: 0px !important;
+    width: 120px;
+    align-self: center !important;
+}
+
+
+#dropdownMenuButton1 {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    border: 0px;
+    padding: 0px;
+    height: 16px;
+    width: 44px;
+}
+
+.dropdown-item {
+    padding: 4px !important;
+    color: black !important;
+}
+
+#dropdownMenuButton1 #flagImage {
+    margin-right: 5px;
+}
+
+#dropdownMenuButton1 #ddIcon {
+    height: 4px;
+    width: 8px;
+}
+
+.btn-group
+{
+    display: block !important;
+    margin-top:14px!important;
+    margin-left:10px!important;
+    text-align:center!important;
+}
+
+.dropdown-menu {
+    margin-top: 45px !important;
+    position:absolute;
+    right:0!important;
+}
+footer nav a:hover {
+    color: rgba(0, 96, 114, 1) !important;
+}
+
+.fa-instagram:hover {
+    background: rgba(0, 96, 114, 1) !important;
+    padding: 5px 6px !important;
+    border-radius: 50% !important;
+}
+
+.fa-facebook-f:hover {
+    background: rgba(0, 96, 114, 1) !important;
+    padding: 5px 7px 3px 7px !important;
+    border-radius: 50% !important;
+}
+@media(max-width:991px) {
+    header li {
+        width: 90% !important;
+    }
+    .dropdown-menu{
+        margin-top:0!important;
+        margin-left:45%!important;
+    }
+}

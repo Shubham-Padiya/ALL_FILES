@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Contact_Us";
+}
+@{
+    Layout = "~/Views/Home/Layout.cshtml";
+}
+@section AddHead{
+    <link rel="stylesheet" href="~/css/Home/contact.css" asp-append-version="true" />
+}
+
+<!-- image -->
+<img src="~/imgs/group-1.png" class="group-1" />
+
+
+<!-- center heading -->
+<h1 class="d-flex justify-content-center" id="contus">Contact Us</h1>
+<div class="d-flex justify-content-center">
+    <hr />
+    <img src="~/imgs/forma-1-copy-5.png" class="forma-1-copy-5" />
+    <hr class="hr2" />
+</div>
+
+
+<!-- logos for the contact -->
+<div class="container flex-wrap mt-5">
+    <div class="row row-col-3">
+        <div class="col text-center">
+            <img src="~/imgs/location.png" />
+            <p style="color: #4f4f4f; font-size: 16px;"><br>1111 Lorem ipsum text 100,<br>Lorem ipsum AB</p>
+        </div>
+        <div class="col text-center">
+            <img src="~/imgs/phone-call.png" />
+            <p style="color: #4f4f4f;"><br>+49(40)-123-56-7890<br>+49(40)-987-56-0000</p>
+        </div>
+        <div class="col text-center">
+            <img src="~/imgs/mail.png" class="imgmail" />
+            <p style="color: #4f4f4f;"><br>info@helperland.com</p>
+        </div>
+    </div>
+</div>
+
+<!-- contact end -->
+<!-- line -->
+<div class="container d-flex justify-content-center">
+    <hr class="line" />
+</div>
+<!-- line end -->
+<!-- get in touch with the form starts-->
+
+<section>
+    <div class="container justify-content-center" style="flex-wrap: wrap;">
+        <div class="mt-3">
+            <h2>Get in touch with us</h2>
+        </div>
+    </div>
+    <div class="form1">
+        <div class="container">
+            <div class="text-center">
+                <input class="mx-2" type="text" placeholder="First Name" />
+                <input class="mx-2" type="text" placeholder="Last Name" />
+            </div>
+        </div>
+
+
+
+        <div class="container text-center">
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="d-flex mx-2" id="whole">
+                    <span>+49</span>
+                    <input class="mnumber" type="text" placeholder="Mobile Number" />
+                </div>
+                <input class="mx-2" type="text" placeholder="Email address" />
+            </div>
+        </div>
+
+
+
+        <div class="container text-center" style="margin-top: 15px;">
+            <select class="s1">
+                <option>Subject</option>
+                <option>...</option>
+            </select>
+        </div>
+
+
+        <div class="container text-center" style="margin-top: 15px;">
+            <textarea cols="70" rows="5" placeholder="Message"></textarea>
+        </div>
+    </div>
+
+
+
+    <div class="container text-center">
+        <button class="submit" type="submit">Submit</button>
+    </div>
+</section>
+<!-- get in touch with the form ends-->
+<!-- map -->
+<div>
+    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.83146053615!2d72.8235753145849!3d18.938852787166763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1e0f0a26a81%3A0x87d6e47e04df3916!2sWankhede%20Stadium%20Mumbai!5e0!3m2!1sen!2sin!4v1638267492310!5m2!1sen!2sin" height="400" style="border:0;" width="100%" loading="lazy"></iframe>
+</div>
+
+@section AddFooter{
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/js/Home/contact.js" asp-append-version="true"></script>
+}

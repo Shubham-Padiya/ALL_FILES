@@ -1,0 +1,24 @@
+/*------------------------------------------ common css------------------------------------ */
+
+
+.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.active-btn {
+  background: #1d7a8c;
+}
+
+.active-btn a {
+  color: #ffffff;
+}
+
+.inactive-btn {
+  border-bottom: solid 3px #1d7a8c;
+}
+
+.inactive-btn a {
+  color: #646464;
+}
+

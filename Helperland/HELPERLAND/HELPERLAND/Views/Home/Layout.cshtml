@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <link rel="icon" type="image/x-icon" href="~/favicon.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+          rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/css/Home/Layout.css" asp-append-version="true" />
+
+    @if (IsSectionDefined("AddHead"))
+    {
+        @RenderSection("AddHead");
+    }
+</head>
+<body>
+    <header id="header">
+        <!-- navbar starts -->
+        <nav class="navbar navbar-expand-lg navbar-dark"
+             style="background: rgba(82, 82, 82, 0.8); width: 100%">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">
+                    <img src="~/imgs/white-logo-transparent-background.png"
+                         style="width:73px ; height:54px"/>
+                </a>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ms-auto me-2">
+                        <li class="nav-item text-center mb-1">
+                            <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
+                               href="#"
+                               style="
+                    background-color: rgba(41, 98, 109, 0.7);
+                    padding: 8px 24px 8px 24px;
+                  ">Book now</a>
+                        </li>
+                        <li class="nav-item text-center mb-1">
+                            <a class="nav-link b"
+                               asp-controller="Home" asp-action="Prices"
+                               style="
+                    background-color: transparent;
+                    padding: 8px 24px 8px 24px;
+                  ">Prices & services</a>
+                        </li>
+                        <li class="nav-item text-center mb-1 b">
+                            <a class="nav-link" href="#">Warranty</a>
+                        </li>
+                        <li class="nav-item text-center mb-1 b">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item text-center mb-1 b">
+                            <a class="nav-link" asp-controller="Home" asp-action="ContactUs">Contact</a>
+                        </li>
+                        <li class="nav-item text-center mb-1">
+                            <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
+                               href="#"
+                               style="
+                    background-color: rgba(41, 98, 109, 0.7);
+                    padding: 8px 24px 8px 24px;
+                  ">Login</a>
+                        </li>
+                        <li class="nav-item text-center mb-1">
+                            <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
+                               asp-controller="Home" asp-action="Become_a_Provider"
+                               style="
+                    background-color: rgba(41, 98, 109, 0.7);
+                    padding: 8px 24px 8px 24px;
+                  ">Become a Helper</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    @RenderBody()
+
+
+    <div class="text-center mt-4">
+        <p style="font-size: 18px; color: #353548; font-weight: bold">
+            GET OUR NEWSLETTER
+        </p>
+        <div class="d-flex justify-content-center mt-2">
+            <input type="email"
+                   placeholder="YOUR E-MAIL"
+                   class="rounded-pill align-items-left ps-3 py-2"
+                   style="
+            color: #565656;
+            width: 233px;
+            font-size: 14px;
+            border: solid 1px #565656;
+          " />
+            <button type="submit"
+                    class="rounded-pill align-items-center px-3 py-2 mx-2"
+                    style="
+            color: #ffffff;
+            background: #ff7b6d;
+            border: none;
+            font-size: 11px;
+          ">
+                SUBMIT
+            </button>
+        </div>
+    </div>
+
+    <!-- news letter with mail and submit button end -->
+    <!-- footer starts -->
+    <footer>
+        <div class="mt-5" style="background: #111111">
+            <div class="container d-flex justify-content-between align-items-center py-4"
+                 style="flex-wrap: wrap">
+                <div>
+                    <a href="#">
+                        <img src="~/imgs/white-logo-transparent-background.png"
+                             style="width: 106px" />
+                    </a>
+                </div>
+
+                <nav class="nav mx-5">
+                    <ul class="nav mx-5">
+                        <li class="nav-item">
+                            <a asp-controller="Home" asp-action="Index" class="nav-link">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Home" asp-action="AboutUs" class="nav-link">ABOUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">TESIMONIALS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Home" asp-action="FAQs" class="nav-link">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">INSURANCE POLICY</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">IMPRESSUM</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- logo of instagram and facebook -->
+                <div class="mx-4">
+                    <a class="px-2" href="#" style="color: #ffffff">
+                        <i class="fa fa-facebook-f"></i>
+                    </a>
+                    <a class="px-2" href="#" style="color: #ffffff">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- line -->
+
+            <div class="d-flex justify-content-center">
+                <hr style="width: 70%; color: #cccccc" />
+            </div>
+
+            <!-- line done -->
+            <!-- privacy content -->
+            <div class="text-center mb-0 py-3" style="color: #9ba0a3">
+                <p class="mb-0 py-2 d-inline font-size:14px;">
+                    ©2018 Helperland. All rights reserved.&emsp; Terms and Conditions
+                    <a href="#" style="color: #9ba0a3; text-decoration: none">| Privacy Policy</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    @if (IsSectionDefined("AddFooter"))
+            {
+                @RenderSection("AddFooter");
+    }
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    @await RenderSectionAsync("Scripts",required:false)
+</body>
+</html>
