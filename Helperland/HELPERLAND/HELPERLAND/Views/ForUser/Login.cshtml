@@ -1,0 +1,55 @@
+﻿@using HELPERLAND.Models.ViewModels
+@model LoginViewModel;
+@{
+    Layout = null;
+}
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Login to your account</h4>
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="loginForm">
+                <div class="input-container">
+                    @Html.Raw(ViewBag.Alert)
+                    <input class="input-field"
+                           type="text"
+                           placeholder="Email"
+                           asp-for="Email"
+                           name="Email" />
+                    <i class="fa fa-user"></i>
+                </div>
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                <div class="input-container">
+                    <input class="input-field"
+                           type="password"
+                           placeholder="Password"
+                           asp-for="Password"
+                           name="Password" />
+                    <i class="fa fa-lock"></i>
+                </div>
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                <div class="input-container forcheckbox">
+                    <input type="checkbox"
+                           id="remember_me"
+                           name="checkbox"
+                           value="Bike" />
+                    <label for="checkbox">Remember me</label>
+                </div>
+                
+                
+                <button type="button" class="btn" onclick="PostRequestsend();">Login</button>
+                <p>
+                    <a onclick="openForgetPasswordPopUp();">Forget password?</a><br />
+                        Don't have an account?
+                    <a asp-controller="ForUser" asp-action="Register">Create an account</a>
+                </p>
+                   
+            </form>
+        </div>
+    </div>
+</div>

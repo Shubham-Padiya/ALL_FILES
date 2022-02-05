@@ -1,0 +1,51 @@
+﻿@using HELPERLAND.Models.ViewModels
+@model ResetPasswordViewModel
+@{
+    ViewData["Title"] = "Reset Password";
+    Layout = "~/Views/Home/Layout.cshtml";
+}
+
+@section AddHead{
+    <link rel="stylesheet" href="~/css/ForUser/ResetPass.css" asp-append-version="true" />
+}<section id="ResetPassword">
+     <div class="d-flex justify-content-center px-1">
+         @Html.Raw(@ViewBag.Alert)
+         <form method="post">
+             <div class="row mb-3">
+                 <div class="col-12">
+                     <label for="InputPass" class="form-label">New Password</label>
+                     <input type="password"
+                            class="form-control"
+                            id="InputPass"
+                            placeholder="Password" asp-for="Password" />
+                     @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                 </div>
+             </div>
+             <div class="row mb-3">
+                 <div class="col-12">
+                     <label for="InputPass" class="form-label">Confirm Password</label>
+                     <input type="password"
+                            class="form-control"
+                            id="InputPass"
+                            placeholder="Confirm Password" asp-for="ConfirmPassword" />
+                     @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col">
+                     <input class="btn btn-primary px-3" type="submit" value="Save" />
+                 </div>
+             </div>
+         </form>
+     </div>
+</section>
+
+@section AddFooter{
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script>
+        $("footer").hide();
+        $(".getnews").hide();
+              $("header .navbar").css("background","rgba(82, 82, 82, 0.8)");
+    </script>
+}
+

@@ -23,7 +23,13 @@ nav a {
   color: #ffffff !important;
   font-size: 17px;
 }
-
+.shape1{
+    border:solid 1px #ffffff;
+    padding:9px 10px;
+    border-radius:50%!important;
+    border-radius:50%!important;
+    margin-bottom:20px;
+}
 header nav {
   width: 100%;
 }
@@ -50,7 +56,7 @@ header nav {
 }
 
 .registration-form {
-  max-width: 430px;
+  width: 430px;
   background-color: white;
   box-shadow: 0px 0px 16px #00000026;
   margin: 39px 20px;
@@ -63,17 +69,18 @@ header nav {
   margin-bottom: 20px;
 }
 .registration-form .i1 {
-  width: 80%;
-  margin-bottom: 15px;
+  width: 90%!important;
+  margin-bottom: 7.5px;
+  margin-top:7.5px;
   border: solid 0.6px #8c8c8c;
   border-radius: 3px;
   padding: 5px 15px;
-  color: #a0a0a0;
 }
 .registration-form #de span {
   background-color: #f4f4f4;
-  margin-bottom: 15px;
-  width: 9%;
+  margin-bottom: 7.5px;
+  margin-top:7.5px;
+  width: 14%;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   border: solid 0.6px #8c8c8c;
@@ -81,37 +88,26 @@ header nav {
   min-width: 33px;
 }
 .registration-form #de input {
-  width: 71%;
+  width: 76%;
   padding: 5px 10px;
-  margin-bottom: 15px;
+  margin-bottom: 7.5px;
+  margin-top:7.5px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   border: solid 0.6px #8c8c8c;
-  color: #a0a0a0 !important;
 }
-.check {
-  color: #4f4f4f;
-  text-align: left !important;
-  margin-left: 10%;
+.check{
+    text-align:left!important;
+    margin-left:20px!important;
+    margin-top:10px!important;
+    margin-bottom:10px!important;
 }
+
 .check span {
   color: #1fb6ff;
 }
-button {
-  background-color: #1d7a8c;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  border-radius: 27px;
-  color: white;
-}
-.shape1 {
-  border: solid 1.5px white;
-  padding: 7px 9px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-}
+
+
 .blogleft {
   position: absolute;
   top: 700px;
@@ -253,21 +249,12 @@ h6 a {
   font-size: 14px;
 }
 
-@media (max-width: 400px) {
-  #de input {
-    width: 70% !important;
+@media (max-width: 430px) {
+  .registration-form{
+      width:100%!important;
   }
 }
-@media (max-width: 315px) {
-  #de input {
-    width: 67% !important;
-  }
-}
-@media (max-width: 243px) {
-  #de input {
-    width: 61% !important;
-  }
-}
+
 
 @media (max-width: 513px) {
   footer .container {
@@ -329,7 +316,6 @@ h6 a {
 .btn-group
 {
     display: block !important;
-    margin-top:14px!important;
     margin-left:10px!important;
     text-align:center!important;
 }
@@ -362,4 +348,12 @@ footer nav a:hover {
         margin-top:0!important;
         margin-left:45%!important;
     }
+}
+
+#gs {
+    background-color: #1d7a8c !important;
+    color: #ffffff !important;
+    border-radius: 27px;
+    margin-bottom:30px!important;
+    margin-top:10px;
 }

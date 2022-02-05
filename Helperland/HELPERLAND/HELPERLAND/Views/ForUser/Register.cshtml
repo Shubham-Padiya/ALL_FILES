@@ -1,0 +1,125 @@
+﻿@using HELPERLAND.Models.ViewModels;
+@model RegisterViewModel;
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Home/Layout.cshtml";
+}
+
+@section AddHead{
+    <link rel="stylesheet" href="~/css/ForUser/Register.css" asp-append-version="true" />
+}
+<!--sign up form start-->
+<section id="sectionRegister">
+    <div class="d-flex flex-column align-items-center">
+        <h2 class="title">Create an account</h2>
+        <!--section-decoration-->
+        <div class="d-flex justify-content-center title-decoration">
+            <hr />
+            <img src="~/imgs/forma-1-copy-5.png" />
+            <hr />
+        </div>
+
+        <form method="post">
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <input type="text"
+                           class="form-control"
+                           id="first-name"
+                           placeholder="First Name"
+                           asp-for="FirstName"/>
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6 mb-3">
+                    <input type="text"
+                           class="form-control"
+                           id="last-name"
+                           placeholder="Last Name"
+                           asp-for="LastName"/>
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <!--Email-->
+                <div class="form-group col-md-6 mb-3">
+                    <input type="text"
+                           class="form-control"
+                           id="email"
+                           placeholder="Email address"
+                           asp-for="Email"/>
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+                <!--Mobile Number-->
+                <div class="col-md-6 mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1">+49</span>
+                        <input type="number"
+                               class="form-control"
+                               id="mobile-number"
+                               placeholder="Mobile Number"
+                               asp-for="Mobile"/>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <input type="password"
+                           class="form-control"
+                           id="first-name"
+                           placeholder="Password"
+                           asp-for="Password"/>
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6 mb-3">
+                    <input type="password"
+                           class="form-control"
+                           id="last-name"
+                           placeholder="Confirm Password"
+                           asp-for="ConfirmPassword"/>
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="checkbox"
+                               value=""
+                               id="flexCheckDefault" />
+                        <label class="form-check-label" for="flexCheckDefault">
+                            I have read the <a href="">privacy policy.</a>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            @Html.Raw(@ViewBag.Alert)
+            <div class="row mb-3">
+                <div class="col-md-12 text-center">
+                    <input class="btn px-4"
+                           type="submit"
+                           id="regis"
+                           value="Register" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>Already registered? <a>Login now</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!--sign up form ends-->
+
+@section AddFooter{
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script>
+        $("footer").hide();
+        $(".getnews").hide();
+        $("header .navbar").css("background", "rgba(82, 82, 82, 0.8)");
+    </script>
+}

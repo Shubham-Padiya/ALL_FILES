@@ -1,7 +1,9 @@
-﻿@{
+﻿@using HELPERLAND.Models.ViewModels;
+@model RegisterViewModel;
+
+@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,20 +107,36 @@
         <div class="d-flex flex-column align-items-center">
             <div class="registration-form d-flex flex-column align-items-center text-center">
                 <h4>Register Now!</h4>
-                <form>
-                    <input type="text" required placeholder="First Name" class="i1" />
-                    <input type="text" required placeholder="Last Name" class="i1" />
-                    <input type="email" required placeholder="E-mail" class="i1" />
+                <form method="post">
+                    <div>
+                        <input type="text" placeholder="First Name" asp-for="FirstName" class="i1" />
+                    </div>
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    <div>
+                        <input type="text" placeholder="Last Name" asp-for="LastName" class="i1" />
+                       </div>
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    <div>
+                        <input type="email" placeholder="E-mail" asp-for="Email" class="i1" />
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
 
 
                     <div class="d-flex justify-content-center" id="de">
-                        <span>+49</span>
-                        <input type="number" placeholder="Mobile Number" />
+                        <span>+91</span>
+                        <input type="number" placeholder="Mobile Number" asp-for="Mobile" />
                     </div>
+                    @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
 
+                    <div>
+                        <input type="password" placeholder="Password" asp-for="Password" class="i1" />
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
-                    <input type="password" required placeholder="Password" class="i1" />
-                    <input type="password" required placeholder="Confirm Password" class="i1" />
+                    <div>
+                        <input type="password" placeholder="Confirm Password" asp-for="ConfirmPassword" class="i1" />
+                    </div>
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
                     <div class="check">
                         <input type="checkbox" />
                         <label for="flexCheckDefault">Send me newsletters from Helperland</label>
@@ -128,10 +146,14 @@
                         <label for="flexCheckDefault1">I accept <span>terms and conditions</span> & <span>privacy policy</span></label>
                     </div>
 
+                    @Html.Raw(@ViewBag.Alert)
                     <div class="d-flex justify-content-center">
-                        <button>
-                            Get Started <img src="~/imgs/arrow-white.png">
-                        </button>
+                        
+                            <input class="btn px-4"
+                                   type="submit"
+                                   id="gs"
+                                   value="Get Started"/>
+                        
                     </div>
                 </form>
             </div>

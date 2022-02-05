@@ -1,0 +1,50 @@
+﻿* {
+    font-family: "Roboto", sans-serif;
+}
+a{
+    text-decoration:none;
+}
+#sectionRegister{
+    margin-top:40px;
+}
+.title{
+    margin:0;
+    font-weight:bold;
+    color:#4f4f4f;
+    text-align:center;
+    font-size:28px;
+}
+.title-decoration{
+    margin-top:10px;
+}
+hr{
+    color:#4f4f4f!important;
+    height:1px!important;
+    width:50px;
+}
+.title-decoration img{
+    font-size:24px;
+    margin-left:10px;
+    margin-right:10px;
+    object-fit:contain;
+}
+form{
+    width:624px;
+    margin-top:25px;
+    color:#4f4f4f;
+}
+
+.btn{
+    background-color:#1d7a8c!important;
+    color:#ffffff!important;
+    border-radius:27px;
+}
+form a{
+    color:#1d7a8c;
+    font-weight:400;
+}
+@media(max-width:624px){
+    form{
+        width:90%!important;
+    }
+}

@@ -17,6 +17,7 @@
           rel="stylesheet" />
 
     <link rel="stylesheet" href="~/css/Home/Layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/ForUser/ForgetandLogin.css" asp-append-version="true" />
 
     @if (IsSectionDefined("AddHead"))
     {
@@ -31,7 +32,7 @@
             <div class="container-fluid">
                 <a href="#" class="navbar-brand">
                     <img src="~/imgs/white-logo-transparent-background.png"
-                         style="width:73px ; height:54px"/>
+                         style="width:73px ; height:54px" />
                 </a>
                 <button class="navbar-toggler"
                         type="button"
@@ -67,8 +68,8 @@
                             <a class="nav-link" asp-controller="Home" asp-action="ContactUs">Contact</a>
                         </li>
                         <li class="nav-item text-center mb-1">
-                            <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
-                               href="#"
+                            <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl lgn"
+                               data-url='@Url.Action("Login","ForUser")'
                                style="
                     background-color: rgba(41, 98, 109, 0.7);
                     padding: 8px 24px 8px 24px;
@@ -80,6 +81,7 @@
                                style="
                     background-color: rgba(41, 98, 109, 0.7);
                     padding: 8px 24px 8px 24px;
+                    cursor:pointer!important;
                   ">Become a Helper</a>
                         </li>
                     </ul>
@@ -89,10 +91,11 @@
     </header>
 
 
+    <div class="modal fade" tab-index="-1" id="PopUp" role="dialog"></div>
     @RenderBody()
 
 
-    <div class="text-center mt-4">
+    <div class="text-center mt-4 getnews">
         <p style="font-size: 18px; color: #353548; font-weight: bold">
             GET OUR NEWSLETTER
         </p>
@@ -184,10 +187,14 @@
     </footer>
 
     @if (IsSectionDefined("AddFooter"))
-            {
-                @RenderSection("AddFooter");
+    {
+        @RenderSection("AddFooter");
     }
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
-    @await RenderSectionAsync("Scripts",required:false)
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery.validate.js"></script>
+    <script src="~/lib/jquery.validate.unobtrusive.js"></script>
+    <script src="~/js/Home/Layout.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

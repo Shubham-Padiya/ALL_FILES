@@ -12,15 +12,20 @@
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
           rel="stylesheet" />
 
     <link rel="stylesheet" href="~/css/Home/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/ForUser/ForgetandLogin.css"
+          asp-append-version="true" />
+    <script src="https://kit.fontawesome.com/caefa07df3.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <div class="modal fade" tab-index="-1" id="PopUp" role="dialog"></div>
 
     <section class="banner">
         <header id="header">
@@ -28,17 +33,17 @@
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
                     <a href="#" class="navbar-brand">
-                        <img src="~/imgs/white-logo-transparent-background.png" 
+                        <img src="~/imgs/white-logo-transparent-background.png"
                              class="white-logo-transparent-background" />
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapsibleNavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="navbar-nav ms-auto me-2">
                             <li class="nav-item text-center mb-1">
-                                <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl" 
+                                <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
                                    href="#">Book a cleaner</a>
                             </li>
                             <li class="nav-item text-center mb-1 b">
@@ -54,11 +59,11 @@
                                 <a class="nav-link" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
                             </li>
                             <li class="nav-item text-center mb-1">
-                                <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl" 
-                                   href="#">Login</a>
+                                <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl lgn"
+                                   data-url='@Url.Action("Login","ForUser")'>Login</a>
                             </li>
                             <li class="nav-item text-center mb-1">
-                                <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl" 
+                                <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
                                    asp-controller="Home" asp-action="Become_a_Provider">Become a Helper</a>
                             </li>
                             <li class="btn-group dropstart">
@@ -85,7 +90,7 @@
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="#">
-                                            <img src="~/imgs/australia.svg" alt="" /> 
+                                            <img src="~/imgs/australia.svg" alt="" />
                                             Australia
                                         </a>
                                     </li>
@@ -348,6 +353,8 @@
     </a>
 
     <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery.validate.js"></script>
+    <script src="~/lib/jquery.validate.unobtrusive.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
     <script src="~/js/Home/index.js" asp-append-version="true"></script>
 </body>

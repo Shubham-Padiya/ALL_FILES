@@ -52,3 +52,47 @@ $(".dropdown-item").click(function () {
     var src = $(this).children().eq(0).attr('src');
     $('#flagImage').attr('src', src);
 });
+
+//Login popup
+$(document).ready(function () {
+    $(".lgn").click(function () {
+        var url = $(this).data('url');
+        openLoginPopUp(url);
+    });
+});
+
+
+function openLoginPopUp(url) {
+    var url = "/ForUser/Login";
+    $.get(url, function (data) {
+        $("#PopUp").html(data);
+        $("#PopUp").modal("show");
+    });
+}
+
+function openForgetPasswordPopUp() {
+    var url = "/ForUser/ForgetPassword";
+    $.get(url, function (data) {
+        $("#PopUp").html(data);
+        $("#PopUp").modal("show");
+    });
+}
+
+
+function PostRequestsend() {
+    var url = "/foruser/login";
+    var valdata = $("#loginForm").serialize();
+    $.post(url, valdata, function (data) {
+        $("#PopUp").html(data);
+        $("#PopUp").modal("show");
+    });
+}
+
+function ResetPassRequestsend() {
+    var url = "/foruser/forgetpassword";
+    var valdata = $("#forgetPasswordForm").serialize();
+    $.post(url, valdata, function (data) {
+        $("#PopUp").html(data);
+        $("#PopUp").modal("show");
+    });
+}

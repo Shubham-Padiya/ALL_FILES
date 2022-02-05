@@ -9,6 +9,9 @@ nav a {
     font-style: normal;
     color: #f1f1f1 !important;
 }
+.lgn{
+    cursor:pointer!important;
+}
 .bl:hover {
     background: rgba(255, 255, 255, 1) !important;
     color: rgba(0, 96, 114, 1) !important;
