@@ -1,4 +1,7 @@
-﻿@{
+﻿@using HELPERLAND.Models.ViewModels
+@model ContactUsViewModel
+
+@{
     ViewData["Title"] = "Contact_Us";
 }
 @{
@@ -53,45 +56,101 @@
             <h2>Get in touch with us</h2>
         </div>
     </div>
-    <div class="form1">
-        <div class="container">
-            <div class="text-center">
-                <input class="mx-2" type="text" placeholder="First Name" />
-                <input class="mx-2" type="text" placeholder="Last Name" />
-            </div>
-        </div>
 
-
-
-        <div class="container text-center">
-            <div class="d-flex flex-wrap justify-content-center">
-                <div class="d-flex mx-2" id="whole">
-                    <span>+49</span>
-                    <input class="mnumber" type="text" placeholder="Mobile Number" />
+    <div class="container justify-content-center form">
+        <form method="post">
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <input type="text"
+                           class="form-control"
+                           id="first-name"
+                           placeholder="First Name"
+                           asp-for="FirstName" />
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                 </div>
-                <input class="mx-2" type="text" placeholder="Email address" />
+                <div class="form-group col-md-6 mb-3">
+                    <input type="text"
+                           class="form-control"
+                           id="last-name"
+                           placeholder="Last Name"
+                           asp-for="LastName" />
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
+            <div class="row">
+                <!--Email-->
+                <div class="form-group col-md-6 mb-3">
+                    <input type="text"
+                           class="form-control"
+                           id="email"
+                           placeholder="Email address"
+                           asp-for="Email" />
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+                <!--Mobile Number-->
+                <div class="col-md-6 mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1">+91</span>
+                        <input type="number"
+                               class="form-control"
+                               id="mobile-number"
+                               placeholder="Mobile Number"
+                               asp-for="Mobile" />
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-sm-12 mb-3">
+                    <div class="form-group selectbox">
+                        @Html.DropDownListFor(model => model.Subject, new List<SelectListItem>
+                            { new SelectListItem{Text="General", Value="General"},
+                              new SelectListItem{Text="inquiry", Value="inquiry"},
+                              new SelectListItem{Text="renewal",Value="renewal"},
+                              new SelectListItem{Text="revocation",Value="revocation"}})
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 mb-3">
+                    <div class="form-group">
+                        <textarea class="form-control"
+                                  id="message"
+                                  rows="5"
+                                  placeholder="Message"
+                                  asp-for="Message"></textarea>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-        <div class="container text-center" style="margin-top: 15px;">
-            <select class="s1">
-                <option>Subject</option>
-                <option>...</option>
-            </select>
-        </div>
+            <div class="row">
+                <div class="col-sm-12 mb-3">
+                    <div class="form-group">
+                        <label class="control-label mb-3" for="fileUpload">
+                            Attach the attachment
+                        </label>
 
+                        <input id="fileUpload" asp-for="File" hidden />
+                        <label for="fileUpload" id="forFileUpload">Upload</label>
+                        <span id="file-chosen"></span>
+                        @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
 
-        <div class="container text-center" style="margin-top: 15px;">
-            <textarea cols="70" rows="5" placeholder="Message"></textarea>
-        </div>
-    </div>
-
-
-
-    <div class="container text-center">
-        <button class="submit" type="submit">Submit</button>
+            @Html.Raw(@ViewBag.Alert)
+            <div class="row mb-3">
+                <div class="col-md-12 text-center">
+                    <input class="btn px-4"
+                           type="submit"
+                           id="regis"
+                           value="Submit" />
+                </div>
+            </div>
+        </form>
     </div>
 </section>
 <!-- get in touch with the form ends-->

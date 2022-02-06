@@ -73,7 +73,7 @@ namespace HELPERLAND.Controllers
 
                     helperlandContext.Users.Add(user);
                     helperlandContext.SaveChanges();
-                    return RedirectToAction("index", "home", new { loginPopUp = true });
+                    return RedirectToAction("index", "home");
                 }
             }
             else
@@ -83,11 +83,48 @@ namespace HELPERLAND.Controllers
         }
 
 
-
+        [HttpGet]
         public IActionResult ContactUs()
         {
             return View();
         }
+
+        [HttpPost]
+
+        public IActionResult ContactUs(ContactUsViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                string uniqueFileName = null;
+                if (model.File != null)
+                {
+                    string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\ContactUsAttechment");
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + model.File.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    model.File.CopyTo(new FileStream(filePath, FileMode.Create));
+                }
+
+                ContactUs contact = new ContactUs()
+                {
+                    Name = model.FirstName + " " + model.LastName,
+                    Email = model.Email,
+                    PhoneNumber = model.Mobile,
+                    Message = model.Message,
+                    Subject = model.Subject,
+                    UploadFileName = model.File.FileName,
+                    CreatedOn = DateTime.Now,
+                    FileName = uniqueFileName
+                };
+                helperlandContext.ContactUs.Add(contact);
+                helperlandContext.SaveChanges();
+                return Json("Query submitted successfully..");
+            }
+            else
+            {
+                return Json(ModelState.Values);
+            }
+        }
+
 
         
 

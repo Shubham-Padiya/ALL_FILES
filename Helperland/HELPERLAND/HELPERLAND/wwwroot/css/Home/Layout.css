@@ -4,6 +4,9 @@
 a{
     text-decoration:none!important;
 }
+#header{
+    z-index:1000!important;
+}
 nav a {
     font-weight: normal;
     font-style: normal;
