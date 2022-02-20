@@ -393,3 +393,8 @@ D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\bin\Debug\netcoreapp3.1\run
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\bookservice\bookservice.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\bookservice\MakePayment.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\bookservice\Schedual.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\bookservice\YourDetail.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\bookservice\ZipCode.cshtml.g.cs

@@ -28,7 +28,7 @@ namespace HELPERLAND.Models.ViewModels
         [Required(ErrorMessage = "Please enter your message")]
         public string Message { get; set; }
 
-        public IFormFile File { get; set; }
+        public IFormFile? File { get; set; }
 
     }
 }

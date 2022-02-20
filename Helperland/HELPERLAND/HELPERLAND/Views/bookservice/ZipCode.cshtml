@@ -1,0 +1,24 @@
+﻿@using HELPERLAND.Models.ViewModels
+@model ZipCodeViewModel
+
+@{
+    Layout = null;
+            }
+
+<form id="setupForm" data-ajax="true" data-ajax-url="/bookservice/zipcode"
+      data-ajax-method="post" data-ajax-update="#setup">
+    <label for="postalcode">Enter Your Postal Code </label> <br />
+    <input type="text" placeholder="Postal Code" asp-for="ZipCode" />
+    <input type="submit" id="setupsubmit" value="Check Availibility"/><br />
+    @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+    @Html.Raw(@ViewBag.Alert)
+</form>
+<script>
+    var msg='@ViewBag.Message';
+    if(msg=="Schedual")
+    {
+        $('a[href="#schedual"]').tab('show');
+        $('#schedualtab').removeClass("disabled");
+        makeActive($('#schedualtab'));
+    }
+</script>

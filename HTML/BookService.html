@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Service</title>
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    /> -->
+    <link rel="stylesheet" href="assets/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/BookService.css" />
+  </head>
+  <body>
+    <header id="header">
+      <!-- navbar starts -->
+      <nav
+        class="navbar navbar-expand-lg navbar-dark"
+        style="background: rgba(82, 82, 82, 0.8); width: 100%"
+      >
+        <div class="container-fluid">
+          <a href="#" class="navbar-brand"
+            ><img
+              src="assets/images/white-logo-transparent-background.png"
+              width="73px"
+              height="54px"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ms-auto me-2 justify-content-center">
+              <li class="nav-item text-center mb-1">
+                <a
+                  class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
+                  href="#"
+                  style="
+                    background-color: rgba(41, 98, 109, 0.8);
+                    padding: 8px 24px 8px 24px;
+                  "
+                  >Book now</a
+                >
+              </li>
+              <li class="nav-item text-center mb-1">
+                <a
+                  class="nav-link ms-1 me-1 b"
+                  href="price.html"
+                  style="background-color: transparent; padding: 8px 18px"
+                  >Prices & services</a
+                >
+              </li>
+              <li class="nav-item text-center mb-1 b">
+                <a class="nav-link" href="#" style="padding: 8px 12px"
+                  >Warranty</a
+                >
+              </li>
+              <li class="nav-item text-center mb-1 b">
+                <a class="nav-link" href="#" style="padding: 8px 12px">Blog</a>
+              </li>
+              <li class="nav-item text-center mb-1 b">
+                <a
+                  class="nav-link"
+                  href="contact.html"
+                  style="padding: 8px 12px"
+                  >Contact</a
+                >
+              </li>
+              <li class="nav-item text-center mb-1">
+                <a
+                  class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
+                  href="#"
+                  style="
+                    background-color: rgba(41, 98, 109, 0.8);
+                    padding: 8px 24px 8px 24px;
+                  "
+                  >Login</a
+                >
+              </li>
+              <li class="nav-item text-center mb-1">
+                <a
+                  class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
+                  href="become_service_provider.html"
+                  style="
+                    background-color: rgba(41, 98, 109, 0.8);
+                    padding: 8px 24px 8px 24px;
+                  "
+                  >Become a Helper</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- header finish -->
+
+    <!--book services image -->
+    <img src="assets/images/book-service.jpg" class="book-service" />
+
+    <!-- set up ur service -->
+    <section class="setup">
+      <h1>Set up your cleaning service</h1>
+      <div class="d-flex justify-content-center">
+        <hr />
+        <img src="assets/images/forma-1-copy-5.png" class="forma-1-copy-5" />
+        <hr />
+      </div>
+      <!-- form -->
+      <div class="container-fluid justify-content-center my-5 form">
+        <div class="d-flex justify-content-center maincontent">
+          <div class="me-4 navtabs align-items-center">
+            <!--  -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link active-tab"
+                  data-bs-toggle="tab"
+                  href="#setup"
+                  ><img src="assets/images/setup-service-white.png" /><span>
+                    Setup Services</span
+                  ></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#schedual"
+                  ><img src="assets/images/schedule-plan.png" /><span>
+                    Schedual & Plan</span
+                  ></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#urdetail"
+                  ><img src="assets/images/details.png" /><span>
+                    Your Details
+                  </span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#payment"
+                  ><img src="assets/images/make-payment.png" /><span>
+                    Make Payment
+                  </span></a
+                >
+              </li>
+            </ul>
+            <!--  -->
+            <div class="tab-content">
+              <!-- setup content -->
+              <div class="tab-pane active" id="setup">
+                <label for="postalcode">Enter Your Postal Code </label> <br />
+                <input type="text" placeholder="Postal Code" />
+                <button type="submit">Check Availibility</button>
+              </div>
+              <!-- schedual content -->
+              <div class="tab-pane fade" id="schedual">
+                <!-- 1st part -->
+                <div
+                  class="d-flex flex-wrap justify-content-between mt-3 fstpart"
+                >
+                  <div>
+                    <h6>When do you need the cleaner?</h6>
+                    <input type="date" id="date" />
+                    <select>
+                      <option>8:00</option>
+                      <option>8:30</option>
+                      <option>9:00</option>
+                      <option>9:30</option>
+                    </select>
+                  </div>
+                  <div>
+                    <h6>How long do you need your cleaner to stay?</h6>
+                    <select>
+                      <option>3 Hrs</option>
+                      <option>4 Hrs</option>
+                      <option>5 Hrs</option>
+                      <option>6 Hrs</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- 2nd part -->
+                <div class="scnd mt-4">
+                  <h5>Extra Services</h5>
+                  <div
+                    class="d-flex flex-wrap justify-content-around mt-3 text-center"
+                  >
+                    <div class="mx-2">
+                      <div class="cabinet">
+                        <img src="assets/images/cabinet.png" />
+                      </div>
+                      <p>
+                        Inside <br />
+                        Cabinets
+                      </p>
+                    </div>
+                    <div class="mx-2">
+                      <div class="fridge">
+                        <img src="assets/images/fridge.png" />
+                      </div>
+                      <p>Inside fridge</p>
+                    </div>
+                    <div class="mx-2">
+                      <div class="oven">
+                        <img src="assets/images/oven.png" />
+                      </div>
+                      <p>Inside oven</p>
+                    </div>
+                    <div class="mx-2">
+                      <div class="washingmachine">
+                        <img src="assets/images/washingmachine.png" />
+                      </div>
+                      <p>
+                        Laundry wash <br />
+                        & dry
+                      </p>
+                    </div>
+                    <div class="mx-2">
+                      <div class="window">
+                        <img src="assets/images/window.png" />
+                      </div>
+                      <p>
+                        Interior <br />
+                        windows
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- 3rd part -->
+                <div class="trd mt-4">
+                  <label for="comments">Comments</label> <br />
+                  <textarea
+                    cols="30"
+                    rows="3"
+                    placeholder="Comments"
+                  ></textarea>
+                  <input type="checkbox" />
+                  <span>I have pets at home</span>
+                </div>
+                <!-- 4th -->
+                <div class="forth d-flex justify-content-end">
+                  <button type="submit">Continue</button>
+                </div>
+              </div>
+              <!-- ur details -->
+              <div class="tab-pane fade" id="urdetail">
+                <form>
+                  <label class="trdline">
+                    Enter your contact details, so we can serve you in better
+                    way!
+                  </label>
+
+                  <div class="address my-2">
+                    <div class="d-flex pt-2 pb-2 align-items-center">
+                      <div class="mx-3">
+                        <input type="radio" name="addressline" />
+                      </div>
+                      <div class="mx-2">
+                        <span
+                          ><span class="bold">Address:</span> abcd 123,
+                          Troisdorf 53844</span
+                        >
+                        <br />
+                        <span
+                          ><span class="bold">Phone number:</span>
+                          9988556644</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="address my-2">
+                    <div class="d-flex pt-2 pb-2 align-items-center">
+                      <div class="mx-3">
+                        <input type="radio" name="addressline" />
+                      </div>
+                      <div class="mx-2">
+                        <span
+                          ><span class="bold">Address:</span> abcd 123,
+                          Troisdorf 53844</span
+                        >
+                        <br />
+                        <span
+                          ><span class="bold">Phone number:</span>
+                          9988556644</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="btnadrs my-2">
+                    <button type="submit">+ Add New Address</button>
+                  </div>
+                  <div class="invoicesend">
+                    <input type="checkbox" /><span
+                      >Send invoice on this address</span
+                    >
+                  </div>
+                  <div class="forth d-flex justify-content-end">
+                    <button type="submit">Continue</button>
+                  </div>
+                </form>
+              </div>
+              <!-- payment -->
+              <div class="tab-pane fade" id="payment">
+                <h5>Pay securely with Helperland payment gateway!</h5>
+                <label for="Promo">Promo code (optional)</label> <br />
+                <input
+                  type="text"
+                  placeholder="Promo code (optional)"
+                  class="promo"
+                />
+                <button type="submit" class="apply">Apply</button>
+                <hr />
+
+                <div
+                  class="d-flex align-items-center mb-3"
+                  id="card-detail-div"
+                >
+                  <div class="d-flex align-items-center">
+                    <i class="fa fa-credit-card"></i>
+                    <input
+                      type="text"
+                      maxlength="16"
+                      class="form-control ms-1"
+                      id="card-number"
+                      placeholder="Card number"
+                    />
+                  </div>
+
+                  <div class="d-flex ms-auto">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="card-expiry"
+                      placeholder="MM/YY"
+                    />
+                    <input
+                      type="text"
+                      maxlength="3"
+                      class="form-control"
+                      id="card-cvc"
+                      placeholder="CVC"
+                    />
+                  </div>
+                </div>
+
+                <div class="d-flex">
+                  <input type="checkbox" class="condition" />
+                  <p>
+                    I accepted terms and conditions, the cancellation policy and
+                    the privacy policy. I confirm that Helperland starts to
+                    execute the contract before the expiry of the withdrawal
+                    period and I lose my right of withdrawal as a consumer with
+                    full performance of the contract.
+                  </p>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-end">
+                  <button class="booking">Complete Booking</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--  -->
+          <!-- button -->
+          <!-- <button class="paymentbutton">Payment Summary</button> -->
+
+          <!--  -->
+          <!--  -->
+
+          <!-- payment summary starts -->
+          <div class="ms-4" id="paymentsummary">
+            <div class="shadow">
+              <div class="psumm">
+                <div class="hrs">
+                  <h3 class="px-3 py-3 mb-3">Payment Summary</h3>
+                  <span class="px-3">Duration</span>
+                  <div class="d-flex justify-content-between px-3">
+                    <span>Basic</span>
+                    <span>0 Hrs</span>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <hr />
+                  </div>
+                  <div class="d-flex justify-content-between px-3">
+                    <h5>Total Service Time</h5>
+                    <h5>3 Hrs</h5>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between px-3 pt-3 cleaning">
+                  <span>Per cleaning</span>
+                  <span>0,00 <i class="fa fa-euro"></i></span>
+                </div>
+                <div class="d-flex justify-content-between px-3 pt-3 price">
+                  <span class="text">Total Payment</span>
+                  <span class="euro">0,00 <i class="fa fa-euro"></i></span>
+                </div>
+                <div class="px-3">
+                  According to § 19 UStG no sales tax is calculated.
+                </div>
+                <div class="d-flex justify-content-between px-3 pt-3">
+                  <span>Effective Price</span>
+                  <span class="euro">0,00 <i class="fa fa-euro"></i></span>
+                </div>
+                <div class="px-3 pt-1">
+                  <span class="star"> * </span>You will save 20% according to
+                  §35a EStG.
+                </div>
+                <div class="px-3 mt-3 emoji py-2">
+                  <span>&#128578; </span>See what is always included
+                </div>
+              </div>
+            </div>
+            <!-- payment summary end -->
+
+            <!-- questions -->
+            <div class="questions mt-3">
+              <p class="text-center">Questions?</p>
+              <!-- question 1 -->
+              <div class="accordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      What's included in a cleaning?
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingOne"
+                  >
+                    <div class="accordion-body">
+                      Bedroom, Living Room & Common<br />
+                      Areas,Bathrooms,Kitchen,Extras
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- question 2 -->
+              <div class="accordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingtwo">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapsetwo"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      Which Helperland professional will come to my place?
+                    </button>
+                  </h2>
+                  <div
+                    id="collapsetwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingOne"
+                  >
+                    <div class="accordion-body">
+                      Helperland has a vast network of experienced, top-rated
+                      <br />
+                      cleaners. Based on the time and date of your request, we
+                      <br />
+                      work to assign the best professional available.Like <br />
+                      working with a specific pro? Add them to your Pro Team
+                      <br />
+                      from the mobile app and they'll be requested first for all
+                      <br />
+                      future bookings.You will receive an email with details
+                      <br />
+                      about your professional prior to your appointment.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- question 3 -->
+              <div class="accordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingthree">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapsethree"
+                      aria-expanded="true"
+                      aria-controls="collapsethree"
+                    >
+                      Can I skip or reschedule bookings?
+                    </button>
+                  </h2>
+                  <div
+                    id="collapsethree"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingthree"
+                  >
+                    <div class="accordion-body">
+                      Helperland has a vast network of experienced, top-rated
+                      <br />
+                      cleaners. Based on the time and date of your request, we
+                      <br />
+                      work to assign the best professional available.Like <br />
+                      working with a specific pro? Add them to your Pro Team
+                      <br />
+                      from the mobile app and they'll be requested first for all
+                      <br />
+                      future bookings.You will receive an email with details
+                      <br />
+                      about your professional prior to your appointment.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- question 4 -->
+              <div class="accordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading4">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapse4"
+                      aria-expanded="true"
+                      aria-controls="collapse4"
+                    >
+                      Test Tatva
+                    </button>
+                  </h2>
+                  <div
+                    id="collapse4"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingOne"
+                  >
+                    <div class="accordion-body">Test Tatva</div>
+                  </div>
+                </div>
+              </div>
+              <!-- complete question -->
+              <div class="mt-3">
+                <a href="FAQs.html" class="morehelp">For More Help</a>
+              </div>
+            </div>
+          </div>
+          <!-- payment summary ends -->
+        </div>
+      </div>
+    </section>
+
+    <!-- footer starts -->
+    <footer>
+      <div class="mt-5" style="background: #111111">
+        <div
+          class="container d-flex justify-content-between align-items-center py-4"
+          style="flex-wrap: wrap"
+        >
+          <div>
+            <a href="#"
+              ><img
+                src="assets/images/white-logo-transparent-background.png"
+                style="width: 106px"
+            /></a>
+          </div>
+
+          <nav class="nav mx-5">
+            <ul class="nav mx-5">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a href="Few Word About Us.html" class="nav-link">ABOUT</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">TESIMONIALS</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">FAQs</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">INSURANCE POLICY</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">IMPRESSUM</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- logo of instagram and facebook -->
+          <div class="mx-4">
+            <a class="px-2" href="#" style="color: #ffffff"
+              ><i class="fa fa-facebook-f"></i
+            ></a>
+            <a class="px-2" href="#" style="color: #ffffff"
+              ><i class="fa fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- line -->
+
+        <div class="d-flex justify-content-center">
+          <hr style="width: 70%; color: #cccccc" />
+        </div>
+
+        <!-- line done -->
+
+        <!-- privacy content -->
+        <div class="text-center mb-0 py-3" style="color: #9ba0a3">
+          <p class="mb-0 py-2 d-inline font-size:14px;">
+            ©2018 Helperland. All rights reserved.&emsp; Terms and Conditions
+            <a href="#" style="color: #9ba0a3; text-decoration: none"
+              >| Privacy Policy</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- footer end -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/jquery-3.6.0.js"></script>
+    <script src="assets/js/BookService.js"></script>
+  </body>
+</html>

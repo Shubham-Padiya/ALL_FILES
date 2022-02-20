@@ -1,0 +1,89 @@
+﻿@using HELPERLAND.Models.ViewModels
+@model SchedualViewModel
+@{ 
+    Layout = null;
+}
+<form id="schedualForm" data-ajax="true" data-ajax-url="/bookservice/schedual"
+      data-ajax-method="post" data-ajax-update="#schedual">
+    <!-- 1st part -->
+    <div class="d-flex flex-wrap justify-content-between mt-3 fstpart">
+        <div>
+            <h6>When do you need the cleaner?</h6>
+            <div class="d-flex">
+            @Html.TextBoxFor(model => model.ServiceDate, DateTime.Now.ToString("yyyy-MM-dd"), new { @type = "date", @class = "form-control", @id = "date" })
+
+            @Html.DropDownListFor(model => model.ServiceTime, new List<SelectListItem>
+                          { new SelectListItem{Text="8:00 AM", Value="8:00:00"},
+                            new SelectListItem{Text="8:30 AM", Value="8:30:00"},
+                            new SelectListItem{Text="9:00 AM", Value="9:00:00"},
+                            new SelectListItem{Text="9:30 AM", Value="9:30:00"}}, new { @class = "form-select" })
+            </div>
+        </div>
+        <div>
+            <h6>How long do you need your cleaner to stay?</h6>
+            @Html.DropDownListFor(model => model.ServiceHours, new List<SelectListItem>
+                       { new SelectListItem{Text="3.0 Hrs", Value="3.00"},
+                         new SelectListItem{Text="3.5 Hrs", Value="3.5"},
+                         new SelectListItem{Text="4.0 Hrs",Value="4.0"},
+                         new SelectListItem{Text="4.5 Hrs",Value="4.5"}}, new { @class = "form-select" })
+        </div>
+    </div>
+    <!-- 2nd part -->
+    <div class="scnd mt-4">
+        <h5>Extra Services</h5>
+        <div class="d-flex flex-wrap justify-content-around mt-3 text-center">
+            <div class="mx-2">
+                <div class="cabinet bordercolor">
+                    <img src="~/imgs/cabinet.png" />
+                </div>
+                <p>Inside <br />cabinets</p>
+            </div>
+            <div class="mx-2">
+                <div class="fridge bordercolor">
+                    <img src="~/imgs/fridge.png" />
+                </div>
+                <p>Inside fridge</p>
+            </div>
+            <div class="mx-2">
+                <div class="oven bordercolor">
+                    <img src="~/imgs/oven.png" />
+                </div>
+                <p>Inside oven</p>
+            </div>
+            <div class="mx-2">
+                <div class="washingmachine bordercolor">
+                    <img src="~/imgs/washingmachine.png" />
+                </div>
+                <p>Laundry wash <br />& dry</p>
+            </div>
+            <div class="mx-2">
+                <div class="window bordercolor">
+                    <img src="~/imgs/window.png" />
+                </div>
+                <p>Interior <br />windows</p>
+            </div>
+        </div>
+    </div>
+    <!-- 3rd part -->
+    <div class="trd mt-4">
+        <label for="comments">Comments</label> <br />
+        <textarea cols="30"
+                  rows="3"
+                  placeholder="Comments"
+                  asp-for="Comments"></textarea>
+        @Html.CheckBoxFor(model => model.HasPets, new { @class = "form-check-input" })@Html.LabelFor(model => model.HasPets, new { @class = "form-check-label" })
+    </div>
+    <!-- 4th -->
+    <div class="forth d-flex justify-content-end">
+        <input type="submit" value="Continue" id="schedual_detailcontinue" />
+    </div>
+</form>
+<script>
+    var msg = '@ViewBag.Message';
+    if (msg == "urdetail")
+    {
+        $('a[href="#urdetail"]').tab('show');
+        $('#detailtab').removeClass("disabled");
+        makeActive($('#detailtab'));
+    }
+</script>

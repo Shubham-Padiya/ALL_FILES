@@ -1,6 +1,7 @@
 ﻿using HELPERLAND.Models;
 using HELPERLAND.Models.Data;
 using HELPERLAND.Models.ViewModels;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -14,13 +15,22 @@ namespace HELPERLAND.Controllers
 {
     public class HomeController : Controller
     {
+        private IWebHostEnvironment _hostingEnvironment;
+
+
+
+
         private readonly ILogger<HomeController> _logger;
         private HelperlandContext helperlandContext;
 
-        public HomeController(ILogger<HomeController> logger , HelperlandContext _helperlandContext)
+        public string UploadFileName { get; private set; }
+        public string FileName { get; private set; }
+
+        public HomeController(ILogger<HomeController> logger , HelperlandContext _helperlandContext, IWebHostEnvironment environment)
         {
             _logger = logger;
             helperlandContext = _helperlandContext;
+            _hostingEnvironment = environment;
         }
 
         public IActionResult Index()
@@ -98,9 +108,11 @@ namespace HELPERLAND.Controllers
                 string uniqueFileName = null;
                 if (model.File != null)
                 {
-                    string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\ContactUsAttechment");
+                    UploadFileName = model.File.FileName;
+                    FileName = uniqueFileName;
+                    var path = Path.Combine(_hostingEnvironment.WebRootPath, "ContactUsAttechment");
                     uniqueFileName = Guid.NewGuid().ToString() + "_" + model.File.FileName;
-                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    string filePath = Path.Combine(path, uniqueFileName);
                     model.File.CopyTo(new FileStream(filePath, FileMode.Create));
                 }
 
@@ -111,9 +123,7 @@ namespace HELPERLAND.Controllers
                     PhoneNumber = model.Mobile,
                     Message = model.Message,
                     Subject = model.Subject,
-                    UploadFileName = model.File.FileName,
                     CreatedOn = DateTime.Now,
-                    FileName = uniqueFileName
                 };
                 helperlandContext.ContactUs.Add(contact);
                 helperlandContext.SaveChanges();

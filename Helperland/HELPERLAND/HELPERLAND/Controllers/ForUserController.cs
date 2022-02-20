@@ -78,7 +78,9 @@ namespace HELPERLAND.Controllers
 
                     string subject = "Reset Password Link";
                     string body = "<b>Please find the Password Reset Link. </b><br/>" + lnkHref;
-                    EmailManager.SendEmail(model.Email, subject, body);
+                    List<string> toList = new List<string>();
+                    toList.Add(model.Email);
+                    EmailManager.SendEmail(toList, subject, body);
                     ViewBag.Alert = "<div class='alert alert-success alert-dismissible fade show' role='alert'>we have sent Password reset link on your Email..<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
                     return View();
                 }

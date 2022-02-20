@@ -1,0 +1,52 @@
+﻿@using HELPERLAND.Models.ViewModels;
+@model DetailViewModel
+@{
+    Layout = null;
+    var postalCode = Model.userAddress.ElementAt(0).PostalCode;
+    var city = Model.userAddress.ElementAt(0).City;
+    var mobile = Model.userAddress.ElementAt(0).Mobile;
+    var checkedValue = "false";
+}
+<form id="urdetailForm" data-ajax="true" data-ajax-url="/bookservice/yourdetail"
+      data-ajax-method="post" data-ajax-update="#urdetail">
+    <label class="trdline">
+        Enter your contact details, so we can serve you in better
+        way!
+    </label>
+
+    
+    @foreach (var address in Model.userAddress)
+    {
+        {
+            if (address.IsDefault)
+            {
+                Model.check = address.AddressId;
+            }
+            else
+            {
+                Model.check = 0;
+            }
+        }
+<div class="checkbox-col address d-flex align-items-center mb-3">
+    @Html.RadioButtonFor(model => model.check, address.AddressId, new { @class = "form-check-input", @checked = checkedValue })
+    <label class="form-check-label ms-3"><b>Address : </b>@address.AddressLine1,@address.AddressLine2, @address.City-@address.State @address.PostalCode<br /><b>Phone number :</b> @address.Mobile</label>
+</div>
+    }
+    <div class="btnadrs my-2">
+        <button type="submit">+ Add New Address</button>
+    </div>
+    <div class="invoicesend">
+        <input type="checkbox" /><span>Send invoice on this address</span>
+    </div>
+    <div class="forth d-flex justify-content-end">
+        <input type="submit" value="Continue" id="schedual_detailcontinue" />
+    </div>
+</form>
+<script>
+    var msg = '@ViewBag.Message';
+    if (msg == "payment") {
+        $('a[href="#payment"]').tab('show');
+        $('#paymenttab').removeClass("disabled");
+        makeActive($("#paymenttab"));
+    }
+</script>
