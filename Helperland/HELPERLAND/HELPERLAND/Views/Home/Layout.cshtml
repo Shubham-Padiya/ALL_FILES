@@ -42,49 +42,88 @@
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav ms-auto me-2">
-                        <li class="nav-item text-center mb-1">
+                        <li class="nav-item text-center mb-1 mt-2">
                             <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
                                asp-controller="bookservice" asp-action="Bookservice"
                                style="
-                    background-color: rgba(41, 98, 109, 0.7);
-                    padding: 8px 24px 8px 24px;
-                  ">Book now</a>
+                               background-color: rgba(41, 98, 109, 0.7);
+                               padding: 8px 24px 8px 24px;
+                               ">Book now</a>
                         </li>
-                        <li class="nav-item text-center mb-1">
+                        <li class="nav-item text-center mb-1 mt-2">
                             <a class="nav-link b"
                                asp-controller="Home" asp-action="Prices"
                                style="
-                    background-color: transparent;
-                    padding: 8px 24px 8px 24px;
-                  ">Prices & services</a>
+                               background-color: transparent;
+                               padding: 8px 24px 8px 24px;
+                               ">Prices & services</a>
                         </li>
-                        <li class="nav-item text-center mb-1 b">
-                            <a class="nav-link" href="#">Warranty</a>
+                        <li class="nav-item text-center mb-1 mt-2">
+                            <a class="nav-link b" href="#">Warranty</a>
                         </li>
-                        <li class="nav-item text-center mb-1 b">
-                            <a class="nav-link" href="#">Blog</a>
+                        <li class="nav-item text-center mb-1 mt-2">
+                            <a class="nav-link b" href="#">Blog</a>
                         </li>
-                        <li class="nav-item text-center mb-1 b">
-                            <a class="nav-link" asp-controller="Home" asp-action="ContactUs">Contact</a>
+                        <li class="nav-item text-center mb-1 mt-2">
+                            <a class="nav-link b" asp-controller="Home" asp-action="ContactUs">Contact</a>
                         </li>
-                        <li class="nav-item text-center mb-1">
-                            <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl lgn"
-                               data-url='@Url.Action("Login","ForUser")'
-                               style="
-                    background-color: rgba(41, 98, 109, 0.7);
-                    padding: 8px 24px 8px 24px;
-                  ">Login</a>
-                        </li>
-                        <li class="nav-item text-center mb-1">
-                            <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
-                               asp-controller="Home" asp-action="Become_a_Provider"
-                               style="
-                    background-color: rgba(41, 98, 109, 0.7);
-                    padding: 8px 24px 8px 24px;
-                    cursor:pointer!important;
-                  ">Become a Helper</a>
-                        </li>
-                    </ul>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="notification text-center">
+                                <a href="#"><i class="fa fa-bell fa-5x"></i></a>
+                            </li>
+
+                            <li class="dropdown text-center">
+                                <a href=""
+                                   title="Account Info"
+                                   class="nav-link"
+                                   id="navbardropdown"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    <img src="~/imgs/user.png" />
+                                    <img src="~/imgs/drop-down.png" />
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbardropdown">
+                                    <li>
+                                        Welcome,<br />
+                                        <b>@User.Identity.Name.Split(" ").ElementAt(0)!</b>
+                                    </li>
+                                    <hr style="color:#4f4f4f;width:100%;height:1px" />
+                                    <li>
+                                        <a class="dropdown-item"
+                                           asp-controller="customer" asp-action="servicerequest">My Dashboard</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="customer"
+                                           asp-action="mysetting">My Setting</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item text-center mb-1">
+                                <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl lgn"
+                                   asp-controller="home" asp-action="index" asp-route-loginPopUp=true
+                                   style="
+                               background-color: rgba(41, 98, 109, 0.7);
+                               padding: 8px 24px 8px 24px;
+                               ">Login</a>
+                            </li>
+                            <li class="nav-item text-center mb-1">
+                                <a class="nav-link border border-1 rounded-pill ms-1 me-1"
+                                   href="become_service_provider.html"
+                                   style="
+                                   background-color: rgba(41, 98, 109, 0.7);
+                                   padding: 8px 24px 8px 24px;
+                                   ">Become a Helper</a>
+                                </li>
+                                }
+                        </ul>
                 </div>
             </div>
         </nav>

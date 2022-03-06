@@ -21,3 +21,9 @@ $(".dropdown-item").click(function () {
     var src = $(this).children().eq(0).attr('src');
     $('#flagImage').attr('src', src);
 });
+
+$('document').ready(function () {
+    $('#check').change(function () {
+        $('#gs').prop("disabled", !this.checked);
+    }).change()
+});

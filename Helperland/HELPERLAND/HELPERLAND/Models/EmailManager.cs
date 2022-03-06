@@ -17,14 +17,14 @@ namespace HELPERLAND.Models
                 mail.To.Add(mailTo);
             }
             mail.IsBodyHtml = true;
-            mail.From = new MailAddress("Gmail");
+            mail.From = new MailAddress("rahulkumbharvadiya28@gmail.com");
             mail.Subject = subject;
             mail.Body = body;
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential("Gmail", "Password");
+            smtp.Credentials = new NetworkCredential("rahulkumbharvadiya28@gmail.com", "Rahul@028");
             smtp.EnableSsl = true;
             smtp.Send(mail);
         }

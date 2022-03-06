@@ -1,0 +1,343 @@
+﻿@using HELPERLAND.Models.Data
+@model IEnumerable<HELPERLAND.Models.Data.ServiceRequest>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Request</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+          rel="stylesheet" />
+
+    <link rel="stylesheet"
+          href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css" />
+
+    <link rel="stylesheet"
+          href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href="~/css/Home/dataTables.bootstrap5.min.css" asp-append-version="true">
+
+    <link rel="stylesheet" href="~/css/Home/servicerequest.css" asp-append-version="true">
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+</head>
+<body>
+
+    <div class="modal" tab-index="-1" id="customerpopup" role="dialog"></div>
+
+    <header class="header1">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+            <div class="container-fluid d-flex">
+                <a href="#" class="navbar-brand">
+                    <img src="~/imgs/white-logo-transparent-background.png"
+                         class="white-logo-transparent-background" />
+                </a>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ms-auto me-2">
+                        <li class="nav-item text-center ms-1">
+                            <a class="nav-link border border-1 rounded-pill mt-1 mx-2 blk"
+                               asp-controller="bookservice" asp-action="bookservice">Book Now</a>
+                        </li>
+                        <li class="nav-item text-center ms-1">
+                            <a class="nav-link mt-1" asp-controller="home" asp-action="prices">
+                                Prices & Services
+                            </a>
+                        </li>
+                        <li class="nav-item text-center ms-1">
+                            <a class="nav-link mt-1" href="#">Warranty</a>
+                        </li>
+                        <li class="nav-item text-center ms-1">
+                            <a class="nav-link mt-1 blg" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item text-center ms-1">
+                            <a class="nav-link mt-1" asp-controller="home" asp-action="contactus">
+                                Contact
+                            </a>
+                        </li>
+
+                        <li class="notification text-center">
+                            <a href="#"><i class="fa fa-bell fa-5x"></i></a>
+                        </li>
+
+                        <li class="dropdown text-center">
+                            <a href=""
+                               title="Account Info"
+                               class="nav-link"
+                               id="navbardropdown"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                <img src="~/imgs/user.png" />
+                                <img src="~/imgs/drop-down.png" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbardropdown">
+                                <li>
+                                    Welcome,<br />
+                                    <b>@User.Identity.Name.Split(" ").ElementAt(0)!</b>
+                                </li>
+                                <hr style="color:#4f4f4f;width:100%;height:1px" />
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="customer" asp-action="servicerequest">My Dashboard</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="customer"
+                                       asp-action="mysetting">My Setting</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <header class="header2" id="header">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+            <div class="container-fluid d-flex" id="nn">
+                <a href="#">
+                    <img src="~/imgs/white-logo-transparent-background.png"
+                         class="white-logo-transparent-background" />
+                </a>
+                <li class="notification text-center">
+                    <a href="#"><i class="fa fa-bell"></i></a>
+                </li>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <h6 class="text-center" style="font-weight: bold">
+                        <br />
+                        Welcome, @User.Identity.Name.Split(" ").ElementAt(0)!
+                    </h6>
+                    <hr />
+                    <h6><a href="#">Dashboard</a></h6>
+                    <h6><a href="#">New Service Requests</a></h6>
+                    <h6><a href="#">Upcoming Services</a></h6>
+                    <h6><a href="#">Service Schedule</a></h6>
+                    <h6><a asp-controller="customer" asp-action="servicehistory">Service History</a></h6>
+                    <h6><a href="#">My Ratings</a></h6>
+                    <h6><a href="#">Block Customer</a></h6>
+                    <h6><a href="#">Invoices</a></h6>
+                    <h6><a href="#">My Settings</a></h6>
+                    <h6><a href="#">Logout</a></h6>
+                    <hr />
+                    <h6><a asp-controller="home" asp-action="prices">Prices & Services</a></h6>
+                    <h6><a href="#">Warranty</a></h6>
+                    <h6><a href="#">Blog</a></h6>
+                    <h6><a asp-controller="home" asp-action="contactus">Contact</a></h6>
+                    <hr />
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-instagram"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- welcome section starts -->
+
+        <section class="forthewelcome">
+            <div class="text-center">
+                <h1>Welcome, <span>@User.Identity.Name.Split(" ").ElementAt(0)!</span></h1>
+            </div>
+        </section>
+
+        <!-- welcome section finish -->
+        <!-- content starts -->
+        <section class="maincontent my-5">
+            <div class="d-flex justify-content-center mx-2">
+
+                <div class="snavbar">
+                    <ul>
+                        <li>
+                            <a class="nav-link active dashboard" title="Dashboard" asp-controller="customer"
+                               asp-action="servicerequest">Dashboard</a>
+                        </li>
+                        <li>
+                            <a class="nav-link servicehistory" title="Service History"
+                               asp-controller="customer" asp-action="servicehistory">Service History</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" title="Service Schedule" href="#">Service Schedule</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" title="Favourite Pros" href="#">Favourite Pros</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" title="Invoices" href="#">Invoices</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" title="Notifications" href="#">Notifications</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- table -->
+
+                <div class="cont mx-2">
+                    <div class="d-flex justify-content-between">
+                        <h5>Current Service Requests</h5>
+                        <button id="addservicerequest" class=" my-2">Add New Service Request</button>
+                    </div>
+
+                    <table class="table" id="servicerequest">
+                        <thead>
+                            <tr>
+                                <th>Service Id</th>
+                                <th>Service Date</th>
+                                <th>Service Provider</th>
+                                <th>Payment</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var request in Model)
+                            {
+                                <tr>
+                                    <td class="servicerequestid">@request.ServiceRequestId</td>
+                                    <td>
+                                        <img src="~/imgs/calendar2.png" />
+                                        <span id="date">@request.ServiceStartDate.Date.ToString("dd/MM/yyyy")</span>
+                                        <br />
+                                        <img src="~/imgs/layer-14.png" />
+                                        <span>@request.ServiceStartDate.TimeOfDay</span>
+                                    </td>
+                                    <td>
+                                        @if (request.ServiceProviderId != null)
+                                        {
+                                            <div class="d-flex flex-wrap justify-content-center align-items-center">
+                                                <div>
+                                                    <img src="~/imgs/cap.png" class="cap" />
+                                                </div>
+                                                <div class="rating">
+                                                    <span>@request.ServiceProvider.FirstName</span>
+                                                    <br />
+                                                    <img src="~/imgs/star1.png" />
+                                                    <img src="~/imgs/star1.png" />
+                                                    <img src="~/imgs/star1.png" />
+                                                    <img src="~/imgs/star1.png" />
+                                                    <img src="~/imgs/star2.png" /> 4
+                                                </div>
+                                            </div>
+                                        }
+                                    </td>
+                                    <td class="euroo"><i class="fa fa-euro">@request.SubTotal</i></td>
+                                    <td>
+                                        <div class="d-flex justify-content-end">
+                                            <a class="btn reschedule mx-2" data-id=@request.ServiceRequestId>Reschdule</a>
+                                            <a class="btn cancle mx-2" data-id=@request.ServiceRequestId>Cancle</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- content end -->
+    </main>
+
+    <!-- footer starts -->
+
+    <footer>
+        <div class="mt-5" style="background: #111111">
+            <div class="container d-flex justify-content-between align-items-center flex-wrap py-4">
+                <div>
+                    <a href="#">
+                        <img src="~/imgs/white-logo-transparent-background.png"
+                             class="white-logo-transparent-background" />
+                    </a>
+                </div>
+
+                <nav class="nav mx-5">
+                    <ul class="nav mx-5">
+                        <li class="nav-item">
+                            <a asp-controller="home" asp-action="index" class="nav-link">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="home" asp-action="aboutus" class="nav-link">ABOUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">TESIMONIALS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="home" asp-action="faqs" class="nav-link">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">INSURANCE POLICY</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">IMPRESSUM</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- logo of instagram and facebook -->
+                <div class="mx-4">
+                    <a class="px-2" href="#" style="color: #ffffff">
+                        <i class="fa fa-facebook-f"></i>
+                    </a>
+                    <a class="px-2" href="#" style="color: #ffffff">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- line -->
+
+            <div class="d-flex justify-content-center">
+                <hr />
+            </div>
+
+            <!-- line done -->
+            <!-- privacy content -->
+            <div class="text-center mb-0 py-3">
+                <h6 class="mb-0 py-2 d-inline">
+                    ©2018 Helperland. All rights reserved.&emsp; Terms and Conditions
+                    <a href="#">| Privacy Policy</a>
+                </h6>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+
+    <script src="~/js/Home/servicerequest.js" asp-append-version="true"></script>
+</body>
+</html>

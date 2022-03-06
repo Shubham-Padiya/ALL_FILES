@@ -398,3 +398,12 @@ D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Raz
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\bookservice\Schedual.cshtml.g.cs
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\bookservice\YourDetail.cshtml.g.cs
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\bookservice\ZipCode.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Customer\ServiceHistory.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Customer\ServiceRequest.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Customer\ServiceDetail.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Reschedule.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Cancel.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Customer\ChangePassword.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Customer\MyAddress.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Customer\MyDetail.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Customer\MySetting.cshtml.g.cs

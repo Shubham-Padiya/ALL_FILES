@@ -105,7 +105,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p>Already registered? <a>Login now</a></p>
+                    <p>Already registered? <a asp-controller="Home" asp-action="Index" asp-route-loginPopUp=true>Login now</a></p>
                 </div>
             </div>
         </form>
@@ -121,5 +121,11 @@
         $("footer").hide();
         $(".getnews").hide();
         $("header .navbar").css("background", "rgba(82, 82, 82, 0.8)");
+
+        $('document').ready(function () {
+            $('#flexCheckDefault').change(function () {
+                $('#regis').prop("disabled", !this.checked);
+            }).change()
+        });
     </script>
 }

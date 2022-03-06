@@ -76,7 +76,7 @@ function AddService(service, children) {
     $("#extra-services").children().eq(children).html(html);
     totalServieTime = totalServieTime + 0.5;
     totalPayment += 10;
-    $("#totalpayment").html(totalPayment + ",00&euro;");
+    $("#totalpayment").html(totalPayment + ".00&euro;");
     $("#totaltime").html(totalServieTime);
 }
 
@@ -84,7 +84,7 @@ function RemoveService(children) {
     $("#extra-services").children().eq(children).empty();
     totalServieTime -= 0.5;
     totalPayment -= 10;
-    $("#totalpayment").html(totalPayment + ",00&euro;");
+    $("#totalpayment").html(totalPayment + ".00&euro;");
     $("#totaltime").html(totalServieTime);
 }
 
@@ -130,7 +130,7 @@ function SubmitPayment() {
 
 function hideModal() {
     $("#resultModal").hide();
-    window.location.href = "/Home/Index";
+    window.location.href = "/customer/servicerequest";
 }
 
 function ServiceRequestResult(isError, Message, ServiceRequestId) {

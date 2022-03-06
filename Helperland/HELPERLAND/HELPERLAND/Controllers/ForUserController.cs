@@ -6,6 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using HELPERLAND.Models;
 using System.Threading.Tasks;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
 
 namespace HELPERLAND.Controllers
 {
@@ -26,7 +31,7 @@ namespace HELPERLAND.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(LoginViewModel model)
+        public async Task<IActionResult> LoginAsync(LoginViewModel model)
         {
             string message;
             if (ModelState.IsValid)
@@ -36,25 +41,54 @@ namespace HELPERLAND.Controllers
                 {
                     if(user.IsApproved)
                     {
-                        message = "Login Successfully";
+                        var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme, ClaimTypes.Name, ClaimTypes.Role);
+
+                        identity.AddClaim(new Claim(ClaimTypes.Email, user.Email));
+                        identity.AddClaim(new Claim(ClaimTypes.Name, user.FirstName + " " + user.LastName));
+                        identity.AddClaim(new Claim(ClaimTypes.Role, user.UserTypeId.ToString()));
+
+                        var principal = new ClaimsPrincipal(identity);
+
+                        var authProperties = new AuthenticationProperties
+                        {
+                            AllowRefresh = true,
+                            ExpiresUtc = DateTimeOffset.Now.AddMinutes(30),
+                            IsPersistent = model.RememberMe,
+                        };
+
+                        HttpContext.Session.SetString("CurrentUser", JsonConvert.SerializeObject(user));
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
+                        string returnUrl = (string)TempData["returnUrl"];
+                        if (returnUrl != null)
+                        {
+                            return Json("returnUrl=" + returnUrl);
+                        }
+                        else
+                        {
+                            message = "Log in successful.";
+                            ViewBag.Alert = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                            return View(model);
+                        }
                     }
                     else
                     {
-                        message = "Your accout is not approved by user!" +
-                                  "Please Try Later!!";
+                        message = "Your account is yet to be approve by admin..Try again after some time!!";
+                        ViewBag.Alert = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                        return View(model);
                     }
                 }
                 else
                 {
-                    message = "Invalid Username or Password";
+                    message = "Invalid username or password";
+                    ViewBag.Alert = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                    return View(model);
                 }
-                ViewBag.Alert = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-                return View();
             }
             else
             {
                 return View(model);
             }
+
         }
 
 
@@ -74,7 +108,7 @@ namespace HELPERLAND.Controllers
                 if (isEmailExists)
                 {
                     string Token = Guid.NewGuid().ToString();
-                    var lnkHref = "<a href='" + Url.Action("ResetPassword", "Account", new { email = model.Email, code = Token }, "http") + "'>Reset Password</a>";
+                    var lnkHref = "<a href='" + Url.Action("ResetPass", "ForUser", new { email = model.Email, code = Token }, "http") + "'>Reset Password</a>";
 
                     string subject = "Reset Password Link";
                     string body = "<b>Please find the Password Reset Link. </b><br/>" + lnkHref;
@@ -133,7 +167,8 @@ namespace HELPERLAND.Controllers
                     };
                     helperlandContext.Users.Add(user);
                     helperlandContext.SaveChanges();
-                    return RedirectToAction("index", "home");
+                    ViewBag.Alert = "<div class='alert alert-success alert-dismissible fade show' role='alert'>You have successfully registered..<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                    return View();
                 }
             }
             else
@@ -165,7 +200,8 @@ namespace HELPERLAND.Controllers
                 user.ModifiedBy = user.UserId;
                 helperlandContext.Users.Update(user);
                 helperlandContext.SaveChanges();
-                return RedirectToAction("index", "home");
+                ViewBag.Alert = "<div class='alert alert-success alert-dismissible fade show' role='alert'>Your Password has been changed...<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                return View();
             }
             else
             {

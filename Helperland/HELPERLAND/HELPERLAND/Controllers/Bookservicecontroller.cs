@@ -1,6 +1,7 @@
 ﻿using HELPERLAND.Models;
 using HELPERLAND.Models.Data;
 using HELPERLAND.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace HELPERLAND.Controllers
 {
+    [Authorize]
     public class Bookservicecontroller : Controller
     {
         private readonly HelperlandContext helperlandContext;
@@ -18,7 +20,6 @@ namespace HELPERLAND.Controllers
         {
             helperlandContext = _helperlandContext;
         }
-        
         public IActionResult Bookservice()
         {
             return View();
@@ -99,6 +100,8 @@ namespace HELPERLAND.Controllers
             var zipcodeviewmodelstring = HttpContext.Session.GetString("ZipCodeViewModel");
             ZipCodeViewModel zipCodeViewModel = JsonConvert.DeserializeObject<ZipCodeViewModel>(zipcodeviewmodelstring);
 
+            UserAddress userAddress = detailViewModel.userAddress.FirstOrDefault(address => address.AddressId == detailViewModel.check);
+
             serviceRequest.UserId = 1;
             serviceRequest.ZipCode = zipCodeViewModel.ZipCode;
             serviceRequest.ServiceStartDate = schedualViewModel.ServiceStartDate;
@@ -108,6 +111,16 @@ namespace HELPERLAND.Controllers
             serviceRequest.CreatedDate = DateTime.Now;
             serviceRequest.ModifiedDate = DateTime.Now;
             serviceRequest.ModifiedBy = 1;
+
+            serviceRequest.ServiceRequestAddresses.Add(new ServiceRequestAddress()
+            {
+                AddressLine1 = userAddress.AddressLine1,
+                AddressLine2 = userAddress.AddressLine2,
+                City = userAddress.City,
+                PostalCode = userAddress.PostalCode,
+                Email = userAddress.Email,
+                Mobile = userAddress.Mobile
+            });
             helperlandContext.ServiceRequests.Add(serviceRequest);
             helperlandContext.SaveChanges();
             ViewBag.IsError = false;

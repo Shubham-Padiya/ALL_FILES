@@ -1,0 +1,89 @@
+﻿@using HELPERLAND.Models.ViewModels
+@model MyDetailViewModel
+@{
+    Layout = null;
+}
+<form id="myDetailForm" data-ajax="true" data-ajax-url="/customer/mydetail"
+      data-ajax-method="post" data-ajax-update="#mydetail">
+    <div class="row">
+        <div class="col-sm-4 mb-3">
+            @Html.LabelFor(model => model.FirstName, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+        </div>
+        <div class="col-sm-4 mb-3">
+            @Html.LabelFor(model => model.LastName, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+        </div>
+        <div class="col-sm-4 mb-3">
+            @Html.LabelFor(model => model.Email, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @type = "email", @disabled = true })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 mb-3">
+            @Html.LabelFor(model => model.Mobile, new { @class = "form-label" })
+            <div class="input-group">
+                <div class="input-group-text">+91</div>
+                @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label class="form-label">Date Of Birth</label>
+            <div class="row">
+                <div class="col-auto mb-3">
+                    @Html.DropDownListFor(model => model.BirthDay, new List<SelectListItem>
+                            { new SelectListItem{Text="1", Value="1"},
+                              new SelectListItem{Text="2", Value="2"},
+                              new SelectListItem{Text="3",Value="3"},
+                              new SelectListItem{Text="4",Value="4"},
+                              new SelectListItem{Text="5",Value="5"},
+                              new SelectListItem{Text="6",Value="6"},
+                              new SelectListItem{Text="7",Value="7"},
+                              new SelectListItem{Text="8",Value="8"},
+                              new SelectListItem{Text="9",Value="9"},
+                              new SelectListItem{Text="10",Value="10"},
+               })
+                </div>
+                <div class="col-auto mb-3">
+                    @Html.DropDownListFor(model => model.BirthMonth, new List<SelectListItem>
+                            { new SelectListItem{Text="1", Value="1"},
+                              new SelectListItem{Text="2", Value="2"},
+                              new SelectListItem{Text="3",Value="3"},
+                              new SelectListItem{Text="4",Value="4"},
+                              new SelectListItem{Text="5",Value="5"},
+                              new SelectListItem{Text="6",Value="6"},
+                              new SelectListItem{Text="7",Value="7"},
+                              new SelectListItem{Text="8",Value="8"},
+                              new SelectListItem{Text="9",Value="9"},
+                              new SelectListItem{Text="10",Value="10"},
+                              new SelectListItem{Text="11",Value="11"},
+                              new SelectListItem{Text="12",Value="12"},
+               })
+                </div>
+                <div class="col-auto mb-3">
+                    @Html.DropDownListFor(model => model.BirthMonth, new List<SelectListItem>
+                            { new SelectListItem{Text="2001",Value="2001"},
+                              new SelectListItem{Text="2002",Value="2002"},
+                              new SelectListItem{Text="2003",Value="2003"},
+                              new SelectListItem{Text="2004",Value="2004"},
+                              new SelectListItem{Text="2005",Value="2005"},
+                              new SelectListItem{Text="2006",Value="2006"},
+                              new SelectListItem{Text="2007",Value="2007"},
+                              new SelectListItem{Text="2008",Value="2008"},
+               })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-auto mb-3">
+            @Html.LabelFor(model => model.LanguageId, new { @class = "form-label" })
+            @Html.DropDownListFor(model => model.BirthMonth, new List<SelectListItem>
+                { new SelectListItem{Text="English",Value="English"},
+                new SelectListItem{Text="Hindi",Value="Hindi"},
+                new SelectListItem{Text="Other",Value="Other"},})
+        </div>
+    </div>
+    <input class="btn btn-primary px-3 mb-3" type="submit" value="Save" />
+    @Html.Raw(@ViewBag.Alert)
+</form>

@@ -1,0 +1,74 @@
+﻿@using HELPERLAND.Models.Data
+@model ServiceRequest
+
+@{
+    Layout = null;
+    string comment;
+    string img;
+
+    if (Model.HasPets)
+    {
+        comment = "I have pets at Home";
+        img = "/imgs/included.png";
+    }
+    else
+    {
+        comment = "I don't have pets at Home";
+        img = "/imgs/not-included.png";
+    }
+
+    string extra_item="";
+    foreach(var extra in Model.ServiceRequestExtras)
+    {
+        switch (extra.ServiceExtraId)
+        {
+            case 1:extra_item += "Inside cabinets";
+                break;
+
+            case 2:extra_item += "Inside fridge";
+                break;
+            case 3:extra_item += "Inside oven";
+                break;
+            case 4:extra_item += "Laundry wash & dry";
+                break;
+            case 5:extra_item += "Interior windows";
+                break;
+        }
+    }
+
+    var startTime = Model.ServiceStartDate;
+    var endTime = startTime.AddHours(Model.ServiceHours);
+}
+
+<div class="modal-dialog modal-dialog-centered sdmodal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Service Detail</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+        </div>
+        <div class="modal-body px-3">
+            <h5>@Model.ServiceStartDate.ToString("dd/MM/yyyy") @startTime.ToString("hh:mm")-@endTime.ToString("hh:mm")</h5>
+            <span><b>Duration: </b>@Model.ServiceHours Hrs.</span><br />
+            <div class="d-flex justify-content-center my-2 px-3">
+                <hr class="divider-line" />
+            </div>
+            <span><b>Service Id: </b>@Model.ServiceRequestId</span><br />
+            <span><b>Extras: </b>@extra_item</span><br />
+            <span><b>Net Amount: </b><span class="ms-5">@Model.SubTotal</span>&euro;</span>
+                <hr class="divider-line" />
+            <span><b>Service Address: </b>@Model.ServiceRequestAddresses.ElementAt(0).AddressLine1 @Model.ServiceRequestAddresses.ElementAt(0).AddressLine2</span><br />
+            <span><b>Billing Address: </b>Same as cleaning address</span><br />
+            <span><b>Phone: </b>@Model.ServiceRequestAddresses.ElementAt(0).Mobile</span><br />
+            <span><b>Email: </b>@Model.ServiceRequestAddresses.ElementAt(0).Email</span><br />
+                <hr class="divider-line" />
+            <span><b>Comments</b></span><br />
+            <img src="@img" />@comment
+                <hr class="divider-line" />
+            <div class="d-flex">
+                <a class="btn reschedule mx-2" data-id=@Model.ServiceRequestId><img src="~/imgs/reschedule-icon-small.png" class="me-2"/>Reschedule</a>
+                <a class="btn cancle mx-2" data-id=@Model.ServiceRequestId><img src="~/imgs/close-icon-small.png" class="me-2"/>Cancle</a>
+            </div>
+        </div>
+    </div>
+</div>

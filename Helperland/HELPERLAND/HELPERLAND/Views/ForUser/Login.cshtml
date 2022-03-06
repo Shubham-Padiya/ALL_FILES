@@ -14,8 +14,8 @@
         </div>
         <div class="modal-body">
             <form id="loginForm">
+                @Html.Raw(ViewBag.Alert)
                 <div class="input-container">
-                    @Html.Raw(ViewBag.Alert)
                     <input class="input-field"
                            type="text"
                            placeholder="Email"
@@ -34,21 +34,17 @@
                 </div>
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                 <div class="input-container forcheckbox">
-                    <input type="checkbox"
-                           id="remember_me"
-                           name="checkbox"
-                           value="Bike" />
-                    <label for="checkbox">Remember me</label>
+                    @Html.CheckBoxFor(model => model.RememberMe)@Html.LabelFor(model => model.RememberMe)
                 </div>
-                
-                
+
+
                 <button type="button" class="btn" onclick="PostRequestsend();">Login</button>
                 <p>
                     <a onclick="openForgetPasswordPopUp();">Forget password?</a><br />
-                        Don't have an account?
+                    Don't have an account?
                     <a asp-controller="ForUser" asp-action="Register">Create an account</a>
                 </p>
-                   
+
             </form>
         </div>
     </div>

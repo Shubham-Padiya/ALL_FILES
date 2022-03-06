@@ -67,3 +67,18 @@ footer nav a:hover {
         display: inline-block !important;
     }
 }
+
+.notification {
+    border-right: solid 1px #ffffff;
+    border-left: solid 1px #ffffff;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.fa-bell {
+    color: #ffffff;
+    font-size: 32px;
+}

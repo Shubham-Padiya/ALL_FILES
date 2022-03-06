@@ -33,8 +33,10 @@ namespace HELPERLAND.Controllers
             _hostingEnvironment = environment;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(bool? loginPopUp, string? ReturnUrl)
         {
+            ViewBag.loginPopUp = loginPopUp;
+            TempData["returnUrl"] = ReturnUrl;
             return View();
         }
 

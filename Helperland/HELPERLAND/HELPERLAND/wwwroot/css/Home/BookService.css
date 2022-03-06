@@ -286,11 +286,7 @@ input[type="date" i] {
   padding: 10px 30px;
   border: none;
 }
-.booking:hover {
-  background: #ffffff !important;
-  color: #1d7a8c !important;
-  border: solid 1px #1d7a8c !important;
-}
+
 #card-number,
 #card-expiry,
 #card-cvc {
