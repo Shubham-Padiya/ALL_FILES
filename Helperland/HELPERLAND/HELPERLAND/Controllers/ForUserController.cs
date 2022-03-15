@@ -43,6 +43,7 @@ namespace HELPERLAND.Controllers
                     {
                         var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme, ClaimTypes.Name, ClaimTypes.Role);
 
+                        identity.AddClaim(new Claim("userId", user.UserId.ToString()));
                         identity.AddClaim(new Claim(ClaimTypes.Email, user.Email));
                         identity.AddClaim(new Claim(ClaimTypes.Name, user.FirstName + " " + user.LastName));
                         identity.AddClaim(new Claim(ClaimTypes.Role, user.UserTypeId.ToString()));
@@ -57,6 +58,8 @@ namespace HELPERLAND.Controllers
                         };
 
                         HttpContext.Session.SetString("CurrentUser", JsonConvert.SerializeObject(user));
+
+
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
                         string returnUrl = (string)TempData["returnUrl"];
                         if (returnUrl != null)
@@ -65,9 +68,13 @@ namespace HELPERLAND.Controllers
                         }
                         else
                         {
-                            message = "Log in successful.";
-                            ViewBag.Alert = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-                            return View(model);
+                            switch (user.UserTypeId)
+                            {
+                                case 1:return Json("returnUrl=/customer/servicerequest");
+                                case 2:return Json("returnUrl=/serviceprovider/newservicerequest");
+                                case 3:return Json("returnUrl=/admin/dashbord");
+                                default:return Json("returnUrl=/home/index");
+                            }
                         }
                     }
                     else
@@ -207,6 +214,13 @@ namespace HELPERLAND.Controllers
             {
                 return View(model);
             }
+        }
+
+
+        public async Task<IActionResult> LogOut()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("index", "home");
         }
     }
 }

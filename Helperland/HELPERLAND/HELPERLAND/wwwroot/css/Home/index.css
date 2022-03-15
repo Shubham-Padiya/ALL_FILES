@@ -400,10 +400,9 @@ footer a {
 
 
 .dropdown-menu {
-    min-width: 0px !important;
+    margin-left:-80px;
     width: 100px;
 }
-
 
 #dropdownMenuButton1 {
    display: inline-flex;

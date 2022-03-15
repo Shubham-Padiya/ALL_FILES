@@ -311,7 +311,6 @@ D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\bin\Debug\netcoreapp3.1\ru\
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\HELPERLAND.csproj.AssemblyReference.cache
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\HELPERLAND.GeneratedMSBuildEditorConfig.editorconfig
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\HELPERLAND.AssemblyInfoInputs.cache
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\HELPERLAND.AssemblyInfo.cs
@@ -407,3 +406,15 @@ D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Raz
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Customer\MyAddress.cshtml.g.cs
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Customer\MyDetail.cshtml.g.cs
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Customer\MySetting.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\ServiceDetails.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\CancelRequest.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\UpcomingServiceRequest.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\NewServiceRequest.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\AcceptService.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\ServiceHistory.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\MySetting.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\CompleteService.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\ChangePassword.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\HELPERLAND.csproj.AssemblyReference.cache
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\MyDetails.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\BlockCustomer.cshtml.g.cs

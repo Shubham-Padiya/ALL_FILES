@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HELPERLAND.Models.ViewModels
 {
-    public class ChangePassViewModel : Controller
+    public class ChangePassViewModel
     {
         [Required]
         [Display(Name = "Old Password")]

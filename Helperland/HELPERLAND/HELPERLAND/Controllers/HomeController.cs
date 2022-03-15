@@ -78,6 +78,7 @@ namespace HELPERLAND.Controllers
                         Email = model.Email,
                         Mobile = model.Mobile,
                         Password = model.Password,
+                        NationalityId = 1,
                         UserTypeId = 2,
                         CreatedDate = DateTime.Now,
                         ModifiedDate = DateTime.Now,

@@ -1,0 +1,96 @@
+﻿@using HELPERLAND.Models.Data
+@model ServiceRequest
+
+@{
+    Layout = null;
+    string comment;
+    string img;
+
+
+    if (Model.HasPets)
+    {
+        comment = "I have pets at home,";
+        img = "/imgs/included.png";
+    }
+    else
+    {
+        comment = "I don't have pets at home.";
+        img = "/imgs/not-included.png";
+    }
+
+
+    string extra_item = "";
+    foreach(var extra in Model.ServiceRequestExtras)
+    {
+        switch (extra.ServiceExtraId)
+        {
+            case 1:extra_item += "Inside cabinet , ";
+                break;
+            case 2:extra_item += "Inside fridge , ";
+                break;
+            case 3:extra_item += "Inside oven , ";
+                break;
+            case 4:extra_item += "Laundry wash & dry , ";
+                break;
+            case 5:extra_item += "Interior windows";
+                break;
+        }
+    }
+
+    var startTime = Model.ServiceStartDate;
+    var endTime = startTime.AddHours(Model.ServiceHours);
+
+    string addressString = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAC-8ggDYHZme3Nnd5c9yJEdipoXEc4AJ4&q= " + Model.ServiceRequestAddresses.ElementAt(0).AddressLine1 + ", " + Model.ServiceRequestAddresses.ElementAt(0).AddressLine2 + "," + Model.ServiceRequestAddresses.ElementAt(0).PostalCode+","+Model.ServiceRequestAddresses.ElementAt(0).City;
+}
+
+<div class="modal-dialog modal-dialog-centered sdmodal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 style="color:#4f4f4f">Service Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+        </div>
+        <div class="modal-body nestedpopup px-3">
+            <div class="d-flex">
+                <div style="width:55%" class="me-3">
+                    <h4>@Model.ServiceStartDate.ToString("dd/MM/yyyy") @startTime.ToString("hh:mm")-@endTime.ToString("hh:mm")</h4><br />
+                    <span><b>Duration: </b>@Model.ServiceHours Hrs.</span><br />
+                    <hr class="divider-line" />
+                    <span><b>Service Id: </b>@Model.ServiceRequestId</span><br />
+                    <span><b>Extras: </b>@extra_item</span><br />
+                    <span><b>Total Payment: </b><span class="subtotal">@Model.SubTotal &euro;</span></span><br />
+                    <hr class="divider-line" />
+                    <span><b>Customer Name: </b>@Model.User.FirstName @Model.User.LastName</span><br />
+                    <span><b>Service Address: </b>@Model.ServiceRequestAddresses.ElementAt(0).AddressLine1 , @Model.ServiceRequestAddresses.ElementAt(0).AddressLine2</span><br />
+                    <span><b>Distance: </b>...</span><br />
+                    <hr class="divider-line" />
+                    <span><b>Comments</b></span><br />
+                    <img src="@img" /> @comment<br />
+                    <hr class="divider-line" />
+                    @if (Model.Status == 4)
+                    {
+                        @if ((DateTime.Compare(Model.ServiceStartDate.AddHours(Model.ServiceHours), DateTime.Now)) < 0)
+                        {
+                            <div class="d-flex">
+                                <button class="cancel cancelRequest" data-id=@Model.ServiceRequestId><span class="imgcancel">&#x2715;</span>Cancel</button>
+                                <button class="complete completeRequest" data-id=@Model.ServiceRequestId><span class="imgcomplete">&#10003;</span>Complete</button>
+                            </div>
+                        }
+                        else
+                        {
+                            <button class="cancel cancelRequest" data-id=@Model.ServiceRequestId><span class="imgcancel">&#x2715;</span>Cancel</button>
+                        }
+                    }
+                    @if (Model.Status == 5)
+                    {
+                        <button class="accept acceptRequest" data-id=@Model.ServiceRequestId><span class="imgaccept">&#10003;</span>Accept</button>
+                    }
+                    else
+                    {
+                    }
+                </div>
+                <iframe style="width:45%;border:0;" loading="lazy" allowfullscreen src="@addressString"></iframe>
+            </div>
+        </div>
+    </div>
+</div>

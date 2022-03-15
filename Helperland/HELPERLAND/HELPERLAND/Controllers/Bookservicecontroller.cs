@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace HELPERLAND.Controllers
 {
-    [Authorize]
+    [Authorize (Roles ="1")]
     public class Bookservicecontroller : Controller
     {
         private readonly HelperlandContext helperlandContext;
@@ -111,6 +111,9 @@ namespace HELPERLAND.Controllers
             serviceRequest.CreatedDate = DateTime.Now;
             serviceRequest.ModifiedDate = DateTime.Now;
             serviceRequest.ModifiedBy = 1;
+            serviceRequest.Status = 5;
+            serviceRequest.RecordVersion = Guid.NewGuid();
+            //here status 5 means service yet not sccepted by any sp..
 
             serviceRequest.ServiceRequestAddresses.Add(new ServiceRequestAddress()
             {

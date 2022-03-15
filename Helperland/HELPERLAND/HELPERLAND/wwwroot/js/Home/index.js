@@ -120,7 +120,8 @@ function PostRequestsend() {
             window.location.href = url[1];
         }
         else {
-            window.location.href = "/Customer/ServiceRequest"
+            $("#PopUp").html(data);
+            $("#PopUp").modal("show");
         }
     });
 }

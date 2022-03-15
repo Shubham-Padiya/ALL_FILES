@@ -1,0 +1,21 @@
+﻿@{ 
+    Layout = null;
+}
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Cancel Request</h4>
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h4>Why you want to cancel request?</h4>
+            <textarea rows="4" style="width:100%" id="reason"></textarea><br />
+            @Html.Raw(@ViewBag.Alert)
+            <button id="cancelRequestbtn" style="background:#1d7a8c;color:white;width:100%;padding:7px;border:none">
+            Cancel</button>
+        </div>
+    </div>
+</div>

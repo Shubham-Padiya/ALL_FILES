@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -85,21 +89,24 @@
                                     <img src="~/imgs/drop-down.png" />
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                    <li>
+                                    <li style="color:#4f4f4f!important">
                                         Welcome,<br />
                                         <b>@User.Identity.Name.Split(" ").ElementAt(0)!</b>
                                     </li>
                                     <hr style="color:#4f4f4f;width:100%;height:1px" />
+                                    @switch (User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role).Value)
+                                    {
+                                        case "1":
+                                            <li><a id="myDashboard" style="color:#4f4f4f!important" asp-controller="customer" asp-action="servicerequest">My Dashboard</a></li>
+                                            <li><a id="mySettings" style="color:#4f4f4f!important" asp-controller="customer" asp-action="mysetting">My Settings</a></li>
+                                            break;
+                                        case "2":
+                                            <li><a id="myDashboard" style="color:#4f4f4f!important" asp-controller="serviceprovider" asp-action="newservicerequest">My Dashboard</a></li>
+                                            <li><a id="mySettings" style="color:#4f4f4f!important" asp-controller="serviceprovider" asp-action="mysetting">My Settings</a></li>
+                                            break;
+                                    }
                                     <li>
-                                        <a class="dropdown-item"
-                                           asp-controller="customer" asp-action="servicerequest">My Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" asp-controller="customer"
-                                           asp-action="mysetting">My Setting</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">Logout</a>
+                                        <a class="dropdown-item" style="color:#4f4f4f!important" asp-controller="foruser" asp-action="logout">Logout</a>
                                     </li>
                                 </ul>
                             </li>
@@ -121,9 +128,9 @@
                                    background-color: rgba(41, 98, 109, 0.7);
                                    padding: 8px 24px 8px 24px;
                                    ">Become a Helper</a>
-                                </li>
-                                }
-                        </ul>
+                            </li>
+                        }
+                    </ul>
                 </div>
             </div>
         </nav>
