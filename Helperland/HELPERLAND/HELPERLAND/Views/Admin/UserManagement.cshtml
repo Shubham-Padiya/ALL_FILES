@@ -1,0 +1,162 @@
+﻿@using HELPERLAND.Models.Data
+@{
+    Layout = null;
+}
+@model IEnumerable<User>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User management</title>
+
+    <link rel="icon" type="image/x-icon" href="~/favicon.png" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+          rel="stylesheet" />
+
+    <link rel="stylesheet"
+          href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css" />
+
+    <link rel="stylesheet"
+          href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css" />
+
+    <link rel="stylesheet" href="~/css/Home/dataTables.bootstrap5.min.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/css/Admin/usermanagement.css" asp-append-version="true" />
+    <script src="~/lib/jquery/jquery.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="d-flex align-items-center">
+            <div>
+                <h1><a href="#">helperland</a></h1>
+            </div>
+            <div class="ms-auto me-4">
+                <a href="#" class="logo1"><i class="fa fa-user-circle-o"></i></a><span class="js mx-2">Jhon Smith</span><a class="logo1" asp-controller="foruser" asp-action="logout"><i class="fa fa-power-off"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="main" class="d-flex">
+            <div id="open"><i class="fa fa-bars"></i></div>
+            <div id="close"><i class="fa fa-times"></i></div>
+
+            <div class="navigation mx-2">
+                <ul>
+                    <li class="n">
+                        <span> Jhon Smith</span> <a asp-controller="foruser" asp-action="logout"><i class="fa fa-power-off"></i></a>
+                    </li>
+
+                    <li class="li"><a asp-controller="admin" asp-action="servicerequest">Service Requests</a></li>
+
+                    <li class="li"><a class="activenavbar">User Management</a></li>
+                </ul>
+            </div>
+
+            <div class="d-flex flex-column table-container mx-2" id="content">
+                <div class="d-flex align-items-center flex-wrap my-3">
+                    <h6>User Management</h6>
+                    <button id="add-new-user" class="ms-auto">
+                        <span>&ensp;+&ensp;</span> Add New User
+                    </button>
+                </div>
+                <div class="form">
+                    <div>
+                        <input type="text" class="form-control" id="userName" placeholder="User Name" />
+                    </div>
+
+                    <div>
+                        <select id="userRole" class="form-select">
+                            <option value="userType" selected>User Type</option>
+                            <option value="1">Customer</option>
+                            <option value="2">Service Provider</option>
+                            <option value="3">Admin</option>
+                        </select>
+                    </div>
+
+                    <div id="phoneNumber1" class="input-group">
+                        <span class="input-group-text" id="basic-addon1">+49</span>
+                        <input type="text"
+                               class="form-control"
+                               id="phoneNumber"
+                               placeholder="Phone number" />
+                    </div>
+
+                    <div>
+                        <input type="number"
+                               class="form-control"
+                               id="postalCode"
+                               placeholder="Postalcode" />
+                    </div>
+                    <div>
+                        <input type="email"
+                               class="form-control"
+                               id="email"
+                               placeholder="Email" />
+                    </div>
+                    <div>
+                        <input type="date"
+                               class="form-control"
+                               id="fromDate"
+                               placeholder="From Date" />
+                    </div>
+                    <div>
+                        <input type="date"
+                               class="form-control"
+                               id="toDate"
+                               placeholder="To Date" />
+                    </div>
+
+                    <button id="searchbtn">Search</button>
+                    <button id="clearbtn">Clear</button>
+                </div>
+                <div>
+                    <button id="export" class=" my-2">Export</button>
+                    <table id="usermanagementtable" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>User Name</th>
+                                <th>Role</th>
+                                <th>Date of Registration</th>
+                                <th>User Type</th>
+                                <th>Phone</th>
+                                <th>Post Code</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <p class="last">©2018 Helperland. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+
+    <script src="~/js/Admin/usermanagement.js" asp-append-version="true"></script>
+</body>
+</html>

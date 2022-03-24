@@ -18,7 +18,7 @@
             {
                 <tr>
                     <td>
-                        <b>Address: </b>@address.AddressLine1, @address.City-@address.State @address.PostalCode<br /><b>Phone number:</b> @address.Mobile
+                        <b>Address: </b>@address.AddressLine1,@address.AddressLine2 @address.City-@address.State @address.PostalCode<br /><b>Phone number:</b> @address.Mobile
                     </td>
                     <td>
                         <div class="d-flex justify-content-end">
@@ -32,4 +32,4 @@
     </table>
 }
 
-<button class="btn" id="newAddress">Add New Address</button>
+<button class="btn" id="newAddress" onclick="newAddress()">Add New Address</button>

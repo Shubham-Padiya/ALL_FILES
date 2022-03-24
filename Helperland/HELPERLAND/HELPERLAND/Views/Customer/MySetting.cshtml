@@ -87,7 +87,7 @@
                                 <img src="~/imgs/drop-down.png" />
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                <li style="padding-left:10px">
+                                <li class="dropdownlist">
                                     Welcome,<br />
                                     <b>@User.Identity.Name.Split(" ").ElementAt(0)!</b>
                                 </li>
@@ -197,24 +197,37 @@
 
                 <div class="cont mx-2">
 
-                    
 
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#mydetail" id="mydetailtab">detail</a></li>
-                        <li><a data-toggle="tab" href="#address"id="addresstab">address</a></li>
-                        <li><a data-toggle="tab" href="#changepassword" id="passwordtab">change password</a></li>
+
+
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active"
+                               data-bs-toggle="tab"
+                               href="#mydetails">
+                                My Details
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#address">
+                                Address
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#changepass">
+                                Change Password
+                            </a>
+                        </li>
                     </ul>
-
+                    <!--  -->
                     <div class="tab-content">
-
-                        <div class="tab-pane active" id="mydetail"></div>
-
+                        <!-- setup content -->
+                        <div class="tab-pane active" id="mydetails"></div>
                         <div class="tab-pane fade" id="address"></div>
-
-                        <div class="tab-pane fade" id="changepassword">
+                        <!-- schedual content -->
+                        <div class="tab-pane fade" id="changepass">
                             <partial name="ChangePassword" />
                         </div>
-
                     </div>
 
 
@@ -295,10 +308,6 @@
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
 
-    <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
 
     <script src="~/lib/jquery.validate.js"></script>
     <script src="~/lib/jquery.validate.unobtrusive.js"></script>

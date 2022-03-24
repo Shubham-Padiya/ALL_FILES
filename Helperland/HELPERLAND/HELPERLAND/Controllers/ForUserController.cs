@@ -70,10 +70,10 @@ namespace HELPERLAND.Controllers
                         {
                             switch (user.UserTypeId)
                             {
-                                case 1:return Json("returnUrl=/customer/servicerequest");
-                                case 2:return Json("returnUrl=/serviceprovider/newservicerequest");
-                                case 3:return Json("returnUrl=/admin/dashbord");
-                                default:return Json("returnUrl=/home/index");
+                                case 1: return Json("returnUrl=/customer/servicerequest");
+                                case 2: return Json("returnUrl=/serviceprovider/newservicerequest");
+                                case 3: return Json("returnUrl=/admin/servicerequest");
+                                default: return Json("returnUrl=/home/index");
                             }
                         }
                     }

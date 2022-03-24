@@ -52,26 +52,35 @@ function showdetail() {
             success: function (showresult) {
                 $("#customerpopup").html(showresult);
                 $("#customerpopup").modal("show");
+
+                $(".nestedpopup .reschedule").click(function () {
+                    loadSchedulePopUp($(this).attr("data-id"))
+                });
+                $(".nestedpopup .cancle").click(function () {
+                    loadCanclePopUp($(this).attr("data-id"))
+                });
             },
             error: function () {
                 alert("We can't find any details");
             },
         });
     });
-    $(".reschedule").click(function () {
-        loadSchedulePopUp($(this).attr("data-id"))
-    });
-    $(".cancle").click(function () {
-        loadCanclePopUp($(this).attr("data-id"))
-    });
-
 }
-function loadSchedulePopUp(serviceId) {
+
+$("td .reschedule").click(function () {
+    loadSchedulePopUp($(this).attr("data-id"))
+});
+$("td .cancle").click(function () {
+    loadCanclePopUp($(this).attr("data-id"))
+});
+
+
+function loadSchedulePopUp(servicerequestid) {
     $.ajax({
         url: "/customer/reschedule",
         type: "GET",
         data: {
-            id : serviceId,
+            id: servicerequestid,
         },
         success: function (showpopup) {
             $("#customerpopup").html(showpopup);
@@ -83,19 +92,41 @@ function loadSchedulePopUp(serviceId) {
     });
 }
 
-function loadCanclePopUp(serviceId) {
+function loadCanclePopUp(servicerequestid) {
     $.ajax({
         url: "/customer/cancel",
         type: "GET",
         data: {
-            id: serviceId,
+            id: servicerequestid,
         },
         success: function (showpopup) {
             $("#customerpopup").html(showpopup);
             $("#customerpopup").modal("show");
+
+            $("#cancelRequestBtn").click(function () {
+                requestsend(servicerequestid);
+            });
         },
         error: function () {
             alert("can't get id");
+        },
+    });
+}
+
+function requestsend(servicerequestid) {
+    $.ajax({
+        url: "/customer/cancel",
+        type: "POST",
+        data: {
+            id: servicerequestid,
+            comment: $(".cancel-modal-dialog > textarea").val(),
+        },
+        success: function (result) {
+            $("#customerpopup").html(result);
+            $("#customerpopup").modal("show");
+        },
+        error: function () {
+            alert("sorry");
         },
     });
 }

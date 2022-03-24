@@ -10,7 +10,7 @@
         <div>
             <h6>When do you need the cleaner?</h6>
             <div class="d-flex">
-            @Html.TextBoxFor(model => model.ServiceDate, DateTime.Now.ToString("yyyy-MM-dd"), new { @type = "date", @class = "form-control", @id = "date" })
+            @Html.TextBoxFor(model => model.ServiceDate, DateTime.Now.ToString("yyyy-MM-dd"), new { @type = "date", @class = "form-control", @id = "date",@min=DateTime.Now.ToString("yyyy-MM-dd") })
 
             @Html.DropDownListFor(model => model.ServiceTime, new List<SelectListItem>
                           { new SelectListItem{Text="8:00 AM", Value="8:00:00"},

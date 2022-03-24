@@ -4,7 +4,7 @@
     Layout = null;
 }
 <form id="myDetailForm" data-ajax="true" data-ajax-url="/customer/mydetail"
-      data-ajax-method="post" data-ajax-update="#mydetail">
+      data-ajax-method="post" data-ajax-update="#mydetails">
     <div class="row">
         <div class="col-sm-4 mb-3">
             @Html.LabelFor(model => model.FirstName, new { @class = "form-label" })
@@ -61,7 +61,7 @@
                })
                 </div>
                 <div class="col-auto mb-3">
-                    @Html.DropDownListFor(model => model.BirthMonth, new List<SelectListItem>
+                    @Html.DropDownListFor(model => model.BirthYear, new List<SelectListItem>
                             { new SelectListItem{Text="2001",Value="2001"},
                               new SelectListItem{Text="2002",Value="2002"},
                               new SelectListItem{Text="2003",Value="2003"},

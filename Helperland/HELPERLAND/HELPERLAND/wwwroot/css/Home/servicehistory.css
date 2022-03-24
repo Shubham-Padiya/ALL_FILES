@@ -380,3 +380,9 @@ h6 a {
 .servicerequestid{
     cursor:pointer;
 }
+.dropdown-menu {
+    margin-left: -80px;
+}
+.dropdownlist {
+    margin-left: 10px;
+}

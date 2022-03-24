@@ -19,7 +19,7 @@
                 <span>Select New Date & Time</span>
                 <div class="row">
                     <div class="col-6">
-                        @Html.TextBoxFor(model => model.ServiceDate, DateTime.Now.ToString("yyyy-MM-dd"), new { @type = "date", @class = "form-control mb-2 mx-1" })
+                        @Html.TextBoxFor(model => model.ServiceDate, DateTime.Now.ToString("yyyy-MM-dd"), new { @type = "date", @min=DateTime.Now.ToString("yyyy-MM-dd") , @class = "form-control mb-2 mx-1" })
                     </div>
                     <div class="col-6">
                         @Html.DropDownListFor(model => model.ServiceTime, Model.timeList, new { @class = "form-select" })

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HELPERLAND.Models.ViewModels
 {
-    public class MyDetailViewModel : Controller
+    public class MyDetailViewModel
     {
         [Required]
         [Display(Name = "First name")]

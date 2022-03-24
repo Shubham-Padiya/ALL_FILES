@@ -418,3 +418,9 @@ D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Raz
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\HELPERLAND.csproj.AssemblyReference.cache
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\MyDetails.cshtml.g.cs
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\BlockCustomer.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Admin\UserManagement.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ServiceRequest.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Customer\EditAddress.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Admin\RequestDetail.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Admin\CancelRequest.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditRequest.cshtml.g.cs

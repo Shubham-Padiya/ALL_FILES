@@ -24,14 +24,16 @@ namespace HELPERLAND.Controllers
 
         public IActionResult ServiceHistory()
         {
-            // status 1=completed , status 2=cancled , status 3=refunded , status 4=pending
-            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x => x.ServiceProvider).Where(x => x.Status!=4).ToList();
+            int id = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+            // status 1=completed , status 2=cancled , status 3=refunded , status 4=pending , status 5=New
+            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x => x.ServiceProvider).Where(x => x.Status != 4 && x.Status != 5 && x.UserId == id).ToList();
             return View(serviceRequests);
         }
 
         public IActionResult ServiceRequest()
         {
-            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x => x.ServiceProvider).Where(x => x.Status == 4).ToList();
+            int id = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x => x.ServiceProvider).Where(x => x.Status == 4 || x.Status == 5 && x.UserId == id).ToList();
             return View(serviceRequests);
         }
 
@@ -125,7 +127,7 @@ namespace HELPERLAND.Controllers
 
 
         [HttpPost]
-        public IActionResult CancelServiceRequest(int id, string comment)
+        public IActionResult Cancel(int id, string comment)
         {
             ServiceRequest serviceRequest = helperlandContext.ServiceRequests.Include(x => x.ServiceProvider).FirstOrDefault(x => x.ServiceRequestId == id);
             
@@ -202,12 +204,89 @@ namespace HELPERLAND.Controllers
         }
 
         [HttpGet]
-        public IActionResult MyAddresses()
+        public IActionResult MyAddress()
         {
             int id = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
             IEnumerable<UserAddress> userAddresses = helperlandContext.UserAddresses.Where(x => x.UserId == id).ToList();
             return PartialView(userAddresses);
         }
+
+
+        [HttpGet]
+        public IActionResult EditAddress(int? id)
+        {
+            if (id == null)
+            {
+                return PartialView();
+            }
+            else
+            {
+                UserAddress userAddress = helperlandContext.UserAddresses.FirstOrDefault(x => x.AddressId == id);
+                EditAddressViewModel model = new EditAddressViewModel();
+                model.AddressId = userAddress.AddressId;
+                model.StreetName = userAddress.AddressLine2;
+                model.HouseNumber = userAddress.AddressLine1;
+                model.City = userAddress.City;
+                model.PostalCode = userAddress.PostalCode;
+                model.PhoneNumber = userAddress.Mobile;
+                return PartialView(model);
+            }
+        }
+
+
+        [HttpPost]
+        public IActionResult EditAddress(EditAddressViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.AddressId != null)
+                {
+                    UserAddress userAddress = helperlandContext.UserAddresses.FirstOrDefault(x => x.AddressId == model.AddressId);
+                    userAddress.AddressLine1 = model.HouseNumber;
+                    userAddress.AddressLine2 = model.StreetName;
+                    userAddress.PostalCode = model.PostalCode;
+                    userAddress.City = model.City;
+                    userAddress.Mobile = model.PhoneNumber;
+                    var msg = "Address changed successfully...";
+                    ViewBag.Alert = "<div class='alert alert-success alert-dismissible fade show' role='alert'>" + msg + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                    helperlandContext.UserAddresses.Update(userAddress);
+                    helperlandContext.SaveChanges();
+                    return PartialView();
+                }
+                else
+                {
+                    UserAddress userAddress = new UserAddress();
+                    userAddress.UserId = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+                    userAddress.AddressLine1 = model.HouseNumber;
+                    userAddress.AddressLine2 = model.StreetName;
+                    userAddress.PostalCode = model.PostalCode;
+                    userAddress.City = model.City;
+                    userAddress.Mobile = model.PhoneNumber;
+                    var msg = "Address inserted successfully...";
+                    ViewBag.Alert = "<div class='alert alert-success alert-dismissible fade show' role='alert'>" + msg + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                    helperlandContext.UserAddresses.Update(userAddress);
+                    helperlandContext.SaveChanges();
+                    return PartialView();
+                }
+            }
+            else
+            {
+                return PartialView(model);
+            }
+        }
+
+
+
+        [HttpPost]
+        public IActionResult DeleteAddress(int id)
+        {
+            UserAddress userAddress = helperlandContext.UserAddresses.FirstOrDefault(x => x.AddressId == id);
+            helperlandContext.UserAddresses.Remove(userAddress);
+            helperlandContext.SaveChanges();
+            return Json("deleted");
+        }
+
+
 
         [HttpPost]
         public IActionResult ChangePassword(ChangePassViewModel model)
@@ -241,5 +320,6 @@ namespace HELPERLAND.Controllers
                 return PartialView(model);
             }
         }
+
     }
 }
