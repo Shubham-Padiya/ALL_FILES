@@ -63,7 +63,7 @@ namespace HELPERLAND.Controllers
 
                     if (!string.IsNullOrEmpty(userName))
                     {
-                        data = data.Where(x => x.FirstName == userName || x.LastName == userName).ToList();
+                        data = data.Where(x => x.FirstName.Contains(userName, StringComparison.OrdinalIgnoreCase) || x.LastName.Contains(userName, StringComparison.OrdinalIgnoreCase)).ToList();
                     }
 
                     if (userRole != "userType" && !string.IsNullOrEmpty(userRole))
@@ -74,7 +74,7 @@ namespace HELPERLAND.Controllers
 
                     if (!string.IsNullOrEmpty(phoneNumber))
                     {
-                        data = data.Where(x => x.Mobile == phoneNumber).ToList();
+                        data = data.Where(x => x.Mobile.Contains(phoneNumber)).ToList();
                     }
 
                     if (!string.IsNullOrEmpty(postalCode))
@@ -84,7 +84,7 @@ namespace HELPERLAND.Controllers
 
                     if (!string.IsNullOrEmpty(email))
                     {
-                        data = data.Where(x => x.Email == email).ToList();
+                        data = data.Where(x => x.Email.Contains(email, StringComparison.OrdinalIgnoreCase)).ToList();
                     }
 
                     if (!string.IsNullOrEmpty(fromDate) && !string.IsNullOrEmpty(toDate))
@@ -237,12 +237,12 @@ namespace HELPERLAND.Controllers
 
                     if (!string.IsNullOrEmpty(email))
                     {
-                        data = data.Where(x => x.User.Email == email || x.ServiceProvider.Email == email).ToList();
+                        data = data.Where(x => x.User.Email.Contains(email, StringComparison.OrdinalIgnoreCase) || x.ServiceProvider.Email.Contains(email, StringComparison.OrdinalIgnoreCase)).ToList();
                     }
 
                     if (!string.IsNullOrEmpty(customerName))
                     {
-                        data = data.Where(x => x.User.FirstName.Contains(customerName) || x.User.LastName.Contains(customerName)).ToList();
+                        data = data.Where(x => x.User.FirstName.Contains(customerName, StringComparison.OrdinalIgnoreCase) || x.User.LastName.Contains(customerName, StringComparison.OrdinalIgnoreCase)).ToList();
 
                     }
 
@@ -263,7 +263,14 @@ namespace HELPERLAND.Controllers
 
                     if (!string.IsNullOrEmpty(fromDate) && !string.IsNullOrEmpty(toDate))
                     {
-                        data = data.Where(x => x.ServiceStartDate >= DateTime.Parse(fromDate) && x.ServiceStartDate <= DateTime.Parse(toDate)).ToList();
+                        if (Convert.ToDateTime(fromDate).CompareTo(Convert.ToDateTime(toDate)) < 0)
+                        {
+                            data = data.Where(x => x.ServiceStartDate >= DateTime.Parse(fromDate) && x.ServiceStartDate <= DateTime.Parse(toDate)).ToList();
+                        }
+                        else
+                        {
+                            data = data.Where(x => x.ServiceProviderId == 1).ToList();
+                        }
                     }
                 }
 

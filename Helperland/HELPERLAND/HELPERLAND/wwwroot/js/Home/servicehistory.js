@@ -59,3 +59,52 @@ function showdetail() {
         });
     });
 }
+
+$(".ratesp").click(function () {
+    var srid = $(this).attr("data-id");
+    alert($(this).attr("data-id"));
+    debugger;
+    $.ajax({
+        url: "/customer/ratings",
+        type: "GET",
+        data: { 'id': srid },
+        success: function (result) {
+            $("#ratingPopup").modal("show");
+            $(".ratingspimg").attr("src", result.ratingToNavigation.userProfileImage);
+            $(".spname").html(result.ratingToNavigation.firstName + " " + result.ratingToNavigation.lastName);
+            $(".rateitAverage").rateit("value", result.ratings);
+            $(".averageRatingInWord").html(result.ratings);
+            $(".rateitOnTime").rateit("value", result.onTimeArrival);
+            $(".rateitFriendly").rateit("value", result.friendly);
+            $(".rateitQuality").rateit("value", result.qualityOfService);
+            $(".submitRating").attr("data-id", result.ratingId);
+
+            $(".submitRating").click(function () {
+                var data = {
+                    RatingId: $(this).attr("data-id"),
+                    OnTimeArrival: $(".rateitOnTime").rateit("value"),
+                    Friendly: $(".rateitFriendly").rateit("value"),
+                    QualityOfService: $(".rateitQuality").rateit("value"),
+                    Ratings: ($(".rateitOnTime").rateit("value") + $(".rateitFriendly").rateit("value") + $(".rateitQuality").rateit("value")) / 3,
+                    Comments: $(".feedback").val(),
+                };
+
+                $.ajax({
+                    url: "/customer/ratings",
+                    type: "POST",
+                    contentType:"application/json",
+                    data: JSON.stringify(data),
+                    success: function (result) {
+                        window.location.href = "/customer/servicehistory";
+                    },
+                    error: function () {
+                        alert("error");
+                    },
+                });
+            });
+        },
+        error: function () {
+            alert("error1");
+        },
+    });
+});

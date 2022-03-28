@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="~/css/Home/dataTables.bootstrap5.min.css" asp-append-version="true">
 
     <link rel="stylesheet" href="~/css/Home/servicehistory.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/rateit.js-master/scripts/rateit.css" />
+
+    <script src="~/lib/jquery/jquery.js"></script>
     <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
 </head>
 <body>
@@ -226,17 +229,11 @@
                                         @if (@request.ServiceProvider != null)
                                         {
                                             <div class="d-flex flex-wrap align-items-center">
-                                                <div>
-                                                    <img src="~/imgs/cap.png" class="cap" />
-                                                </div>
-                                                <div class="rating justify-content-start">
-                                                    <span>@request.ServiceProvider.FirstName</span>
-                                                    <br />
-                                                    <img src="~/imgs/star1.png" />
-                                                    <img src="~/imgs/star1.png" />
-                                                    <img src="~/imgs/star1.png" />
-                                                    <img src="~/imgs/star1.png" />
-                                                    <img src="~/imgs/star2.png" /> 4
+                                                <img id="spImg" src=@request.ServiceProvider.UserProfilePicture />
+                                                <div class="d-flex flex-column rating">
+                                                    <span>@request.ServiceProvider.FirstName @request.ServiceProvider.LastName</span>
+                                                    <div class="rateit" data-rateit-readonly="true" data-rateit-value="@request.ServiceProvider.RatingRatingToNavigations.Average(x=>x.Ratings)"></div>
+                                                    <span>@request.ServiceProvider.RatingRatingToNavigations.Average(x=>x.Ratings)</span>
                                                 </div>
                                             </div>
                                         }
@@ -253,7 +250,7 @@
                                             }
                                     @if (request.Status == 1)
                                      {
-                                        <td><button class="ratesp">Rate SP</button></td>
+                                        <td><button class="ratesp" data-id=@request.ServiceRequestId>Rate SP</button></td>
                                      }
                                     else { 
                                         <td></td>
@@ -268,6 +265,57 @@
 
         <!-- content end -->
     </main>
+
+    <!-- rating modal -->
+
+    <div class="modal" id="ratingPopup" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Ratings</h3>
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex align-items-center">
+                        <img class="ratingspimg" />
+                        <div>
+                            <span class="spname"></span>
+                            <div>
+                                <span class="rateitAverage"></span>
+                                <span class="averageRatingInWord"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <h4>Rate Your Service Provider</h4>
+
+                    <hr class="divider-line" />
+                    
+                    <div class="d-flex">
+                        <p><b>On time arrival</b></p>
+                        <div class="rateitOnTime"></div>
+                    </div>
+                    
+                    <div class="d-flex">
+                        <p><b>Friendly</b></p>
+                        <div class="rateitFriendly"></div>
+                    </div>
+                    
+                    <div class="d-flex">
+                        <p><b>Quality Of Service</b></p>
+                        <div class="rateitQuality"></div>
+                    </div>
+                    
+                    <div>
+                        <span>Feedback on service provider</span><br />
+                        <textarea rows="3" style="width:100%" class="feedback"></textarea>
+                    </div>
+                    <button class="submitRating">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- rating modal -->
 
     <!-- footer starts -->
 
@@ -333,12 +381,14 @@
     </footer>
     <!-- footer end -->
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    @*<script src="https://code.jquery.com/jquery-3.5.1.js"></script>*@
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+    <script src="~/rateit.js-master/scripts/jquery.rateit.js"></script>
 
     <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>

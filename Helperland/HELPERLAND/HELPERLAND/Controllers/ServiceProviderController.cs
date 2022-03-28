@@ -34,10 +34,14 @@ namespace HELPERLAND.Controllers
 
         public IActionResult NewServiceRequest()
         {
+            string currentUser = HttpContext.Session.GetString("CurrentUser");
+            User user = JsonConvert.DeserializeObject<User>(currentUser);
+
+
             int spId = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
             IEnumerable<int> blockedCustomerList = helperlandContext.FavoriteAndBlockeds.Where(x => x.UserId == spId && x.IsBlocked == true).Select(x => x.TargetUserId).Distinct().ToList();
             //someone has booked service but not accepted yet except blocked customer...
-            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x => x.User).Include(x => x.ServiceRequestAddresses).Where(x => x.Status == 5 && !blockedCustomerList.Any(block => block == x.UserId)).ToList();
+            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x => x.User).Include(x => x.ServiceRequestAddresses).Where(x => x.Status == 5 && x.ZipCode==user.ZipCode && !blockedCustomerList.Any(block => block == x.UserId)).ToList();
             return View(serviceRequests);
         }
 
@@ -264,12 +268,27 @@ namespace HELPERLAND.Controllers
                     user.UserAddresses.ElementAt(0).City = model.City;
                     user.UserAddresses.ElementAt(0).PostalCode = model.PostalCode;
                     user.ZipCode = model.PostalCode;
+                    helperlandContext.Users.Update(user);
+                    helperlandContext.SaveChanges();
+                    user.UserAddresses.Clear();
                 }
-                //update details in the database
-                helperlandContext.Users.Update(user);
-                helperlandContext.SaveChanges();
-                user.UserAddresses.Clear();
-                //update user details in session
+                
+                else
+                {
+                    UserAddress userAddress = new UserAddress();
+                    userAddress.UserId = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+                    userAddress.AddressLine1 = model.StreetName;
+                    userAddress.AddressLine2 = model.HouseNumber;
+                    userAddress.City = model.City;
+                    userAddress.PostalCode = model.PostalCode;
+                    user.ZipCode = model.PostalCode;
+                    helperlandContext.UserAddresses.Update(userAddress);
+                    helperlandContext.Users.Update(user);
+                    helperlandContext.SaveChanges();
+                    user.UserAddresses.Clear();
+                }
+                
+
                 HttpContext.Session.SetString("CurrentUser", JsonConvert.SerializeObject(user));
                 var message = "Details Updated successfully..";
                 ViewBag.Alert = "<div class='alert alert-success alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";

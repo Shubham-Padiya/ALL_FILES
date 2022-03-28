@@ -26,14 +26,14 @@ namespace HELPERLAND.Controllers
         {
             int id = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
             // status 1=completed , status 2=cancled , status 3=refunded , status 4=pending , status 5=New
-            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x => x.ServiceProvider).Where(x => x.Status != 4 && x.Status != 5 && x.UserId == id).ToList();
+            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x => x.ServiceProvider).ThenInclude(x=>x.RatingRatingToNavigations).Where(x => x.UserId == id && (x.Status != 4 && x.Status != 5)).ToList();
             return View(serviceRequests);
         }
 
         public IActionResult ServiceRequest()
         {
             int id = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
-            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x => x.ServiceProvider).Where(x => x.Status == 4 || x.Status == 5 && x.UserId == id).ToList();
+            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x => x.ServiceProvider).Where(x => x.UserId == id && (x.Status == 4 || x.Status == 5)).ToList();
             return View(serviceRequests);
         }
 
@@ -320,6 +320,32 @@ namespace HELPERLAND.Controllers
                 return PartialView(model);
             }
         }
+
+
+        [HttpGet]
+        public JsonResult Ratings(int id)
+        {
+            Rating rating = helperlandContext.Ratings.Include(x => x.RatingToNavigation).FirstOrDefault(x => x.ServiceRequestId == id);
+            return Json(rating);
+        }
+
+
+        [HttpPost]
+        public JsonResult Ratings([FromBody]Rating rate)
+        {
+            Rating rating = helperlandContext.Ratings.FirstOrDefault(x => x.RatingId == rate.RatingId);
+            rating.RatingDate = DateTime.Now;
+            rating.Ratings = rate.Ratings;
+            rating.OnTimeArrival = rate.OnTimeArrival;
+            rating.Friendly = rate.Friendly;
+            rating.QualityOfService = rate.QualityOfService;
+            rating.Comments = rate.Comments;
+            helperlandContext.Ratings.Update(rating);
+            helperlandContext.SaveChanges();
+            return Json(" ");
+        }
+
+
 
     }
 }
