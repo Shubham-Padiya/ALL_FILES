@@ -1,4 +1,6 @@
-﻿@{
+﻿@using HELPERLAND.Models.Data
+@model IEnumerable<Rating>
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -7,7 +9,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Settings</title>
+    <title>New Service Request</title>
     <link rel="icon" type="image/x-icon" href="~/favicon.png" />
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" />
@@ -27,14 +29,14 @@
           href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css" />
     <link rel="stylesheet" href="~/css/Home/dataTables.bootstrap5.min.css" asp-append-version="true">
 
-    <link rel="stylesheet" href="~/css/Serviceprovider/mysetting.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/rateit.js-master/scripts/rateit.css" />
 
+    <link rel="stylesheet" href="~/css/Serviceprovider/myratings.css" asp-append-version="true" />
     <script src="~/lib/jquery/jquery.js"></script>
     <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
 </head>
 <body>
 
-    <div class="modal" tab-index="-1" id="serviceproviderpopup" role="dialog"></div>
 
     <header class="header1">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top">
@@ -149,6 +151,15 @@
     </header>
 
     <main>
+        <!-- welcome section starts -->
+
+        <section class="forthewelcome">
+            <div class="text-center">
+                <h1>Welcome, <span>@User.Identity.Name.Split(" ").ElementAt(0)!</span></h1>
+            </div>
+        </section>
+
+        <!-- welcome section finish -->
         <!-- content starts -->
         <section class="maincontent my-5">
             <div class="d-flex justify-content-center mx-2">
@@ -170,12 +181,11 @@
                             <a class="nav-link" title="Service Schedule" href="#">Service Schedule</a>
                         </li>
                         <li>
-                            <a class="nav-link" title="Service History"
+                            <a class="nav-link servicehistory" title="Service History"
                                asp-controller="serviceprovider" asp-action="servicehistory">Service History</a>
                         </li>
                         <li>
-                            <a class="nav-link" title="My Ratings"
-                               asp-controller="serviceprovider" asp-action="myratings">My Ratings</a>
+                            <a class="nav-link activesidebar" href="#" title="My Ratings">My Ratings</a>
                         </li>
                         <li>
                             <a class="nav-link" title="Block Customer"
@@ -194,31 +204,51 @@
 
                 <div class="content mx-2">
 
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active"
-                               data-bs-toggle="tab"
-                               href="#mydetails">
-                                My Details
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#changepass">
-                                Change Password
-                            </a>
-                        </li>
-                    </ul>
-                    <!--  -->
-                    <div class="tab-content">
-                        <!-- setup content -->
-                        <div class="tab-pane active" id="mydetails"></div>
-                        <!-- schedual content -->
-                        <div class="tab-pane fade" id="changepass">
-                            <partial name="ChangePassword" />
-                        </div>
-                    </div>
+                    <table class="table" id="myratings">
+                        <thead>
+                            <tr>
+                                <th>Service Id & Customer Name</th>
+                                <th>Service Date</th>
+                                <th>Ratings</th>
+                                <th>Comment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var rate in Model)
+                            {
+                                <tr>
+                                    <td>@rate.ServiceRequestId<br /><b>@rate.RatingFromNavigation.FirstName @rate.RatingFromNavigation.LastName</b></td>
+                                    <td>
+                                        <img src="~/imgs/calendar2.png" />
+                                        <span id="date">@rate.ServiceRequest.ServiceStartDate.Date.ToString("dd/MM/yyyy")</span>
+                                        <br />
+                                        <img src="~/imgs/layer-14.png" />
+                                        <span>@rate.ServiceRequest.ServiceStartDate.TimeOfDay</span>
+                                    </td>
+                                    <td class="rate">
+                                        <b>Ratings:</b><br />
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <div class="rateit" data-rateit-mode="font" data-rateit-readonly="true" data-rateit-value="@rate.Ratings"></div>
+                                            @if (rate.Ratings <= 2)
+                                            {
+                                                <span>Poor</span>
+                                            }
+                                            else if (rate.Ratings == 3)
+                                            {
+                                                <span>Good</span>
+                                            }
+                                            else
+                                            {
+                                                <span>Very Good</span>
+                                            }
+                                        </div>
+                                    </td>
+                                    <td class="comment"><b>Customer Comment:</b> @rate.Comments</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                 </div>
-
             </div>
         </section>
 
@@ -288,13 +318,15 @@
         </div>
     </footer>
     <!-- footer end -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+    <script src="~/rateit.js-master/scripts/jquery.rateit.js"></script>
 
-    
-    <script src="~/lib/jquery.validate.js"></script>
-    <script src="~/lib/jquery.validate.unobtrusive.js"></script>
 
-
-    <script src="~/js/Serviceprovider/mysetting.js" asp-append-version="true"></script>
+    <script src="~/js/Serviceprovider/myratings.js" asp-append-version="true"></script>
 </body>
 </html>

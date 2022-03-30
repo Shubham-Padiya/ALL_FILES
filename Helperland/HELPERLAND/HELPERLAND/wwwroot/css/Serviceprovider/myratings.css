@@ -16,16 +16,12 @@ li {
     list-style: none;
 }
 
-body{
-    margin-top:120px!important;
-}
 .white-logo-transparent-background {
     height: 54px;
     width: 73px;
 }
 
-header .nav-link,
-.snavbar .nav-link{
+.nav-link {
     font-size: 17px;
     color: #ffffff !important;
 }
@@ -267,72 +263,60 @@ h6 a {
     margin-left: 15px;
 }
 
-.content {
+.content,
+table {
     width: 100% !important;
 }
-.content .nav-tabs{
-    border:none!important;
-}
-    .content .nav-tabs .nav-link{
-        border:none;
-        color:#4f4f4f;
-        border-bottom:solid 3px #e1e1e1;
-    }
-    .content .nav-tabs .nav-link.active {
-        color: #1d7a8c!important;
-        border-bottom: solid 3px #1d7a8c!important;
-    }
-    .active-avtar {
-        border: solid 4px #1d7a8c;
-        border-radius:50%;
-    }
 
-#account-status{
-    margin-top:20px;
+.activesidebar {
+    background: #146371;
 }
-#account-status {
-    font-size: 20px;
-    color: #4f4f4f;
-    font-weight: 700;
+.rateit .rateit-selected {
+    color: #ffc107 !important;
 }
-.form-section-title {
-    font-size: 18px;
-    line-height: 22px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #dcdcdc;
-    font-weight: 700;
-    margin: 0 0 15px;
+.rateit-reset{
+    display:none!important;
 }
-    #account-status .account-active {
-        color: #67b644;
-        font-weight:400!important;
+thead {
+    display: none;
+    background-color: #f9f9f9;
+}
+
+    
+
+tr {
+    margin-bottom: 35px !important;
+    display: block;
+    padding: 15px;
+    box-shadow: 0 0 6px rgb(0 0 0 / 25%);
+}
+
+td {
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 16px;
+    color: #646464;
+    width: auto !important;
+    padding: 5px 17px !important;
+    padding-left: 0px !important;
+}
+
+td {
+    width: auto !important;
+}
+
+.rate{
+    align-items:end;
+}
+
+.comment {
+    display: block;
+    border-top: 1px solid #e1e1e1 !important;
+}
+
+@media screen and (max-width: 450px) {
+    td {
+        display: block !important;
+        text-align: center !important;
     }
-        #account-status .account-inactive{
-            color:red!important;
-            font-weight:400!important;
-        }
-#mainProfileImg {
-    float: right;
-}
-.avtar-list{
-    object-fit:contain;
-}
-select{
-    height:38px;
-}
-.form-control{
-    width:96%;
-}
-.savebtn {
-    padding: 5px 9px;
-    border: none;
-    border-radius: 27px;
-    color: white;
-    background: #1d7a8c;
-}
-.content .nav-item {
-    width: 50%;
-}
-.content .nav-link{
-    text-align:center;
 }

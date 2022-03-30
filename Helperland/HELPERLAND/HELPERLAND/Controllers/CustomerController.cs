@@ -33,7 +33,7 @@ namespace HELPERLAND.Controllers
         public IActionResult ServiceRequest()
         {
             int id = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
-            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x => x.ServiceProvider).Where(x => x.UserId == id && (x.Status == 4 || x.Status == 5)).ToList();
+            IEnumerable<ServiceRequest> serviceRequests = helperlandContext.ServiceRequests.Include(x => x.ServiceProvider).ThenInclude(x => x.RatingRatingToNavigations).Where(x => x.UserId == id && (x.Status == 4 || x.Status == 5)).ToList();
             return View(serviceRequests);
         }
 
@@ -262,10 +262,18 @@ namespace HELPERLAND.Controllers
                     userAddress.PostalCode = model.PostalCode;
                     userAddress.City = model.City;
                     userAddress.Mobile = model.PhoneNumber;
-                    var msg = "Address inserted successfully...";
-                    ViewBag.Alert = "<div class='alert alert-success alert-dismissible fade show' role='alert'>" + msg + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
                     helperlandContext.UserAddresses.Update(userAddress);
                     helperlandContext.SaveChanges();
+
+                    string currentuser = HttpContext.Session.GetString("CurrentUser");
+                    User user = JsonConvert.DeserializeObject<User>(currentuser);
+                    user.ZipCode = model.PostalCode;
+                    helperlandContext.Users.Update(user);
+                    helperlandContext.SaveChanges();
+
+                    var msg = "Address inserted successfully...";
+                    ViewBag.Alert = "<div class='alert alert-success alert-dismissible fade show' role='alert'>" + msg + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                    
                     return PartialView();
                 }
             }

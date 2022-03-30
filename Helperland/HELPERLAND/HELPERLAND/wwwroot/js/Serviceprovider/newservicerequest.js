@@ -82,7 +82,7 @@ function openAcceptDailog(servicerequestid) {
 
 function Requestsend(servicerequestid) {
     $.ajax({
-        url: "/serviceprovider/acceptservice",
+        url: "/serviceprovider/AcceptService",
         type: "POST",
         data: {
             id: servicerequestid,

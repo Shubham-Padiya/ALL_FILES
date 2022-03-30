@@ -12,7 +12,7 @@
 
     <link rel="icon" type="image/x-icon" href="~/favicon.png" />
 
-
+    @*<link rel="stylesheet" href="~/rateit.js-master/scripts/rateit.css" />*@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" />
 
@@ -30,10 +30,10 @@
 
     <link rel="stylesheet" href="~/css/Home/dataTables.bootstrap5.min.css" asp-append-version="true" />
 
+
     <link rel="stylesheet" href="~/css/Admin/servicerequest.css" asp-append-version="true" />
-    <script src="~/lib/jquery/jquery.js"></script>
-    <script src="~/lib/jquery.validate.js"></script>
-    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+    <link rel="stylesheet" href="~/rateit.js-master/scripts/rateit.css" />
+
 
 
 </head>
@@ -47,7 +47,7 @@
                 <h1><a href="#">helperland</a></h1>
             </div>
             <div class="ms-auto me-4">
-                <a href="#" class="logo1"><i class="fa fa-user-circle-o"></i></a><span class="js mx-2">Jhon Smith</span><a class="logo1" asp-controller="foruser" asp-action="logout"><i class="fa fa-power-off"></i></a>
+                <a href="#" class="logo1"><i class="fa fa-user-circle-o"></i></a><span class="js mx-2">@User.Identity.Name</span><a class="logo1" asp-controller="foruser" asp-action="logout"><i class="fa fa-power-off"></i></a>
             </div>
         </div>
     </header>
@@ -60,7 +60,7 @@
             <div class="navigation mx-2">
                 <ul>
                     <li class="n">
-                        <span> Jhon Smith</span> <a asp-controller="foruser" asp-action="logout"><i class="fa fa-power-off"></i></a>
+                        <span>@User.Identity.Name</span> <a asp-controller="foruser" asp-action="logout"><i class="fa fa-power-off"></i></a>
                     </li>
 
                     <li class="li"><a class="activenavbar">Service Requests</a></li>
@@ -162,12 +162,18 @@
         </div>
     </main>
 
+    @*<script src="~/rateit.js-master/scripts/jquery.rateit.js"></script>*@
+
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery.validate.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+    <script src="~/rateit.js-master/scripts/jquery.rateit.js"></script>
 
 
     <script src="~/js/Admin/servicerequest.js" asp-append-version="true"></script>

@@ -96,6 +96,12 @@ namespace HELPERLAND.Controllers
                                     break;
                                 }
                             }
+                            if (currentRequestStartTime == oldRequestStartTime)
+                            {
+                                isConflict = true;
+                                conflictedServiceId = request.ServiceRequestId;
+                                break;
+                            }
                             if (((currentRequestStartTime > oldRequestStartTime) && (currentRequestStartTime < oldRequestEndTime)) || ((currentRequestEndTime > oldRequestStartTime) && (currentRequestEndTime < oldRequestEndTime)))
                             {
                                 isConflict = true;
@@ -194,6 +200,19 @@ namespace HELPERLAND.Controllers
             serviceRequest.ModifiedBy = spId;
             helperlandContext.ServiceRequests.Update(serviceRequest);
             helperlandContext.SaveChanges();
+
+            Rating rating = new Rating();
+            rating.ServiceRequestId = serviceRequest.ServiceRequestId;
+            rating.RatingTo = spId;
+            rating.RatingFrom = serviceRequest.UserId;
+            rating.RatingDate = DateTime.Now;
+            rating.OnTimeArrival = 0;
+            rating.QualityOfService = 0;
+            rating.Friendly = 0;
+            rating.Ratings = 0;
+            helperlandContext.Ratings.Add(rating);
+            helperlandContext.SaveChanges();
+            
             var msg = "Request completed..";
             ViewBag.Alert = "<div class='alert alert-success alert-dismissible fade show' role='alert'>" + msg + "<button class='btn-close' data-bs-dismiss='alert' aria-label=''Close></button></div>";
             return PartialView();
@@ -386,6 +405,14 @@ namespace HELPERLAND.Controllers
             helperlandContext.FavoriteAndBlockeds.Update(favoriteAndBlocked);
             helperlandContext.SaveChanges();
             return Json("ok");
+        }
+
+
+        public IActionResult MyRatings()
+        {
+            int spID = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+            IEnumerable<Rating> ratings = helperlandContext.Ratings.Include(x => x.ServiceRequest).Include(x => x.RatingFromNavigation).Where(x => x.RatingTo == spID);
+            return View(ratings);
         }
     }
 }

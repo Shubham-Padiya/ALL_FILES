@@ -10,6 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Service Request</title>
+    <link rel="icon" type="image/x-icon" href="~/favicon.png" />
+
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" />
 
@@ -27,6 +29,8 @@
     <link rel="stylesheet"
           href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css" />
     <link rel="stylesheet" href="~/css/Home/dataTables.bootstrap5.min.css" asp-append-version="true">
+
+    <link rel="stylesheet" href="~/rateit.js-master/scripts/rateit.css" />
 
     <link rel="stylesheet" href="~/css/Home/servicerequest.css" asp-append-version="true">
     <script src="~/lib/jquery/jquery.js"></script>
@@ -229,18 +233,17 @@
                                     <td>
                                         @if (request.ServiceProviderId != null)
                                         {
-                                            <div class="d-flex flex-wrap justify-content-center align-items-center">
-                                                <div>
-                                                    <img src="~/imgs/cap.png" class="cap" />
-                                                </div>
-                                                <div class="rating">
-                                                    <span>@request.ServiceProvider.FirstName</span>
-                                                    <br />
-                                                    <img src="~/imgs/star1.png" />
-                                                    <img src="~/imgs/star1.png" />
-                                                    <img src="~/imgs/star1.png" />
-                                                    <img src="~/imgs/star1.png" />
-                                                    <img src="~/imgs/star2.png" /> 4
+                                            <div class="d-flex flex-wrap align-items-center justify-content-center">
+                                                @if (request.ServiceProvider.UserProfilePicture != null)
+                                                {
+                                                    <img id="spImg" class="cap" src=@request.ServiceProvider.UserProfilePicture />
+                                                }
+                                                <div class="d-flex flex-column rating">
+                                                    <span style="text-align:center;">@request.ServiceProvider.FirstName @request.ServiceProvider.LastName</span>
+                                                    <div class="d-flex ">
+                                                        <div class="rateit me-3" data-rateit-mode="font" data-rateit-readonly="true" data-rateit-value="@request.ServiceProvider.RatingRatingToNavigations.Average(x=>x.Ratings)"></div>
+                                                        <span>@request.ServiceProvider.RatingRatingToNavigations.Average(x => x.Ratings).ToString("#,##0.00")</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         }
@@ -332,6 +335,7 @@
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+    <script src="~/rateit.js-master/scripts/jquery.rateit.js"></script>
 
     <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>

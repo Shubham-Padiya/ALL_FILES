@@ -74,7 +74,11 @@ namespace HELPERLAND.Controllers
         public IActionResult YourDetail()
         {
             DetailViewModel model = new DetailViewModel();
-            model.userAddress = helperlandContext.UserAddresses.Where(address => address.UserId == 1 && address.PostalCode == "360003").ToList();
+            
+            string currentUser = HttpContext.Session.GetString("CurrentUser");
+            User user = JsonConvert.DeserializeObject<User>(currentUser);
+
+            model.userAddress = helperlandContext.UserAddresses.Where(address => address.UserId == user.UserId && address.PostalCode == user.ZipCode).ToList();
             HttpContext.Session.SetString("useraddresslist", JsonConvert.SerializeObject(model.userAddress));
             return PartialView(model);
         }
@@ -135,6 +139,46 @@ namespace HELPERLAND.Controllers
             string body = "There is new Service Request in your are and Request Id is : " + serviceRequest.ServiceRequestId;
             EmailManager.SendEmail(emailList, subject, body);
             return PartialView();
+        }
+
+
+
+        [HttpGet]
+        public IActionResult EditAddress()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public IActionResult EditAddress(EditAddressViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                UserAddress userAddress = new UserAddress();
+                userAddress.UserId = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+                userAddress.AddressLine1 = model.HouseNumber;
+                userAddress.AddressLine2 = model.StreetName;
+                userAddress.PostalCode = model.PostalCode;
+                userAddress.City = model.City;
+                userAddress.Mobile = model.PhoneNumber;
+                helperlandContext.UserAddresses.Update(userAddress);
+                helperlandContext.SaveChanges();
+
+                string currentuser = HttpContext.Session.GetString("CurrentUser");
+                User user = JsonConvert.DeserializeObject<User>(currentuser);
+                user.ZipCode = model.PostalCode;
+                helperlandContext.Users.Update(user);
+                helperlandContext.SaveChanges();
+
+                var msg = "Address inserted successfully...";
+                ViewBag.Alert = "<div class='alert alert-success alert-dismissible fade show' role='alert'>" + msg + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+
+                return PartialView();
+            }
+            else
+            {
+                return PartialView(model);
+            }
         }
     }
 }

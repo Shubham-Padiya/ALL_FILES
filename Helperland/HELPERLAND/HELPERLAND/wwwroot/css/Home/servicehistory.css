@@ -51,10 +51,6 @@ li {
   padding-right: 14px !important;
   transition: 0.4s ease;
 }
-.dropdown:hover {
-  transform: translateY(6px);
-  transition: 0.4s;
-}
 .fixed {
   position: fixed;
   top: 0;
@@ -126,7 +122,9 @@ tbody tr:hover {
   color: #9c9c9c;
   border: solid 1px #aaaaaa;
   border-radius: 50%;
-  padding: 12px 7px;
+  width:40px;
+  height:40px;
+  object-fit:contain;
   margin-right: 7px;
 }
 .euroo {
@@ -162,8 +160,8 @@ tbody tr:hover {
   width: 70px;
   height: 34px;
   font-size: 14px;
-  color: #ffffff;
-  background: #1d7a8c ;
+  color: #ffffff!important;
+  background: #1d7a8c!important;
   border-radius: 20px;
   border: none;
 }
@@ -385,4 +383,17 @@ h6 a {
 }
 .dropdownlist {
     margin-left: 10px;
+}
+
+.ratingdialog{
+    height:100%;
+}
+#ratingPopup{
+    height:auto;
+}
+.rateit button.rateit-reset{
+    display:none!important;
+}
+.rateit .rateit-selected {
+    color: #ffc107!important;
 }

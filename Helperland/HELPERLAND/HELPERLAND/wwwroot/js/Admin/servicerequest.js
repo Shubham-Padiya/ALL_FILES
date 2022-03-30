@@ -206,16 +206,22 @@ function getCustomerData(row) {
 }
 
 function getSPData(row) {
-    if (row.spName == null) {
-        return " ";
-    }
-    else {
-        if (row.spAvtar == null) {
-            return row.spName;
+    if (row.spAvtar == null) {
+        if (row.spName != null) {
+            if (row.spRating == 0 || row.spRating == null) {
+                return " ";
+            }
+            else {
+                return row.spName + '<br>' + '<div class="rateit" data-rateit-mode="font" data-rateit-readonly="true" data-rateit-value=' + (row.spRating).toFixed(2) + '></div><span>' + (row.spRating).toFixed(2) + '</span>' + '</div>';
+            }
         }
         else {
-            return '<img class="avtar" src="' + row.spAvtar + '" /> ' + row.spName;
+            return " ";
         }
+    }
+    else {
+        return '<img class="avtar" src="' + row.spAvtar + '" /> ' + row.spName + '<br />' + '<div class="d-flex">' +
+            '<div class="rateit" data-rateit-mode="font" data-rateit-readonly="true" data-rateit-value=' + (row.spRating).toFixed(2) + '></div><span>' + (row.spRating).toFixed(2) + '</span>' + '</div>';
     }
 }
 

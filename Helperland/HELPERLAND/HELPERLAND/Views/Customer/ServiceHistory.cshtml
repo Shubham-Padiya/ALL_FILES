@@ -10,6 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Service_history</title>
+    <link rel="icon" type="image/x-icon" href="~/favicon.png" />
+
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" />
 
@@ -228,12 +230,17 @@
                                     <td>
                                         @if (@request.ServiceProvider != null)
                                         {
-                                            <div class="d-flex flex-wrap align-items-center">
-                                                <img id="spImg" src=@request.ServiceProvider.UserProfilePicture />
+                                            <div class="d-flex flex-wrap align-items-center justify-content-center">
+                                                @if (request.ServiceProvider.UserProfilePicture != null)
+                                                {
+                                                    <img id="spImg" class="cap" src=@request.ServiceProvider.UserProfilePicture />
+                                                }
                                                 <div class="d-flex flex-column rating">
-                                                    <span>@request.ServiceProvider.FirstName @request.ServiceProvider.LastName</span>
-                                                    <div class="rateit" data-rateit-readonly="true" data-rateit-value="@request.ServiceProvider.RatingRatingToNavigations.Average(x=>x.Ratings)"></div>
-                                                    <span>@request.ServiceProvider.RatingRatingToNavigations.Average(x=>x.Ratings)</span>
+                                                    <span style="text-align:center;">@request.ServiceProvider.FirstName @request.ServiceProvider.LastName</span>
+                                                    <div class="d-flex ">
+                                                        <div class="rateit me-3" data-rateit-mode="font" data-rateit-readonly="true" data-rateit-value="@request.ServiceProvider.RatingRatingToNavigations.Average(x=>x.Ratings)"></div>
+                                                        <span>@request.ServiceProvider.RatingRatingToNavigations.Average(x => x.Ratings).ToString("#,##0.00")</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         }
@@ -269,7 +276,7 @@
     <!-- rating modal -->
 
     <div class="modal" id="ratingPopup" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered ratingdialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3>Ratings</h3>
@@ -281,7 +288,7 @@
                         <div>
                             <span class="spname"></span>
                             <div>
-                                <span class="rateitAverage"></span>
+                                <span class="rateit rateitAverage"></span>
                                 <span class="averageRatingInWord"></span>
                             </div>
                         </div>
@@ -290,26 +297,26 @@
 
                     <hr class="divider-line" />
                     
-                    <div class="d-flex">
+                    <div class="d-flex justify-content-between">
                         <p><b>On time arrival</b></p>
-                        <div class="rateitOnTime"></div>
+                        <div class="rateit" data-value="0.0" data-step="0.1" data-rateit-min="0" data-rateit-max="5" id="onTimeArrival"></div>
                     </div>
                     
-                    <div class="d-flex">
+                    <div class="d-flex justify-content-between">
                         <p><b>Friendly</b></p>
-                        <div class="rateitFriendly"></div>
+                        <div class="rateit" data-value="0.0" data-step="0.1" data-rateit-min="0" data-rateit-max="5" id="friendly"></div>
                     </div>
                     
-                    <div class="d-flex">
+                    <div class="d-flex justify-content-between">
                         <p><b>Quality Of Service</b></p>
-                        <div class="rateitQuality"></div>
+                        <div class="rateit" data-step="0.1" data-rateit-min="0" data-rateit-max="5" id="quality"></div>
                     </div>
                     
                     <div>
                         <span>Feedback on service provider</span><br />
                         <textarea rows="3" style="width:100%" class="feedback"></textarea>
                     </div>
-                    <button class="submitRating">Submit</button>
+                    <button class="submitRating" style="border:none;border-radius:27px;background:#1d7a8c;color:white;padding:7px 18px;">Submit</button>
                 </div>
             </div>
         </div>

@@ -46,14 +46,39 @@
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav ms-auto me-2">
-                        <li class="nav-item text-center mb-1 mt-2">
-                            <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
-                               asp-controller="bookservice" asp-action="Bookservice"
-                               style="
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @switch (User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role).Value)
+                            {
+                                case "1":
+                                    <li class="nav-item text-center mb-1 mt-2">
+                                        <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
+                                           asp-controller="bookservice" asp-action="Bookservice"
+                                           style="
+                                           background-color: rgba(41, 98, 109, 0.7);
+                                           padding: 8px 24px 8px 24px;
+                                           ">Book now</a>
+                                    </li>
+                                    break;
+
+                                case "2":
+                                    break;
+
+                                case "3":
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            <li class="nav-item text-center mb-1 mt-2">
+                                <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
+                                   asp-controller="bookservice" asp-action="Bookservice"
+                                   style="
                                background-color: rgba(41, 98, 109, 0.7);
-                               padding: 8px 24px 8px 24px;
+                            padding: 8px 24px 8px 24px;
                                ">Book now</a>
-                        </li>
+                            </li>
+                        }
                         <li class="nav-item text-center mb-1 mt-2">
                             <a class="nav-link b"
                                asp-controller="Home" asp-action="Prices"
@@ -89,7 +114,7 @@
                                     <img src="~/imgs/drop-down.png" />
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbardropdown">
-                                    <li style="color:#4f4f4f!important">
+                                    <li style="color:#4f4f4f!important;padding-left:10px;">
                                         Welcome,<br />
                                         <b>@User.Identity.Name.Split(" ").ElementAt(0)!</b>
                                     </li>
@@ -104,6 +129,9 @@
                                             <li><a id="myDashboard" style="color:#4f4f4f!important" asp-controller="serviceprovider" asp-action="newservicerequest">My Dashboard</a></li>
                                             <li><a id="mySettings" style="color:#4f4f4f!important" asp-controller="serviceprovider" asp-action="mysetting">My Settings</a></li>
                                             break;
+                                        case "3":
+                                            <li><a style="color:#4f4f4f!important" asp-controller="admin" asp-action="servicerequest">Service Request</a></li>
+                                            break;
                                     }
                                     <li>
                                         <a class="dropdown-item" style="color:#4f4f4f!important" asp-controller="foruser" asp-action="logout">Logout</a>
@@ -113,7 +141,7 @@
                         }
                         else
                         {
-                            <li class="nav-item text-center mb-1">
+                            <li class="nav-item text-center mb-1 mt-2">
                                 <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl lgn"
                                    asp-controller="home" asp-action="index" asp-route-loginPopUp=true
                                    style="
@@ -121,8 +149,8 @@
                                padding: 8px 24px 8px 24px;
                                ">Login</a>
                             </li>
-                            <li class="nav-item text-center mb-1">
-                                <a class="nav-link border border-1 rounded-pill ms-1 me-1"
+                            <li class="nav-item text-center mb-1 mt-2">
+                                <a class="nav-link border border-1 rounded-pill ms-1 bl me-1"
                                    href="become_service_provider.html"
                                    style="
                                    background-color: rgba(41, 98, 109, 0.7);

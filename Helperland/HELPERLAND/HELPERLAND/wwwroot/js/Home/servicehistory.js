@@ -31,6 +31,13 @@ $(document).ready(function () {
     $(".buttons-csv").hide();
 
     showdetail();
+
+
+    $(".rateit-average").rateit({ readonly: true });
+    $("#onTimeArrival").rateit();
+    $("#friendly").rateit();
+    $("#quality").rateit();
+    $(".rateit-reset").hide();
 });
 
 $("#export").on("click", function () {
@@ -62,30 +69,29 @@ function showdetail() {
 
 $(".ratesp").click(function () {
     var srid = $(this).attr("data-id");
-    alert($(this).attr("data-id"));
-    debugger;
     $.ajax({
         url: "/customer/ratings",
         type: "GET",
         data: { 'id': srid },
         success: function (result) {
-            $("#ratingPopup").modal("show");
+            $(".rateit-reset").hide();
             $(".ratingspimg").attr("src", result.ratingToNavigation.userProfileImage);
             $(".spname").html(result.ratingToNavigation.firstName + " " + result.ratingToNavigation.lastName);
             $(".rateitAverage").rateit("value", result.ratings);
             $(".averageRatingInWord").html(result.ratings);
-            $(".rateitOnTime").rateit("value", result.onTimeArrival);
-            $(".rateitFriendly").rateit("value", result.friendly);
-            $(".rateitQuality").rateit("value", result.qualityOfService);
+            $("#onTimeArrival").rateit('value', result.onTimeArrival);
+            $("#friendly").rateit("value", result.friendly);
+            $("#quality").rateit("value", result.qualityOfService);
+            $("#ratingPopup").modal("show");
             $(".submitRating").attr("data-id", result.ratingId);
 
             $(".submitRating").click(function () {
                 var data = {
                     RatingId: $(this).attr("data-id"),
-                    OnTimeArrival: $(".rateitOnTime").rateit("value"),
-                    Friendly: $(".rateitFriendly").rateit("value"),
-                    QualityOfService: $(".rateitQuality").rateit("value"),
-                    Ratings: ($(".rateitOnTime").rateit("value") + $(".rateitFriendly").rateit("value") + $(".rateitQuality").rateit("value")) / 3,
+                    OnTimeArrival: $("#onTimeArrival").rateit("value"),
+                    Friendly: $("#friendly").rateit("value"),
+                    QualityOfService: $("#quality").rateit("value"),
+                    Ratings: ($("#onTimeArrival").rateit("value") + $("#friendly").rateit("value") + $("#quality").rateit("value")) / 3,
                     Comments: $(".feedback").val(),
                 };
 

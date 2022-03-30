@@ -210,7 +210,7 @@ namespace HELPERLAND.Controllers
                 int skip = start != null ? Convert.ToInt16(start) : 0;
                 int recordsTotal = 0;
 
-                var data = helperlandContext.ServiceRequests.Include(x=>x.User).ThenInclude(x=>x.UserAddresses.Where(x=>x.IsDefault==true)).Include(x=>x.ServiceProvider).ToList();
+                var data = helperlandContext.ServiceRequests.Include(x => x.User).ThenInclude(x => x.UserAddresses.Where(x => x.IsDefault == true)).Include(x => x.ServiceProvider).ThenInclude(x => x.RatingRatingToNavigations).ToList();
 
                 if (searchItems > 0)
                 {
@@ -329,7 +329,7 @@ namespace HELPERLAND.Controllers
                     serviceRequest.customerAddress = request.User.UserAddresses.ElementAt(0).AddressLine1 + " " + request.User.UserAddresses.ElementAt(0).AddressLine2 + "<br/>" + request.User.UserAddresses.ElementAt(0).PostalCode + " " + request.User.UserAddresses.ElementAt(0).City;
                     serviceRequest.spName = request.ServiceProvider?.FirstName + " " + request.ServiceProvider?.LastName;
                     serviceRequest.spAvtar = request.ServiceProvider?.UserProfilePicture;
-                    //serviceRequest.spRating = request.ServiceProvider?.RatingRatingToNavigations.Average(x => x.Ratings);
+                    serviceRequest.spRating = request.ServiceProvider?.RatingRatingToNavigations.Average(x => x.Ratings);
                     serviceRequest.totalCost = request.TotalCost.ToString();
                     serviceRequest.status = request.Status;
                     adminServiceRequests.Add(serviceRequest);

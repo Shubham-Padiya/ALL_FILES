@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/Home/BookService.css" asp-append-version="true">
 }
 <script src="~/lib/jquery/jquery.js" asp-append-version="true"></script>
+
 <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
 
 
@@ -155,7 +156,7 @@
                         </div>
                         <div class="d-flex justify-content-between px-3 pt-3 price">
                             <span class="text">Total Payment</span>
-                            <span class="euro" id="totalpayment">0.00 &euro;</i></span>
+                            <span class="euro" id="totalpayment">0.00 &euro;</span>
                         </div>
                         <div class="px-3">
                             According to § 19 UStG no sales tax is calculated.
@@ -297,6 +298,8 @@
     </div>
 </section>
 @section AddFooter{
+    <script src="~/lib/jquery.validate.js"></script>
+    <script src="~/lib/jquery.validate.unobtrusive.js"></script>
     <script src="~/js/Home/BookService.js" asp-append-version="true"></script>
     <script>
         $(".getnews").hide();

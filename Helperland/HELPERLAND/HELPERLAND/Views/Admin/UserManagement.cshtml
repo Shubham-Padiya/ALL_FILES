@@ -43,7 +43,7 @@
                 <h1><a href="#">helperland</a></h1>
             </div>
             <div class="ms-auto me-4">
-                <a href="#" class="logo1"><i class="fa fa-user-circle-o"></i></a><span class="js mx-2">Jhon Smith</span><a class="logo1" asp-controller="foruser" asp-action="logout"><i class="fa fa-power-off"></i></a>
+                <a href="#" class="logo1"><i class="fa fa-user-circle-o"></i></a><span class="js mx-2">@User.Identity.Name</span><a class="logo1" asp-controller="foruser" asp-action="logout"><i class="fa fa-power-off"></i></a>
             </div>
         </div>
     </header>
@@ -56,7 +56,7 @@
             <div class="navigation mx-2">
                 <ul>
                     <li class="n">
-                        <span> Jhon Smith</span> <a asp-controller="foruser" asp-action="logout"><i class="fa fa-power-off"></i></a>
+                        <span>@User.Identity.Name</span> <a asp-controller="foruser" asp-action="logout"><i class="fa fa-power-off"></i></a>
                     </li>
 
                     <li class="li"><a asp-controller="admin" asp-action="servicerequest">Service Requests</a></li>

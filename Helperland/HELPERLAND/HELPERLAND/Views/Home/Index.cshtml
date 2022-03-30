@@ -57,6 +57,8 @@
                                         break;
                                     case "2":
                                         break;
+                                    case "3":
+                                        break;
                                 }
                             }
                             else
@@ -97,7 +99,7 @@
                                         <img src="~/imgs/user.png" />
                                         <img src="~/imgs/drop-down.png" />
                                     </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbardropdown">
+                                    <ul class="dropdown-menu" style="padding:0px 10px;" aria-labelledby="navbardropdown">
                                         <li>
                                             Welcome,<br />
                                             <b>@User.Identity.Name.Split(" ").ElementAt(0)!</b>
@@ -113,9 +115,12 @@
                                                 <li><a id="myDashboard" style="color:#4f4f4f!important" asp-controller="serviceprovider" asp-action="newservicerequest">My Dashboard</a></li>
                                                 <li><a id="mySettings" style="color:#4f4f4f!important" asp-controller="serviceprovider" asp-action="mysetting">My Settings</a></li>
                                                 break;
+                                            case "3":
+                                                <li><a style="color:#4f4f4f!important"  asp-controller="admin" asp-action="servicerequest">Service Request</a></li>
+                                                break;
                                         }
                                         <li>
-                                            <a class="dropdown-item" asp-controller="foruser" asp-action="logout">Logout</a>
+                                            <a class="dropdown-item" style="color:#4f4f4f!important"  asp-controller="foruser" asp-action="logout">Logout</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -127,7 +132,7 @@
                                        data-url='@Url.Action("login","foruser")'>Login</a>
                                 </li>
                                 <li class="nav-item text-center mb-1">
-                                    <a class="nav-link border border-1 rounded-pill ms-1 me-1"
+                                    <a class="nav-link border border-1 rounded-pill ms-1 me-1 bl"
                                        asp-controller="home" asp-action="become_a_provider">Become a Helper</a>
                                 </li>
 

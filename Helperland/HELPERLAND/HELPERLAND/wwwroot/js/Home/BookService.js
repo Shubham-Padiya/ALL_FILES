@@ -145,3 +145,16 @@ function ServiceRequestResult(isError, Message, ServiceRequestId) {
     $(window).scrollTop(0);
     $("#resultModal").modal("show");
 }
+
+
+function editAddress() {
+    $("#resultModal").modal("hide");
+}
+
+function newAddress() {
+    var url = "/bookservice/editaddress";
+    $.get(url, function (data) {
+        $("#resultModal").html(data);
+        $("#resultModal").modal("show");
+    });
+}

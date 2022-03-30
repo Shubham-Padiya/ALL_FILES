@@ -424,3 +424,8 @@ D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Raz
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Admin\RequestDetail.cshtml.g.cs
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Admin\CancelRequest.cshtml.g.cs
 D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditRequest.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\MyRatings.cshtml.g.cs
+D:\tatvasoft\folder\Helperland\HELPERLAND\HELPERLAND\obj\Debug\netcoreapp3.1\Razor\Views\bookservice\EditAddress.cshtml.g.cs
