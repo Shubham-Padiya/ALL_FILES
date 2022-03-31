@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HELPERLAND.Models.ViewModels;
+using Newtonsoft.Json;
 
 namespace HELPERLAND.Controllers
 {
@@ -194,6 +195,10 @@ namespace HELPERLAND.Controllers
         [HttpPost]
         public JsonResult ServiceRequestData()
         {
+
+            string currentUser = HttpContext.Session.GetString("CurrentUser");
+            User user = JsonConvert.DeserializeObject<User>(currentUser);
+
             try
             {
                 IFormCollection form = HttpContext.Request.ReadFormAsync().Result;
@@ -269,7 +274,7 @@ namespace HELPERLAND.Controllers
                         }
                         else
                         {
-                            data = data.Where(x => x.ServiceProviderId == 1).ToList();
+                            data = data.Where(x => x.ServiceProviderId == user.UserId).ToList();
                         }
                     }
                 }

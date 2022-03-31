@@ -39,7 +39,7 @@ namespace HELPERLAND.Controllers
                 User user = helperlandContext.Users.Where(user => user.Email.Equals(model.Email) && user.Password.Equals(model.Password)).FirstOrDefault();
                 if(user != null)
                 {
-                    if(user.IsApproved)
+                    if(user.IsApproved && user.IsActive)
                     {
                         var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme, ClaimTypes.Name, ClaimTypes.Role);
 
@@ -79,7 +79,7 @@ namespace HELPERLAND.Controllers
                     }
                     else
                     {
-                        message = "Your account is yet to be approve by admin..Try again after some time!!";
+                        message = "Your account is not active or not approved by admin ..Please contact to admin..";
                         ViewBag.Alert = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + message + "<button type= 'button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
                         return View(model);
                     }

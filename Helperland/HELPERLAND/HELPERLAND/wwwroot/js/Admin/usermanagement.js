@@ -199,14 +199,24 @@ function getStatusData(row) {
 
 function getActionData(row) {
     var actionOptions = "";
-    if (row.isActive) {
-        actionOptions = '<a class="dropdown-item" onclick="deActiveLink(' + row.userId + ')">Deactive</a>';
+    if (row.userTypeId == 3) {
+        if (row.isActive) {
+            actionOptions = '<a class="dropdown-item disabled" onclick="deActiveLink(' + row.userId + ')">Deactive</a>';
+        }
+        else {
+            actionOptions = '<a class="dropdown-item disabled" onclick="activeLink(' + row.userId + ')">Active</a>';
+        }
     }
     else {
-        actionOptions = '<a class="dropdown-item" onclick="activeLink(' + row.userId + ')">Active</a>';
+        if (row.isActive) {
+            actionOptions = '<a class="dropdown-item" onclick="deActiveLink(' + row.userId + ')">Deactive</a>';
+        }
+        else {
+            actionOptions = '<a class="dropdown-item" onclick="activeLink(' + row.userId + ')">Active</a>';
+        }
     }
 
-    return '<div class="dropdown mx-3"> <a id="navbardropdown" role="button" data-bs-toggle="dropdown"aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a><ul class="dropdown-menu" area-labelledby="navbardropdown"><li><a class="dropdown-item" onclick="deleteUser(' + row.userId + ') ">Delete</a></li>' + actionOptions + '</ul></div>';
+    return '<div class="dropdown mx-3"> <a id="navbardropdown" role="button" data-bs-toggle="dropdown"aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a><ul class="dropdown-menu" area-labelledby="navbardropdown"><li><a class="dropdown-item admindelete" onclick="deleteUser(' + row.userId + ') ">Delete</a></li>' + actionOptions + '</ul></div>';
 }
 
 
