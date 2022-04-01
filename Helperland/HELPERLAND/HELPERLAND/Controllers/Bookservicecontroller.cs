@@ -106,7 +106,10 @@ namespace HELPERLAND.Controllers
 
             UserAddress userAddress = detailViewModel.userAddress.FirstOrDefault(address => address.AddressId == detailViewModel.check);
 
-            serviceRequest.UserId = 1;
+            int id = Int16.Parse(User.Claims.FirstOrDefault(x => x.Type == "userId").Value);
+
+
+            serviceRequest.UserId = id;
             serviceRequest.ZipCode = zipCodeViewModel.ZipCode;
             serviceRequest.ServiceStartDate = schedualViewModel.ServiceStartDate;
             serviceRequest.ServiceHours = schedualViewModel.ServiceHours;
@@ -114,7 +117,7 @@ namespace HELPERLAND.Controllers
             serviceRequest.HasPets = schedualViewModel.HasPets;
             serviceRequest.CreatedDate = DateTime.Now;
             serviceRequest.ModifiedDate = DateTime.Now;
-            serviceRequest.ModifiedBy = 1;
+            serviceRequest.ModifiedBy = id;
             serviceRequest.Status = 5;
             serviceRequest.RecordVersion = Guid.NewGuid();
             //here status 5 means service yet not sccepted by any sp..
